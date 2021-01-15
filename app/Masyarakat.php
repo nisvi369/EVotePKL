@@ -14,4 +14,7 @@ class Masyarakat extends Model
     {
         return $this->hasMany('App\Pemilihan', 'masyarakat_id', 'id');
     }
+    public function Kampanye() {
+    	return $this->hasOne('App\Kampanye');
+    }
 }
