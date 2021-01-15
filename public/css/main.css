@@ -1,0 +1,673 @@
+.jumbotron {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .jumbotron .container .as {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    height: 570px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .clgn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: coral;
+    border-radius: 10px 10px 0 0;
+    height: 120px;
+    margin-left: -15px;
+    margin-right: -15px;
+    width: auto;
+  }
+  
+  .lgn {
+    color: white;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .logo {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-bottom: -60px;
+    background-color: white;
+    border-radius: 50px;
+  }
+  
+  .spnemail {
+    margin-top: 40px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: coral;
+  }
+  
+  .spnpassword {
+    margin-top: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: coral;
+  }
+  
+  .form-control {
+    width: 250px;
+  }
+  
+  input {
+    text-align: center;
+  }
+  
+  .form-horizontal .form-control {
+    padding: 10px 0 10px 0;
+    height: 40px;
+    font-size: 14px;
+    color: #2b2a2a;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 15px;
+  }
+  
+  .form-horizontal .form-control:focus {
+    border-color: coral;
+    box-shadow: none;
+  }
+  
+  .container .cn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container .cn-l {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tmbl {
+    display: block;
+    width: 90%;
+    border: none;
+    background-color: coral;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50px;
+  }
+  
+  .lppswrd {
+    margin-top: 5px;
+  }
+  
+  .lppswrd a {
+    color: #adadad;
+  }
+  
+  /* NAVBAR */
+  nav {
+    font-family: 'Viga', sans-serif;
+  }
+  
+  /* DASHBOARD */
+  .nav_set {
+    height: 60px;
+  }
+  
+  .jumbotrondash {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 90vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .judul {
+    font-family: 'Viga', sans-serif;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.87);
+    border-radius: 50px;
+    padding-top: 10px;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+  }
+  
+  .konten {
+    font-family: 'Viga', sans-serif;
+    background-color: rgba(255, 255, 255, 0.87);
+    padding-top: 15px;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .jumlah_pengguna {
+    margin-left: 20px;
+  }
+  
+  .btn-ubah {
+    background-color: coral;
+  }
+  
+  footer {
+    height: 40px;
+  }
+  
+  /* Detail */
+  
+  .jumbotrondetail {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .card {
+    font-family: 'Viga', sans-serif;
+    justify-content: center;
+    height: auto;
+  }
+  
+  .tbl {
+    margin-bottom: 0px;
+  }
+  
+  
+  /* Edit */
+  .jumbotronedit {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Daftar Penyakit */
+  .jumbotron-daftar_penyakit {
+    background-color: rgb(240, 240, 240);
+  }
+  
+  main {
+    text-align: center;
+  }
+  
+  .gbr {
+    border-radius: 50px;
+    background-color: rgb(80, 243, 255);
+    width: 50px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .btn-bntk {
+    border-radius: 50px;
+  }
+  
+  .card {
+    color: black;
+    padding: 0px;
+    border: none;
+  }
+  
+  .card-img-top {
+    background-color: coral;
+  }
+  
+  .form-horizontal .text-center .as {
+    padding: 10px 0 10px 0;
+    height: 40px;
+    font-size: 14px;
+    color: #2b2a2a;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    background: transparent;
+  }
+  
+  .form-control:focus {
+    background: transparent;
+  }
+  
+  .modalst {
+    color: black;
+  }
+  
+  /* Jumbotron Rekomendasi Pakan */
+  
+  .jumbotron-rekomendasi {
+    background-image: url('/img/2727.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .jumbotron-pilihan {
+    background-color: rgba(0, 0, 0, 0.76);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .container-pilihan {
+    background-color: white;
+    background-size: cover;
+    width: 70%;
+    min-height: 65vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    border-radius: 50px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .container-1 {
+    background-color: coral;
+    width: 50%;
+    border-radius: 50px 0 0 50px;
+    color: #f3e4de;
+  }
+  
+  .container-2 {
+    background-color:#f3e4de;
+    color: coral;
+    width: 50%;
+    border-radius: 0 50px 50px 0;
+  }
+  
+  .btn-1 {
+    background-color: #f3e4de;
+    border-color: #f3e4de;
+    color: coral;
+  }
+  
+  .btn-2 {
+    background-color: #ff7f50;
+    border-color: coral;
+  }
+  
+  /* Ayam Sehat & Sakit*/
+  .jumbotron-ayam-sehat {
+    background-image: url('/img/2727.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .jumbotron-ayam-sakit {
+    background-image: url('/img/2727.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .jumbotron-form {
+    background-color: rgba(0, 0, 0, 0.76);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .container .as {
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+      text-align: center;
+      width: 600px;
+      height: 630px;
+      box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+      font-family: 'Viga', sans-serif;
+  }
+  
+  .logo-ayam-sehat img {
+    width: 60px;
+    margin-bottom: -60px;
+  }
+  
+  .logo-ayam-sakit img {
+    width: 60px;
+    margin-bottom: -60px;
+  }
+  
+  .logo-ayam-sehat {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  
+  .logo-ayam-sakit {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Ayam Sehat & Sakit Perhitungan */
+  .isi {
+    color: coral;
+  }
+  
+  .container .hitung {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    width: 600px;
+    height: 660px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .container .hitungs {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    width: 600px;
+    height: 400px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .input_hitung {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Ayam Sehat & Sakit Hasil */
+  .jumbotron-hasil {
+    background-color: rgba(0, 0, 0, 0.76);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .container-hasil {
+    background-color: coral;
+    background-size: cover;
+    width: 60%;
+    min-height: 65vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    border-radius: 10px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .row1 {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    display: block;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 7px 7px 5px grey;
+  }
+  
+  .row1 h3 {
+    color: coral;
+  }
+  
+  .row1 p {
+    color: coral;
+  }
+  
+  .row-garis {
+    height: 80px;
+    width: 2px;
+    background-color: white;
+  }
+  
+  .row-garis-tengah {
+    height: 450px;
+    width: 5px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .p1 {
+    margin-left: 15px;
+  }
+  
+  .p2 {
+    margin-right: 15px;
+  }
+  
+  .row2 {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    display: block;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 7px 7px 5px grey;
+  }
+  
+  .row2 h4 {
+    color: coral;
+  }
+  
+  .row2 p {
+    color: coral;
+  }
+  
+  .text {
+    column-span: all;
+  }
+  
+  .content-kanan {
+    margin-left: -25px;
+  }
+  
+  /* Harga Telur */
+  .jumbotron-harga_telur {
+    background-image: url('/img/telur.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .garis {
+    background-color: white;
+  }
+  
+  .garis2 {
+    background-color: black;
+  }
+  
+  .jumbotron-daftar_telur {
+    background-color: rgba(255, 255, 255, 0.301);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .cd {
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .cd1 {
+    margin: 10px -10px 10px 10px;
+  }
+  
+  .table {
+    color: black;
+  }
+  
+  
