@@ -1,34 +1,51 @@
-<div class="table-responsive table-responsive-data2">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>NIK</th>
-                <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Tanggal Lahir</th>
-                <th>Alamat</th>
-                <th>Nama Kecamatan</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach($petugas as $p)
-            <tr class="tr-shadow">
-                <td>{{$p->nik}}</td>
-                <td>{{$p->nama}}</td>
-                <td>{{$p->jenisKelamin}}</td>
-                <td>{{$p->tanggalLahir}}</td>
-                <td>{{$p->alamat}}</td>
-                <td>{{$p->namaKecamatan}}</td>
-                <td>{{$p->email}}</td>
-                <td>
-                <div class="aksi2">
-                <a href="/editPetugas/{{$p->id}}" class="btn btn-warning btn-sm">Edit</a>
-                <a href="/hapusPetugas/{{$p->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus {{$p->nama}}?')">Delete</a>
-              </div>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-</div>
+<!doctype html>
+<html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+      <title>Evote</title>
+    </head>
+    <body>
+        <h1 class="text-center mt-4 mb-4">Data Petugas</h1>
+        <div class="container">
+            <a href="/tambahPetugas" class="btn btn-primary">Tambah Data</a>
+            <table class="table table-hover col-md-12">
+                <thead>
+                    <tr>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Alamat</th>
+                        <th>Nama Kecamatan</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($petugas as $p)
+                    <tr class="tr-shadow">
+                        <td>{{$p->nik}}</td>
+                        <td>{{$p->nama}}</td>
+                        <td>{{$p->jenisKelamin}}</td>
+                        <td>{{$p->tanggalLahir}}</td>
+                        <td>{{$p->alamat}}</td>
+                        <td>{{$p->namaKecamatan}}</td>
+                        <td>{{$p->email}}</td>
+                        <td>
+                            <div class="aksi2">
+                                <a href="/editPetugas/{{$p->id}}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/hapusPetugas/{{$p->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus {{$p->nama}}?')">Hapus</a>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
