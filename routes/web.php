@@ -21,3 +21,12 @@ Route::get('/masyarakat/update/{id}', 'MasyarakatController@edit_data');
 Route::post('/masyarakat/update/{id}', 'MasyarakatController@edit');
 Route::get('/masyarakat/delete/{id}', 'MasyarakatController@delete');
 
+Route::get('/kandidat', 'KandidatController@tambah');
+Route::get('/kandidat/cari', 'KandidatController@cari');
+// Route::post('/kandidat/level_kandidat/{id}', 'KandidatController@jadikan_kandidat');
+Route::get('/kandidat/detail', 'KandidatController@detail_kandidat');
+Route::get('/kandidat/lengkapi/{id}', 'KandidatController@lengkapi_data');
+Route::post('/kandidat/lengkapi/{id}', 'KandidatController@create_data');
+Route::get('/kandidat/edit/{id}', 'KandidatController@edit_kandidat');
+Route::post('/kandidat/update/{id}', 'KandidatController@update_kandidat');
+
