@@ -1,0 +1,53 @@
+/* Jumbotron */
+.jumbotron {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  
+    font-family: 'Viga', sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  span {
+    color: coral;;
+  }
+  
+  p {
+    margin-top: -10px;
+    color: rgb(217, 241, 241);
+  }
+  
+  .container {
+    background-color: rgba(0, 0, 0, 0.541);
+    padding: 20px;
+    width: 40%;
+    border-radius: 50px;
+  }
+  
+  .container img {
+    width: 90px;
+    border-radius: 50px;
+  }
+  
+  .container a {
+    background-color: coral;
+    border: none;
+    border-radius: 20px;
+  }
