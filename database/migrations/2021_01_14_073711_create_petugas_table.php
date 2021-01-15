@@ -18,11 +18,12 @@ class CreatePetugasTable extends Migration
             $table->string('NIK');
             $table->string('nama');
             $table->enum('jenisKelamin',['Laki-laki','Perempuan']);
-            $table->string('alamat');
             $table->date('tanggalLahir');
-            $table->string('daerahTugas');
+            $table->string('alamat');
             $table->string('email');
             $table->string('password');
+            $table->bigInteger('id_kecamatan')->unsigned()->index();
+            $table->foreign('id_kecamatan')->references('id')->on('kecamatan');
             $table->timestamps();
         });
     }
