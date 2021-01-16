@@ -41,6 +41,16 @@ return [
             'provider' => 'users',
         ],
 
+        'petugas' => [
+            'driver' => 'session',
+            'provider' => 'petugas'
+        ]
+
+        'masyarakat' => [
+            'driver' => 'session',
+            'provoder' => 'masyarakat'
+        ]
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -71,6 +81,16 @@ return [
             'model' => App\User::class,
         ],
 
+        'petugas' => [
+            'driver' => 'eloquent',
+            'table' => App\Petugas::class,
+        ],
+
+        'masyarakat' => [
+            'driver' => 'eloquent',
+            'table' => App\Masyarakat::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,7 +114,17 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'user',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'masyarakat' => [
+            'provider' => 'masyarakat',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'petugas' => [
+            'provider' => 'petugas',
             'table' => 'password_resets',
             'expire' => 60,
         ],

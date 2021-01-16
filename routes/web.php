@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'EVoteController@landing');
-Route::get('/login', 'EVoteController@login');
+Route::get('/signIn', 'EVoteController@signIn');
+Route::post('/postSignIn', 'EVoteController@postSignIn')->name('postSignIn');
 
 Route::get('/masyarakat', 'MasyarakatController@index');
 Route::get('/masyarakat/tambah', 'MasyarakatController@tambah');
