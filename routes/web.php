@@ -13,8 +13,9 @@
 
 Route::get('/', 'EVoteController@landing');
 Route::get('/signIn', 'EVoteController@signIn');
-Route::post('/postSignIn', 'EVoteController@postSignIn')->name('postSignIn');
+Route::post('/postSignIn', 'LoginController@postSignIn')->name('postSignIn');
 
+Route::get('/Masyarakat/home', 'MasyarakatController@home');
 Route::get('/masyarakat', 'MasyarakatController@index');
 Route::get('/masyarakat/tambah', 'MasyarakatController@tambah');
 Route::post('/masyarakat/tambah', 'MasyarakatController@tambah_data');
@@ -31,7 +32,7 @@ Route::post('/kandidat/lengkapi/{id}', 'KandidatController@create_data');
 Route::get('/kandidat/edit/{id}', 'KandidatController@edit_kandidat');
 Route::post('/kandidat/update/{id}', 'KandidatController@update_kandidat');
 
-
+Route::get('/Petugas/home', 'petugasController@home');
 Route::get('/dataPetugas', 'petugasController@data');
 Route::get('/tambahPetugas', 'petugasController@form');
 Route::post('/postFormPetugas', 'petugasController@create');

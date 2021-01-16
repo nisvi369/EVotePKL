@@ -9,6 +9,9 @@ use DB;
 
 class petugasController extends Controller
 {
+    public function home(){
+        return view('Petugas.home');
+    }
     public function form(){
         $kecamatan = Kecamatan::all();
         return view('Petugas.formPetugas', compact('kecamatan'));

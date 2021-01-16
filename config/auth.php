@@ -44,12 +44,12 @@ return [
         'petugas' => [
             'driver' => 'session',
             'provider' => 'petugas'
-        ]
+        ],
 
         'masyarakat' => [
             'driver' => 'session',
-            'provoder' => 'masyarakat'
-        ]
+            'provider' => 'masyarakat'
+        ],
 
         'api' => [
             'driver' => 'token',

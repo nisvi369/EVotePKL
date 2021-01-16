@@ -7,6 +7,10 @@ use \App\Masyarakat;
 
 class MasyarakatController extends Controller
 {
+	public function home(){
+        return view('Masyarakat.home');
+	}
+	
     public function index()
     {
     	$masyarakat = Masyarakat::all();

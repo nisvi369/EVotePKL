@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -59,18 +59,23 @@ class LoginController extends Controller
      *
      * @return string
      */
-    public function akun()
+    public function postSignIn(Request $request)
     {
         $signIn = request()->input('akun');
         // if(is_numeric($login)){
         //     $field = 'phone';
         if (filter_var($signIn, FILTER_VALIDATE_EMAIL)) {
-            $field = 'email';
+            // $field = 'email';
+            return redirect('/Petugas/home');
         } else {
-            $field = 'nik';
+            return redirect('/Masyarakat/home');
         }
         request()->merge([$field => $signIn]);
         return $field;
     }
+
+    public function postlogin(Request $request){
+
+        
 }
 }
