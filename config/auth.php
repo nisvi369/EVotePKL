@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin'
+        ],
+
         'petugas' => [
             'driver' => 'session',
             'provider' => 'petugas'
@@ -79,6 +84,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'admin' => [
+            'driver' => 'eloquent',
+            'table' => App\Admin::class,
         ],
 
         'petugas' => [

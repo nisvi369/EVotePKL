@@ -9,6 +9,9 @@ use DB;
 
 class KandidatController extends Controller
 {
+    function __construct(){
+        $this->middleware('Kandidat');
+    }
     public function tambah()
     {
     	$masyarakat = Masyarakat::all();

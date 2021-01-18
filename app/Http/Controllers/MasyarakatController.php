@@ -7,6 +7,9 @@ use \App\Masyarakat;
 
 class MasyarakatController extends Controller
 {
+	function __construct(){
+        $this->middleware('Masyarakat');
+    }
 	public function home(){
         return view('Masyarakat.home');
 	}

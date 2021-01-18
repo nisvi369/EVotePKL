@@ -9,6 +9,9 @@ use DB;
 
 class petugasController extends Controller
 {
+    function __construct(){
+        $this->middleware('Petugas');
+    }
     public function home(){
         return view('Petugas.home');
     }
