@@ -1,12 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('template.master')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+@section('title', 'Data Petugas')
 
 @section('content')
     <h1 class="text-center mt-4 mb-4">Form Data Petugas</h1>
@@ -27,34 +21,34 @@
                                 <div class="col-md-12">
                                     <form method="POST" action="/postFormPetugas" enctype="multipart/form-data">
                                         {{csrf_field()}}
-                                        <div class="form-group row mb-2 {{$errors->has('nik') ? 'has-error' : ''}}">
-                                            <label for="nik" class="col-md-2 col-form-label">NIK</label>
+                                        <div class="form-group row mb-2 {{$errors->has('NIK') ? 'has-error' : ''}}">
+                                            <label for="NIK" class="col-md-2 col-form-label">NIK</label>
                                             <div class="col-md-10">
-                                                <input name="nik" class="form-control" id="nik" required="">{{ old('nik') }}</input>
-                                                @if($errors->has('nik'))
-                                                    <span class="form-text text-danger">{{$errors->first('nik')}}</span>
+                                                <input name="NIK" class="form-control" id="NIK" required="">
+                                                @if($errors->has('NIK'))
+                                                    <span class="form-text text-danger">{{$errors->first('NIK')}}</span>
                                                 @endif
                                           </div>
                                         </div>
                                         <div class="form-group row mb-2 {{$errors->has('nama') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Nama</label>
                                             <div class="col-md-10">
-                                                <input name="nama" class="form-control" id="nama'" required="">{{ old('nama') }}</input>
+                                                <input name="nama" class="form-control" id="nama'" required="">
                                                 @if($errors->has('nama'))
                                                     <span class="form-text text-danger">{{$errors->first('nama')}}</span>
                                                 @endif
                                           </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
-                                            <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                                        <div class="form-group row mb-2 {{$errors->has('jenisKelamin') ? 'has-error' : ''}}">
+                                            <label for="jenisKelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-10">
-                                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="">
+                                                <select class="form-control @error('jenisKelamin') is-invalid @enderror" name="jenisKelamin" required="">
                                                     <option value="">-- Jenis Kelamin --</option>
-                                                    <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
-                                                    <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
+                                                    <option value="perempuan"{{(old('jenisKelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
+                                                    <option value="laki-laki"{{(old('jenisKelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
                                                 </select>
-                                                @if($errors->has('jenis_kelamin'))
-                                                    <span class="form-text text-danger">{{$errors->first('jenis_kelamin')}}</span>
+                                                @if($errors->has('jenisKelamin'))
+                                                    <span class="form-text text-danger">{{$errors->first('jenisKelamin')}}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -75,38 +69,29 @@
                                                 @endif
                                           </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
+                                        <!-- <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
                                             <label for="id_kecamatan" class="col-md-2 col-form-label">Daerah Tugas</label>
                                             <div class="col-md-10">
                                                 <select class="form-control" name="id_kecamatan" id="id_kecamatan" required oninvalid="this.setCustomValidity('Form Data Petugas Harap Diisi Semua')" oninput="setCustomValidity('')">
                                                     <option>-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatan as $k)
-                                                        <option
+                                                        <option 
                                                             value="{{ $k->id }}">{{ $k->namaKecamatan}}
                                                         </option>
                                                     @endforeach
-                                                    </option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10">
-                                                <input name="alamat" class="form-control" id="email" required="">{{ old('email') }}</input>
+                                                <input type="email" name="email" class="form-control" id="email" required="">
                                                 @if($errors->has('email'))
                                                     <span class="form-text text-danger">{{$errors->first('email')}}</span>
                                                 @endif
                                           </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('password') ? 'has-error' : ''}}">
-                                            <label for="alamat" class="col-md-2 col-form-label">Password</label>
-                                            <div class="col-md-10">
-                                                <input name="password'" class="form-control" id="password'" required="">{{ old('password') }}</input>
-                                                @if($errors->has('password'))
-                                                    <span class="form-text text-danger">{{$errors->first('password')}}</span>
-                                                @endif
-                                          </div>
-                                        </div>
+                                     
                                         <br>
                                         <button type="submit" class="btn btn-info">Simpan</button>
                                         <a href="/dataKampanye" class="btn btn-light">Kembali</a>
