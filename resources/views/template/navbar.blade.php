@@ -3,20 +3,20 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0 nav_set">
   <div class="container">
-    <a href="/home" class="navbar-brand">DASHBOARD+</a>
+    <a href="" class="navbar-brand">DASHBOARD+</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
         <li class="nav-item px-2">
-          <a href="/" class="nav-link">apa ini</a>
+          <a href="/dataPetugas" class="nav-link">Data Petugas</a>
         </li>
         <li class="nav-item px-2">
-          <a href="/daftar_penyakit" class="nav-link">Pemilihan</a>
+          <a href="/index" class="nav-link">Data Masyarakat</a>
         </li>
         <li class="nav-item px-2">
-          <a href="#" class="nav-link">Kampanye</a>
+          <a href="#" class="nav-link">Data Kampanye</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

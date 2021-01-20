@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url('/img/kampanye.jpg');
+    background-image: url('/img/image.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -23,7 +23,7 @@
   .jumbotron .container .as {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    text-align: center;
+    text-align: right;
     width: 400px;
     height: 570px;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
