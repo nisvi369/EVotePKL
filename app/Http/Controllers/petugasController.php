@@ -33,14 +33,14 @@ class petugasController extends Controller
             'id_kecamatan' => 'required',
           ]);
         $petugas = new Petugas;
-        $petugas->NIK = $request->NIK;
+        $petugas->nik = $request->nik;
         $petugas->nama = $request->nama;
         $petugas->jenisKelamin = $request->jenisKelamin;
         $petugas->tanggalLahir = $request->tanggalLahir;
         $petugas->alamat = $request->alamat;
         $petugas->email = $request->email;
-        $petugas->password = bcrypt('rahasia');
-        $petugas->id_kecamatan = 1;
+        $petugas->password = $request->password;
+        $petugas->id_kecamatan = $request->id_kecamatan;
 
         $petugas->save();
 
