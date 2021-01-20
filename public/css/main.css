@@ -105,7 +105,7 @@
   .container .cn {
     margin-top: 20px;
     display: flex;
-    justify-content: right;
+    justify-content: center;
   }
   
   .container .cn-l {

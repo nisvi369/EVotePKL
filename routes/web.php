@@ -36,6 +36,10 @@ Route::group(['middleware' => ['auth'=>'Masyarakat']],function(){
     Route::get('/masyarakat/update/{id}', 'MasyarakatController@edit_data');
     Route::post('/masyarakat/update/{id}', 'MasyarakatController@edit');
     Route::get('/masyarakat/delete/{id}', 'MasyarakatController@delete');
+    //PEMILIHAN
+    Route::get('/pemilihan', 'PemilihanController@index');
+    Route::post('/pilih/{id}', 'PemilihanController@pilih_kandidat');
+    Route::get('/hasil_voting', 'PemilihanController@grafik');
 });
 
 Route::group(['middleware' => ['auth'=>'Kandidat']],function(){

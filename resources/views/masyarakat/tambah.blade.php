@@ -1,9 +1,8 @@
 @extends('template.master')
 
-@section('title', 'Data Petugas')
+@section('title', 'Tambah Data')
 
 @section('content')
-<div class="jubotrondashm">
     <h1 class="text-center mt-4 mb-4">Tambah Data</h1>
 
             <div class="container">
@@ -11,7 +10,7 @@
                     <div class="col-md-12 mt-4">
                         <nav aria-label="breadcrumb">
                           <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/masyarakat') }}">Data Masyarakat</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                           </ol>
                         </nav>

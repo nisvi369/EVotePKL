@@ -55,7 +55,7 @@ class MasyarakatController extends Controller
         
     	Masyarakat::create($masyarakat);
 
-    	return redirect('/');
+    	return redirect('/masyarakat');
     }
 
     public function edit_data($id)
@@ -86,7 +86,7 @@ class MasyarakatController extends Controller
 
         $masyarakat->update();
 
-    	return redirect('/');
+    	return redirect('/masyarakat');
     }
 
     public function delete($id)
@@ -94,6 +94,6 @@ class MasyarakatController extends Controller
     	$masyarakat = Masyarakat::find($id);
     	$masyarakat->delete();
 
-    	return redirect('/');
+    	return redirect('/masyarakat');
     }
 }

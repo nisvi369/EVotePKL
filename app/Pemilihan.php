@@ -14,4 +14,9 @@ class Pemilihan extends Model
 	{
 	    return $this->belongsTo('App\Masyarakt', 'masyarakat_id', 'id');
 	}
+
+	public function hasil()
+    {
+        return $this->hasMany('App\Hasil', 'pemilihan_id', 'id');
+    }
 }
