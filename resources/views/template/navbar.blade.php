@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
         <li class="nav-item px-2">
-          <a href="/dataPetugas" class="nav-link">Data Petugas</a>
+          <a href="/Petugas/dataPetugas" class="nav-link">Data Petugas</a>
         </li>
         <li class="nav-item px-2">
           <a href="{{ url('/masyarakat') }}" class="nav-link">Data Masyarakat</a>
@@ -25,6 +25,7 @@
           <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
         </li>
       </ul>
+    
       <ul class="navbar-nav ml-auto">
         
         <li class="nav-item dropdown">
