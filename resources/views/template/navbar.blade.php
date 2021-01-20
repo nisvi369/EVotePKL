@@ -21,6 +21,9 @@
         <li class="nav-item px-2">
           <a href="#" class="nav-link">Data Kampanye</a>
         </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
+        </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         

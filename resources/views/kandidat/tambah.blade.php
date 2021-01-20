@@ -7,21 +7,21 @@
     <h1 class="text-center mt-4 mb-4">Data Kandidat</h1>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mt-4">
+            <!-- <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Tambah Kandidat</li>
                   </ol>
                 </nav>
             </div>
-            <form action="{{ url('kandidat/cari') }}" method="GET">
+ -->            <form action="{{ url('kandidat/cari') }}" method="GET" class="col-md-12">
                 @csrf
                 <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}">
                 <input type="submit" value="cari">
                 <a href="{{ url('kandidat/detail') }}" class="btn-sm btn-dark" style="float: right; text-decoration: none;">Detail Kandidat</a>
             </form>
-            <table class="table table-hover text-center col-md-12">
+            <table class="table table-hover text-center col-md-12 mt-4">
                 <thead>
                     <tr>
                         <th>No.</th>

@@ -17,4 +17,8 @@ class Masyarakat extends Model
     public function Kampanye() {
     	return $this->hasOne('App\Kampanye');
     }
+    public function hasil()
+    {
+        return $this->hasOne('App\Hasil', 'masyarakat_id');
+    }
 }
