@@ -3,7 +3,6 @@
 @section('title', 'Data Kandidat')
 
 @section('content')
-<div class="jumbotronedit">
     <h1 class="text-center mt-4 mb-4">Data Kandidat</h1>
     <div class="container">
         <div class="row">
@@ -66,5 +65,4 @@
             </table>
        </div>
    </div>
-</div>
 @endsection

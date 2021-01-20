@@ -1,11 +1,10 @@
 @extends('template.master')
 
-@section('title', 'Edit Data Masyarakat')
+@section('title', 'Edit Masyrakat')
 
 @section('content')
-<div class="jumbotronedit">
     <h1 class="text-center mt-4 mb-4">Edit Data</h1>
-      <div class="container konten">
+      <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
@@ -91,8 +90,4 @@
                   </div>
         </div>
       </div>
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> c278bcc076b47edac8756bba80e677f6cdd5e197
 @endsection

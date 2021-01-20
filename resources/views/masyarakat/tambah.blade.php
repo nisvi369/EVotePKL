@@ -3,9 +3,10 @@
 @section('title', 'Tambah Data')
 
 @section('content')
-<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Tambah Data</h1>
-            <div class="container ">
+
+            <div class="container">
+                <div class="row">
                     <div class="col-md-12 mt-4">
                         <nav aria-label="breadcrumb">
                           <ol class="breadcrumb">

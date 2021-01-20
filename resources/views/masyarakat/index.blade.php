@@ -1,11 +1,11 @@
 @extends('template.master')
 
-@section('title', 'Data Petugas')
+@section('title', 'Data Masyarakat')
 
 @section('content')
-<div class="jumbotronedit">
+
 <h1 class="text-center mt-4 mb-4">Data Masyarakat</h1>
-<div class="container konten">
+<div class="container">
     <a href="{{ url('masyarakat/tambah') }}" class="btn btn-primary">Tambah Data</a>
     <!-- <a href="{{ url('kandidat') }}" class="btn btn-primary">Tambah Kandidat</a> -->
     <table class="table table-hover col-md-12 mt-2">
@@ -39,6 +39,5 @@
             @endforeach
         </tbody>
     </table>
-</div>
 </div>
 @endsection
