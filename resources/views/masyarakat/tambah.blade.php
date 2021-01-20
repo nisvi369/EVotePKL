@@ -1,8 +1,9 @@
 @extends('template.master')
 
-@section('title', 'Tambah Data')
+@section('title', 'Data Petugas')
 
 @section('content')
+<div class="jubotrondashm">
     <h1 class="text-center mt-4 mb-4">Tambah Data</h1>
 
             <div class="container">
