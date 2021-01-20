@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url('/img/image.jpg');
+    background-image: url('/img/kampanye.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -105,7 +105,7 @@
   .container .cn {
     margin-top: 20px;
     display: flex;
-    justify-content: right;
+    justify-content: center;
   }
   
   .container .cn-l {
@@ -196,8 +196,8 @@
   
   /* Detail */
   
-  .jumbotrondetail {
-    background-image: url('/img/kampanye.jpg');
+  .jumbotrontambah {
+    background-image: url('/img/indah.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -229,7 +229,7 @@
   
   /* Edit */
   .jumbotronedit {
-    background-image: url('/img/kampanye.jpg');
+    background-image: url('/img/indah.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -248,11 +248,8 @@
     position: relative;
   }
   
-  /* Daftar Penyakit */
-  .jumbotron-daftar_penyakit {
-    background-color: rgb(240, 240, 240);
-  }
-  
+
+
   main {
     text-align: center;
   }
@@ -280,7 +277,7 @@
   }
   
   .form-horizontal .text-center .as {
-    padding: 10px 0 10px 0;
+    padding: auto;
     height: 40px;
     font-size: 14px;
     color: #2b2a2a;
@@ -305,45 +302,10 @@
   
   /* Jumbotron Rekomendasi Pakan */
   
-  .jumbotron-rekomendasi {
-    background-image: url('/img/2727.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+ 
   
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
-  
-  .jumbotron-pilihan {
-    background-color: rgba(0, 0, 0, 0.76);
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    justify-content: center;
-    padding: 1rem;
-    color: white;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
+
+
   
   .container-pilihan {
     background-color: white;
@@ -362,7 +324,7 @@
     position: relative;
   }
   
-  .container-1 {
+  .container .konten {
     background-color: coral;
     width: 50%;
     border-radius: 50px 0 0 50px;
@@ -386,49 +348,8 @@
     background-color: #ff7f50;
     border-color: coral;
   }
+
   
-  /* Ayam Sehat & Sakit*/
-  .jumbotron-ayam-sehat {
-    background-image: url('/img/2727.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
-  
-  .jumbotron-ayam-sakit {
-    background-image: url('/img/2727.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
   
   .jumbotron-form {
     background-color: rgba(0, 0, 0, 0.76);
@@ -459,25 +380,7 @@
       font-family: 'Viga', sans-serif;
   }
   
-  .logo-ayam-sehat img {
-    width: 60px;
-    margin-bottom: -60px;
-  }
-  
-  .logo-ayam-sakit img {
-    width: 60px;
-    margin-bottom: -60px;
-  }
-  
-  .logo-ayam-sehat {
-    margin-top: -20px;
-    margin-bottom: 20px;
-  }
-  
-  .logo-ayam-sakit {
-    margin-top: -20px;
-    margin-bottom: 20px;
-  }
+ 
   
   /* Ayam Sehat & Sakit Perhitungan */
   .isi {
@@ -610,25 +513,7 @@
   }
   
   /* Harga Telur */
-  .jumbotron-harga_telur {
-    background-image: url('/img/telur.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
+
   
   .garis {
     background-color: white;
@@ -638,24 +523,7 @@
     background-color: black;
   }
   
-  .jumbotron-daftar_telur {
-    background-color: rgba(255, 255, 255, 0.301);
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    justify-content: center;
-    padding: 1rem;
-    color: white;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
+
   
   .cd {
     border-radius: 10px;
@@ -670,4 +538,8 @@
     color: black;
   }
   
-  
+  .jumbotrontambah .container .konten{
+    float: left;
+    
+  } 
+
