@@ -10,6 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/profil_saya/{id}', 'HomeController@profil_saya')->name('home.profil_saya');
+Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
+Route::post('/home/update/{id}', 'HomeController@update')->name('home.update');
 
 Route::get('/', 'EVoteController@landing');
 Route::get('/signIn', 'EVoteController@signIn');

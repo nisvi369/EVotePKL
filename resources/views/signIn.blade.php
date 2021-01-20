@@ -1,68 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E-Vote PKL</title>
+@extends('layouts.app')
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="{{asset('login/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
+@section('title', 'login')
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="{{asset('login/css/style.css')}}">
-</head>
-<body>
-    <div class="main">
-        <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="{{asset('login/images/signin-image.jpg')}}" alt="sing up image"></figure>
-                        <!-- <a href="#" class="signup-image-link">Login to My Account</a> -->
-                    </div>
+@section('content')
 
-                    <div class="signin-form">
-                        <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form" action="{{route('postSignIn')}}">
-                            <div class="form-group">
-                                @csrf
-                                <label for="akun"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="akun" id="akun" placeholder="Email/NIK" class="form-control @error('username') is-invalid @enderror" value="{{ old('akun') }}" required autofocus>
-                                @error('akun')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-mr-auto">
+            <div class="container text-center logo">
+                <img src="/img/1.png" alt="">
+            </div>
+            <div class="container as" style="background-color: white">
+                <div class="text-center">
+                    <form method="POST"  id="login-form" action="{{ route('postSignIn') }}">
+                        @csrf
+                        <div class="container clgn">
+                            <h3 class="lgn">EVOTING</h3>
+                        </div>
+
+                        <div class="form-group text-center spnemail">
+                            <div class="row">
+                                <label for="email" class="col">{{ __('E-Mail Atau NIK') }}</label>
+                            </div>
+
+                            <div class="row text-center">
+                                <div class="col"></div>
+                                <div class="col form-horizontal text-center">
+                                    <input id="akun" type="akun"
+                                        class="form-control @error('username') is-invalid @enderror" name="akun"
+                                        value="{{ old('akun') }}" required autofocus>
+                                    @error('akun')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
+                                <div class="col"></div>
                             </div>
-                            <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="Password"/>
+                        </div>
+
+                        <div class="form-group border-0 text-center spnpassword">
+                            <div class="row">
+                                <label for="password" class="col">{{ __('Password') }}</label>
                             </div>
-                            <!-- <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div> -->
-                            <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+
+                            <div class="row text-center">
+                                <div class="col"></div>
+                                <div class="col form-horizontal">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="col"></div>
                             </div>
-                        </form>
-                        <!-- <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-                        </div> -->
-                    </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="container cn">
+                                <button name="signin" type="submit"  id="signin" class="btn btn-primary tmbl" >
+                                    {{ __('Login') }}
+                                </button>
+                            </div>
+                            <div class="container lppswrd">
+                                @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Lupa Password?') }}
+                                </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+</div>
+@endsection
