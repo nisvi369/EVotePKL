@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+@extends('template.master')
 @section('content')
     <h1 class="text-center mt-4 mb-4">Form Data Petugas</h1>
         <div class="container">
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form method="POST" action="/postFormPetugas" enctype="multipart/form-data">
+                                    <form method="POST" action="/Petugas/postFormPetugas" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="form-group row mb-2 {{$errors->has('nik') ? 'has-error' : ''}}">
                                             <label for="nik" class="col-md-2 col-form-label">NIK</label>
@@ -90,22 +90,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
-                                            <label for="alamat" class="col-md-2 col-form-label">Email</label>
+                                            <label for="email" class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10">
-                                                <input name="alamat" class="form-control" id="email" required="">{{ old('email') }}</input>
+                                                <input name="email" class="form-control" id="email" required="">{{ old('email') }}</input>
                                                 @if($errors->has('email'))
                                                     <span class="form-text text-danger">{{$errors->first('email')}}</span>
                                                 @endif
-                                          </div>
-                                        </div>
-                                        <div class="form-group row mb-2 {{$errors->has('password') ? 'has-error' : ''}}">
-                                            <label for="alamat" class="col-md-2 col-form-label">Password</label>
-                                            <div class="col-md-10">
-                                                <input name="password'" class="form-control" id="password'" required="">{{ old('password') }}</input>
-                                                @if($errors->has('password'))
-                                                    <span class="form-text text-danger">{{$errors->first('password')}}</span>
-                                                @endif
-                                          </div>
+                                            </div>
                                         </div>
                                         <br>
                                         <button type="submit" class="btn btn-info">Simpan</button>
