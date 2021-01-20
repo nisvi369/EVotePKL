@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class Pemilih
 {
@@ -15,6 +16,9 @@ class Pemilih
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::check() && Auth::user()->Masyarakat()->level == 'pemilih') {
+            return $next($request);
+        }
         return $next($request);
     }
 }

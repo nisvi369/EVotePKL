@@ -14,6 +14,7 @@
 Route::get('/', 'EVoteController@landing');
 Route::get('/signIn', 'EVoteController@signIn');
 Route::post('/postSignIn', 'LoginController@postSignIn')->name('postSignIn');
+Route::get('/logout', 'LoginController@logout');
 
 Auth::routes();
 
@@ -29,6 +30,7 @@ Route::group(['middleware' => ['auth'=>'Masyarakat']],function(){
 
 Route::group(['middleware' => ['auth'=>'Kandidat']],function(){
     Route::get('/kandidat', 'KandidatController@tambah');
+    Route::get('/kandidat/home', 'KandidatController@home');
     Route::get('/kandidat/cari', 'KandidatController@cari');
     // Route::post('/kandidat/level_kandidat/{id}', 'KandidatController@jadikan_kandidat');
     Route::get('/kandidat/detail', 'KandidatController@detail_kandidat');
@@ -48,5 +50,9 @@ Route::group(['middleware' => ['auth'=>'Petugas']],function(){
     Route::post('/postFormPetugas', 'petugasController@create');
     Route::get('/editPetugas/{id}', 'petugasController@edit');
     Route::post('/dataPetugas/{id}/update', 'petugasController@update');
-Route::get('/hapusPetugas/{id}', 'petugasController@hapus');
+    Route::get('/hapusPetugas/{id}', 'petugasController@hapus');
+});
+
+Route::group(['middleware' => ['auth'=>'Admin']],function(){
+    Route::get('/Admin/home', 'AdminController@home');
 });

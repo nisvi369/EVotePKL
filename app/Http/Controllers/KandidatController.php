@@ -12,6 +12,11 @@ class KandidatController extends Controller
     function __construct(){
         $this->middleware('Kandidat');
     }
+
+    public function home(){
+        return view('Kandidat.home');
+	}
+
     public function tambah()
     {
     	$masyarakat = Masyarakat::all();

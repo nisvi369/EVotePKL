@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class Petugas
 {
@@ -15,6 +16,9 @@ class Petugas
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::check() && Auth::user()->Petugas()) {
+            return $next($request);
+        }
         return $next($request);
     }
 }

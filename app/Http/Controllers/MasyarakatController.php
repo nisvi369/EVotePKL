@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Masyarakat;
+use Auth;
 
 class MasyarakatController extends Controller
 {

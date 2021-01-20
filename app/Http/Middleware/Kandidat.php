@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class Kandidat
 {
@@ -13,8 +14,11 @@ class Kandidat
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, ...$level)
     {
+        if (Auth::check() && Auth::user()->Masyarakat()->level == 'kandidat') {
+            return $next($request);
+        }
         return $next($request);
     }
 }

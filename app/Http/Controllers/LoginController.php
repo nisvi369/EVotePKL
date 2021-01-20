@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -74,8 +75,11 @@ class LoginController extends Controller
         return $field;
     }
 
-    public function postlogin(Request $request){
+    public function postlogin(Request $request){    
+    }
 
-        
-}
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }
