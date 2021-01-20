@@ -3,11 +3,11 @@
 @section('title', 'Data Petugas')
 
 @section('content')
-<div class="jubotrondashm">
+<div class="jumbotronedit">
         <h1 class="text-center mt-4 mb-4">Data Petugas</h1>
         <div class="container">
             <a href="/tambahPetugas" class="btn btn-primary mb-4">Tambah Data</a>
-            
+
             <table class="table table-hover col-md-12">
                 <thead>
                     <tr>
@@ -40,4 +40,5 @@
                 </tbody>
             </table>
         </div>
+</div>
         @endsection
