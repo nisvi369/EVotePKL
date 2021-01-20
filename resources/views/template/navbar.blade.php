@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
         <li class="nav-item px-2">
-          <a href="/Petugas/dataPetugas" class="nav-link">Data Petugas</a>
+          <a href="{{ url('/dataPetugas') }}" class="nav-link">Data Petugas</a>
         </li>
         <li class="nav-item px-2">
           <a href="{{ url('/masyarakat') }}" class="nav-link">Data Masyarakat</a>

@@ -196,8 +196,8 @@
   
   /* Detail */
   
-  .jumbotrondetail {
-    background-image: url('/img/kampanye.jpg');
+  .jumbotrontambah {
+    background-image: url('/img/indah.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;

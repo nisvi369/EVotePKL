@@ -3,6 +3,7 @@
 @section('title', 'Daftar Kandidat')
 
 @section('content')
+<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Daftar Kandidat</h1>
     <div class="container">
         <div class="row">
@@ -39,4 +40,6 @@
             
        </div>
    </div>
+<div>
+</div> 
 @endsection
