@@ -22,16 +22,15 @@ class petugasController extends Controller
     }
 
     public function create(Request $request){
-        $this->validate($request, [
-            'nik' => 'required',
+        $request->validate([
+            'NIK' => 'required',
             'nama' => 'required',
             'jenisKelamin' => 'required',
             'tanggalLahir' => 'required',
             'alamat' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'id_kecamatan' => 'required',
           ]);
+
         $petugas = new Petugas;
         $petugas->nik = $request->nik;
         $petugas->nama = $request->nama;
