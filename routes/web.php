@@ -59,12 +59,12 @@ Route::group(['middleware' => ['auth'=>'Kandidat']],function(){
 
 Route::group(['middleware' => ['auth'=>'Petugas']],function(){
     Route::get('/Petugas/home', 'petugasController@home');
-    Route::get('/Petugas/dataPetugas', 'petugasController@data');
-    Route::get('/Petugas/tambahPetugas', 'petugasController@form');
-    Route::post('/Petugas/postFormPetugas', 'petugasController@create');
-    Route::get('/Petugas/editPetugas/{id}', 'petugasController@edit');
-    Route::post('/Petugas/dataPetugas/{id}/update', 'petugasController@update');
-    Route::get('/Petugas/hapusPetugas/{id}', 'petugasController@hapus');
+    Route::get('/dataPetugas', 'petugasController@data');
+    Route::get('/tambahPetugas', 'petugasController@form');
+    Route::post('/postFormPetugas', 'petugasController@create');
+    Route::get('/editPetugas/{id}', 'petugasController@edit');
+    Route::post('/dataPetugas/{id}/update', 'petugasController@update');
+    Route::get('/hapusPetugas/{id}', 'petugasController@hapus');
 });
 
 Route::group(['middleware' => ['auth'=>'Admin']],function(){
