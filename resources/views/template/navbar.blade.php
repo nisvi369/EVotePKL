@@ -9,22 +9,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
-        @if(Str::length(Auth::guard('user')->user()) > 0)
-        @if(Auth::guard('user')->user()->level == "admin")
+        @if(auth()->user()->level == 'admin')
         <li class="nav-item px-2">
           <a href="/dataPetugas" class="nav-link">Data Petugas</a>
         </li>
         @endif
-        @endif
-        @if(Str::length(Auth::guard('masyarakat')->user()) > 0)
-        @if(Auth::guard('masyarakat')->user()->level == "petugas")
+
+        @if(auth()->user()->level == 'petugas')
         <li class="nav-item px-2">
           <a href="{{ url('/masyarakat') }}" class="nav-link">Data Masyarakat</a>
         </li>
         @endif
-        @endif
-        @if(Str::length(Auth::guard('user')->user()) > 0)
-        @if(Auth::guard('user')->user()->level == "admin")
+        
+        @if(auth()->user()->level == 'admin')
         <li class="nav-item px-2">
           <a href="{{ url('/kandidat') }}" class="nav-link">Data Kandidat</a>
         </li>
@@ -32,13 +29,11 @@
           <a href="#" class="nav-link">Data Kampanye</a>
         </li>
         @endif
-        @endif
-        @if(Str::length(Auth::guard('masyarakat')->user()) > 0)
-        @if(Auth::guard('masyarakat')->user()->level == "pemilih")
+
+        @if(auth()->user()->level == 'pemilih')
         <li class="nav-item px-2">
           <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
         </li>
-        @endif
         @endif
       </ul>
       <ul class="navbar-nav ml-auto">
