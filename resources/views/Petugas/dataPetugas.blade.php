@@ -3,7 +3,7 @@
 @section('title', 'Data Petugas')
 
 @section('content')
-<div class="jubotrondashm">
+<div class="jumbotrontambah">
         <h1 class="text-center mt-4 mb-4">Data Petugas</h1>
         <div class="container">
             <a href="/tambahPetugas" class="btn btn-primary mb-4">Tambah Data</a>
@@ -42,4 +42,5 @@
                 </tbody>
             </table>
         </div>
+</div>
         @endsection
