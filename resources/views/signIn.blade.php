@@ -3,7 +3,7 @@
 @section('title', 'login')
 
 @section('content')
-<div class="jumbotrondash">
+
 <div class="container">
     @if(session('alert'))
         <div class="alert alert-success" role="alert">
@@ -17,7 +17,7 @@
             </div>
             <div class="container as" style="background-color: white">
                 <div class="text-center">
-                    <form method="POST"  id="login-form" action="{{ route('postSignIn') }}">
+                    <form method="POST"  id="login-form" action="{{ route('postlogin') }}">
                         @csrf
                         <div class="container clgn">
                             <h3 class="lgn">EVOTING</h3>
@@ -25,16 +25,15 @@
 
                         <div class="form-group text-center spnemail">
                             <div class="row">
-                                <label for="akun" class="col">{{ __('E-Mail Atau NIK') }}</label>
+                                <label for="email" class="col">Email atau NIK</label>
                             </div>
 
                             <div class="row text-center">
                                 <div class="col"></div>
                                 <div class="col form-horizontal text-center">
-                                    <input id="akun" type="akun"
-                                        class="form-control @error('akun') is-invalid @enderror" name="akun"
-                                        value="{{ old('akun') }}" required autofocus>
-                                    @error('akun')
+                                    <input id="email" type="akun"
+                                        class="form-control @error('username') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus>
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,7 +45,7 @@
 
                         <div class="form-group border-0 text-center spnpassword">
                             <div class="row">
-                                <label for="password" class="col">{{ __('Password') }}</label>
+                                <label for="password" class="col">Password</label>
                             </div>
 
                             <div class="row text-center">
@@ -55,7 +54,6 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
-
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -68,17 +66,17 @@
 
                         <div class="form-group row mb-0">
                             <div class="container cn">
-                                <button name="signin" type="submit"  id="signin" class="btn btn-primary tmbl" >
-                                    {{ __('Login') }}
+                                <button type="submit"  id="signin" class="btn btn-primary tmbl" >
+                                    LOGIN
                                 </button>
                             </div>
-                            <div class="container lppswrd">
+                            <!-- <div class="container lppswrd">
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Lupa Password?') }}
                                 </a>
                                 @endif
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>

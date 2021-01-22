@@ -4,7 +4,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 @extends('template.master')
 @section('content')
-<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Form Data Petugas</h1>
         <div class="container">
             <div class="row">
@@ -71,7 +70,7 @@
                                                 @endif
                                           </div>
                                         </div>
-                                        <!-- <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
+                                        <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
                                             <label for="id_kecamatan" class="col-md-2 col-form-label">Daerah Tugas</label>
                                             <div class="col-md-10">
                                                 <select class="form-control" name="id_kecamatan" id="id_kecamatan" required oninvalid="this.setCustomValidity('Form Data Petugas Harap Diisi Semua')" oninput="setCustomValidity('')">
@@ -83,7 +82,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div> -->
+                                        </div>
                                         <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
                                             <label for="email" class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10">
@@ -104,5 +103,4 @@
                 </div>
             </div>
         </div>
-</div>
 @endsection

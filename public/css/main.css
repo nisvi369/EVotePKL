@@ -77,14 +77,6 @@
     color: coral;
   }
   
-  .form-control {
-    width: 250px;
-  }
-  
-  input {
-    text-align: center;
-  }
-  
   .form-horizontal .form-control {
     padding: 10px 0 10px 0;
     height: 40px;
@@ -196,8 +188,8 @@
   
   /* Detail */
   
-  .jumbotrontambah {
-    background-image: url('/img/indah.jpg');
+  .jumbotrondetail {
+    background-image: url('/img/kampanye.jpg');
     background-size: cover;
     width: 100%;
     min-height: 100vh;
@@ -669,5 +661,3 @@
   .table {
     color: black;
   }
-  
-  

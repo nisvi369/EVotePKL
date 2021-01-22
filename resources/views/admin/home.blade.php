@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="jumbotrondash">
-    @if (Auth::check() && Auth::user()->role_id == 1)
+    <!-- @if (Auth::check() && Auth::user()->role_id == 1)
     <div class="container judul">
         <h1>SELAMAT DATANG ADMIN!</h1>
     </div>
@@ -21,7 +21,9 @@
     </div>
     @endif
     @endif
-    @endif
+    @endif -->
+
+    <b>testtt</b>
 
 
 

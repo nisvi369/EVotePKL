@@ -4,7 +4,6 @@
 
 @section('content')
 
-<div class="jumbotrontambah">
 <h1 class="text-center mt-4 mb-4">Data Masyarakat</h1>
 <div class="container">
     <a href="{{ url('masyarakat/tambah') }}" class="btn btn-primary">Tambah Data</a>
@@ -30,7 +29,7 @@
                 <td>{{ $data->nik }}</td>
                 <td>{{ $data->jenis_kelamin }}</td>
                 <td>{{ $data->tanggal_lahir }}</td>
-                <td>{{ $data->pekerjaan }}</td>
+                <td>{{ $data->nama_pekerjaan }}</td>
                 <td>{{ $data->alamat }}</td>
                 <td>
                     <a href="{{ url('/masyarakat/update') }}/{{ $data->id }}" class="btn btn-warning">Edit</a>
@@ -40,6 +39,5 @@
             @endforeach
         </tbody>
     </table>
-</div>
 </div>
 @endsection
