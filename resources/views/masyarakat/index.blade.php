@@ -29,7 +29,7 @@
                 <td>{{ $data->nik }}</td>
                 <td>{{ $data->jenis_kelamin }}</td>
                 <td>{{ $data->tanggal_lahir }}</td>
-                <td>{{ $data->pekerjaan }}</td>
+                <td>{{ $data->nama_pekerjaan }}</td>
                 <td>{{ $data->alamat }}</td>
                 <td>
                     <a href="{{ url('/masyarakat/update') }}/{{ $data->id }}" class="btn btn-warning">Edit</a>

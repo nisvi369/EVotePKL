@@ -8,6 +8,12 @@ use DB;
 
 class KampanyeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function form(){
         return view ('Kandidat.formKampanye');
     }
@@ -20,15 +26,25 @@ class KampanyeController extends Controller
     }
 
     public function create(Request $request){
-        $gambar = $request->gambar;
-        $namafile = $gambar->getClientOriginalName();
+
+        $request->validate([
+            'gambar'    => 'required|mimes:jpg,jpeg,png|max:5000',
+            'judul'     => 'required|min:5|max:20|unique',
+            'waktu'     => 'required|date|unique',
+            'konten'    => 'required',
+            'alamat'    => 'required|max:50'
+        ]);
+        
+        $gambar     = $request->gambar;
+        $namafile   = $gambar->getClientOriginalName();
 
         $kampanye = new Kampanye;
-        $kampanye->id_masyarakat = $request->id_masyarakat;
-        $kampanye->judul = $request->judul;
-        $kampanye->waktu = date('y-m-d H:i');
-        $kampanye->konten = $request->konten;
-        $kampanye->gambar = $request->alamat;
+        $kampanye->id_masyarakat    = $request->id_masyarakat;
+        $kampanye->judul            = $request->judul;
+        $kampanye->waktu            = date('y-m-d H:i');
+        $kampanye->konten           = $request->konten;
+        $kampanye->gambar           = $request->gambar;
+        $kampanye->alamat           = $request->alamat;
 
         $gambar->move(public_path().'/img/fotoKampanye', $namafile);
 

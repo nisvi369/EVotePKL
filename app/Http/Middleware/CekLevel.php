@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
 
-class Admin
+class CekLevel
 {
     /**
      * Handle an incoming request.
@@ -14,11 +13,11 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, ...$levels)
     {
-        if (Auth::check() && Auth::user()->Admin()) {
-            return $next($request);
+        if(in_array($request->user()->level,$levels)){
+          return $next($request);
         }
-        return $next($request);
+        return redirect('/');
     }
 }

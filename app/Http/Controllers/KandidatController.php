@@ -9,8 +9,9 @@ use DB;
 
 class KandidatController extends Controller
 {
-    function __construct(){
-        $this->middleware('Kandidat');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     public function home(){
@@ -59,18 +60,23 @@ class KandidatController extends Controller
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
+        $request->validate([
+            'nomor_urut' => 'required|unique|max:5',
+            'jadwal'     => 'required|date',
+            'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
+        ]);
 
         $pemilihan = new Pemilihan();
-        $pemilihan->masyarakat_id = $masyarakat->id;
-        $pemilihan->nomor_urut  = $request->nomor_urut;
-        $pemilihan->jadwal      = $request->jadwal;
+        $pemilihan->masyarakat_id   = $masyarakat->id;
+        $pemilihan->nomor_urut      = $request->nomor_urut;
+        $pemilihan->jadwal          = $request->jadwal;
 
         if ($request->hasfile('foto')) {
-            $gambar     = $request->file('foto');
-            $new_gambar = rand().'.'.$gambar->getClientOriginalExtension();
+            $gambar                 = $request->file('foto');
+            $new_gambar             = rand().'.'.$gambar->getClientOriginalExtension();
             $gambar->move(public_path('img/foto_kandidat'), $new_gambar);
             $pemilihan->foto        = $new_gambar;
-            $masyarakat->level = "kandidat";
+            $masyarakat->level      = "kandidat";
             $masyarakat->update();
         }
 
@@ -91,6 +97,11 @@ class KandidatController extends Controller
     {
     	
     	// $pemilihan 	= Pemilihan::where('masyarakat_id', $masyarakat->id);
+        $request->validate([
+            'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
+            'nomor_urut'    => 'required|unique|max:5',
+            'jadwal'        => 'required|date',
+        ]);
 
         $gambar_lama    = $request->hidden_gambar;
         $gambar         = $request->file('foto');
@@ -100,10 +111,10 @@ class KandidatController extends Controller
     	$pemilihan->jadwal		= $request->jadwal;
         
         if ($request->hasfile('foto')) {
-            $gambar     = $request->file('foto');
-            $new_gambar = rand().'.'.$gambar->getClientOriginalExtension();
+            $gambar             = $request->file('foto');
+            $new_gambar         = rand().'.'.$gambar->getClientOriginalExtension();
             $gambar->move(public_path('img/foto_kandidat'), $new_gambar);
-            $pemilihan->foto        = $new_gambar;
+            $pemilihan->foto    = $new_gambar;
         }
 
     	

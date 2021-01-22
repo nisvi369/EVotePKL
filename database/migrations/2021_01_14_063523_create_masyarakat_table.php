@@ -15,15 +15,18 @@ class CreateMasyarakatTable extends Migration
     {
         Schema::create('masyarakat', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->string('nama');
             $table->string('nik');
+            $table->string('email');
+            $table->string('password');
             $table->enum('jenis_kelamin',['perempuan','laki-laki']);
             $table->date('tanggal_lahir');
             $table->string('alamat');
-            $table->string('pekerjaan');
             $table->string('level');
-            $table->string('password');
+            $table->bigInteger('pekerjaan_id')->unsigned()->index();
+            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

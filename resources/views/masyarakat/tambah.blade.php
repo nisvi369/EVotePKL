@@ -59,20 +59,27 @@
                                           <div class="form-group row mb-2 {{$errors->has('tanggal_lahir') ? 'has-error' : ''}}">
                                             <label for="tanggal_lahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-10">
-                                              <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" required="">                                              @if($errors->has('tanggal_lahir'))
+                                              <input type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="form-control" id="tanggal_lahir" required="">                                              @if($errors->has('tanggal_lahir'))
                                                   <span class="form-text text-danger">{{$errors->first('tanggal_lahir')}}</span>
                                               @endif
                                             </div>
                                           </div>
-                                          <div class="form-group row mb-2 {{$errors->has('pekerjaan') ? 'has-error' : ''}}">
-                                            <label for="pekerjaan" class="col-md-2 col-form-label">Pekerjaan</label>
+                                          <div class="form-group row mb-2 {{$errors->has('pekerjaan_id') ? 'has-error' : ''}}">
+                                            <label for="pekerjaan_id" class="col-md-2 col-form-label">Pekerjaan</label>
                                             <div class="col-md-10">
-                                              <input type="text" name="pekerjaan" class="form-control" id="pekerjaan" required="">
-                                              @if($errors->has('pekerjaan'))
-                                                  <span class="form-text text-danger">{{$errors->first('pekerjaan')}}</span>
-                                              @endif
+                                                <select class="form-control" name="pekerjaan_id" id="pekerjaan_id" required="">
+                                                    <option>-- Pilih Pekerjaan --</option>
+                                                    @foreach ($pekerjaan as $k)
+                                                        <option 
+                                                            value="{{ $k->id }}">{{ $k->nama_pekerjaan}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @if($errors->has('pekerjaan_id'))
+                                                  <span class="form-text text-danger">{{$errors->first('pekerjaan_id')}}</span>
+                                                @endif
                                             </div>
-                                          </div>
+                                        </div>
                                           <div class="form-group row mb-2 {{$errors->has('alamat') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Alamat</label>
                                             <div class="col-md-10">

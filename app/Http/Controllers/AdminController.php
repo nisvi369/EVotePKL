@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    function __construct(){
-        $this->middleware('Admin');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     public function home(){

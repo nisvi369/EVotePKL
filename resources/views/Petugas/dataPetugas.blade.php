@@ -13,10 +13,12 @@
                     <tr>
                         <th>NIK</th>
                         <th>Nama</th>
+                        <th>Jenis Kelamin</th>
                         <th>Tanggal Lahir</th>
                         <th>Alamat</th>
                         <th>Nama Kecamatan</th>
                         <th>Email</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>

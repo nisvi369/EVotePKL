@@ -2,84 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 use Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function postlogin (Request $request)
     {
-        $this->middleware('guest')->except('logout');
+    	// dd($request->all());
+
+    	// if (Auth::attempt($request->only('email', 'password'))) {
+    	// 	return redirect('/home');
+    	// }
+
+    	if (Auth::guard('masyarakat')->attempt(['email' => $request->email, 'password' => $request->password])) {
+    		return redirect('Masyarakat/home');
+    	}elseif (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+    		return redirect('Admin/home');
+    	}
+
+    	return redirect('/');
     }
 
-    /**
-     * Get the failed login response instance.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    protected function sendFailedLoginResponse(Request $request)
+    public function logout(Request $request)
     {
-        throw ValidationException::withMessages([
-            'akun' => [trans('auth.failed')],
-        ]);
-    }
-    /**
-     * Get the login username to be used by the controller.
-     *
-     * @return string
-     */
-    public function postSignIn(Request $request)
-    {
-        $signIn = request()->input('akun');
-        // if(is_numeric($login)){
-        //     $field = 'phone';
-        if (filter_var($signIn, FILTER_VALIDATE_EMAIL)) {
-            // $field = 'email';
-            return redirect('/Petugas/home');
-        } else {
-            return redirect('/Masyarakat/home');
-        }
-        request()->merge([$field => $signIn]);
-        return $field;
+    	// dd($request->all());
+    	if (Auth::guard('masyarakat')->check()){
+    		Auth::guard('masyarakat')->logout();
+    	}elseif (Auth::guard('user')->check()) {
+    		Auth::guard('masyarakat')->logout();
+    	}
+    	// Auth::logout();
+
+    	return redirect('signIn');
     }
 
-    public function postlogin(Request $request){    
-    }
-
-    public function logout(){
-        Auth::logout();
-        return redirect('/');
-    }
 }
