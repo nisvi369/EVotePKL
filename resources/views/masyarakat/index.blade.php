@@ -4,7 +4,6 @@
 
 @section('content')
 
-<div class="jumbotrontambah">
 <h1 class="text-center mt-4 mb-4">Data Masyarakat</h1>
 <div class="container">
     <a href="{{ url('masyarakat/tambah') }}" class="btn btn-primary">Tambah Data</a>
@@ -40,6 +39,5 @@
             @endforeach
         </tbody>
     </table>
-</div>
 </div>
 @endsection

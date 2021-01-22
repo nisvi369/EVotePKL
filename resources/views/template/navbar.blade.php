@@ -12,11 +12,7 @@
         @if(Str::length(Auth::guard('user')->user()) > 0)
         @if(Auth::guard('user')->user()->level == "admin")
         <li class="nav-item px-2">
-<<<<<<< HEAD
           <a href="/dataPetugas" class="nav-link">Data Petugas</a>
-=======
-          <a href="{{ url('/dataPetugas') }}" class="nav-link">Data Petugas</a>
->>>>>>> 4f5143eec7ce709fc202b55e3657de1510b277c5
         </li>
         @endif
         @endif

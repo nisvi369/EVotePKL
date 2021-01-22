@@ -3,7 +3,6 @@
 @section('title', 'Tambah Data')
 
 @section('content')
-<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Tambah Data</h1>
 
             <div class="container">
@@ -101,5 +100,4 @@
                     </div>
                 </div>
             </div>
-</div>
 @endsection
