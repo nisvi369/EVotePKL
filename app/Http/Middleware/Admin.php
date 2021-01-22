@@ -19,6 +19,6 @@ class Admin
         if (Auth::check() && Auth::user()->Admin()) {
             return $next($request);
         }
-        return $next($request);
+        return redirect('/signIn');
     }
 }

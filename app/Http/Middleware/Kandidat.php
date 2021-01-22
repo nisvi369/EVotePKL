@@ -19,6 +19,6 @@ class Kandidat
         if (Auth::check() && Auth::user()->Masyarakat()->level == 'kandidat') {
             return $next($request);
         }
-        return $next($request);
+        return redirect('/signIn');
     }
 }

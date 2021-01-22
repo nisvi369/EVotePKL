@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form method="POST" action="/Petugas/postFormPetugas" enctype="multipart/form-data">
+                                    <form method="POST" action="/postFormPetugas" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="form-group row mb-2 {{$errors->has('NIK') ? 'has-error' : ''}}">
                                             <label for="NIK" class="col-md-2 col-form-label">NIK</label>

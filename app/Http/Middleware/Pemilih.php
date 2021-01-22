@@ -19,6 +19,6 @@ class Pemilih
         if (Auth::check() && Auth::user()->Masyarakat()->level == 'pemilih') {
             return $next($request);
         }
-        return $next($request);
+        return redirect('/signIn');
     }
 }

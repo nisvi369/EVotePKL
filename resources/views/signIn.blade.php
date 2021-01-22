@@ -5,6 +5,11 @@
 @section('content')
 <div class="jumbotrondash">
 <div class="container">
+    @if(session('alert'))
+        <div class="alert alert-success" role="alert">
+        {{session('alert')}}
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-mr-auto">
             <div class="container text-center logo">
@@ -20,14 +25,14 @@
 
                         <div class="form-group text-center spnemail">
                             <div class="row">
-                                <label for="email" class="col">{{ __('E-Mail Atau NIK') }}</label>
+                                <label for="akun" class="col">{{ __('E-Mail Atau NIK') }}</label>
                             </div>
 
                             <div class="row text-center">
                                 <div class="col"></div>
                                 <div class="col form-horizontal text-center">
                                     <input id="akun" type="akun"
-                                        class="form-control @error('username') is-invalid @enderror" name="akun"
+                                        class="form-control @error('akun') is-invalid @enderror" name="akun"
                                         value="{{ old('akun') }}" required autofocus>
                                     @error('akun')
                                     <span class="invalid-feedback" role="alert">

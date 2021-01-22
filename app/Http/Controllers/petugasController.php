@@ -29,6 +29,7 @@ class petugasController extends Controller
             'tanggalLahir' => 'required',
             'alamat' => 'required',
             'email' => 'required',
+            'id_kecamatan' => 'required',
           ]);
 
         $petugas = new Petugas;
@@ -39,7 +40,7 @@ class petugasController extends Controller
         $petugas->alamat = $request->alamat;
         $petugas->email = $request->email;
         $petugas->password = bcrypt('rahasia');
-        $petugas->id_kecamatan = 1;
+        $petugas->id_kecamatan = $request->id_kecamatan;
 
         $petugas->save();
 

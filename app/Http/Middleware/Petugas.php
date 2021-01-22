@@ -19,6 +19,6 @@ class Petugas
         if (Auth::check() && Auth::user()->Petugas()) {
             return $next($request);
         }
-        return $next($request);
+        return redirect('/signIn');
     }
 }
