@@ -39,6 +39,15 @@
                                     @endif
                                   </div>
                                 </div>
+                                <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
+                                  <label for="email" class="col-md-2 col-form-label">Email</label>
+                                  <div class="col-md-10">
+                                    <input name="email" type="email" min="0" class="form-control" id="email" value="{{ $masyarakat->email }}" required="">
+                                    @if($errors->has('email'))
+                                        <span class="form-text text-danger">{{$errors->first('email')}}</span>
+                                    @endif
+                                  </div>
+                                </div>
                                 <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
                                   <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                                   <div class="col-md-10">
@@ -87,7 +96,7 @@
                                   </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">EDIT</button>
-                                <a href="{{ url('/') }}" class="btn btn-outline-primary">Kembali</a>
+                                <a href="{{ url('/masyarakat') }}" class="btn btn-outline-primary">Kembali</a>
                               </form>
 
                           </div>

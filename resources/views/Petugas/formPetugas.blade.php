@@ -1,8 +1,7 @@
 @extends('template.master')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-@extends('template.master')
+@section('title', 'Data Petugas')
+
 @section('content')
     <h1 class="text-center mt-4 mb-4">Form Data Petugas</h1>
         <div class="container">
@@ -84,14 +83,15 @@
                                             </div>
                                         </div>
                                         <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
-                                            <label for="email" class="col-md-2 col-form-label">Email</label>
+                                            <label for="alamat" class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10">
-                                                <input name="email" class="form-control" id="email" required="">{{ old('email') }}</input>
+                                                <input type="email" name="email" class="form-control" id="email" required="">
                                                 @if($errors->has('email'))
                                                     <span class="form-text text-danger">{{$errors->first('email')}}</span>
                                                 @endif
-                                            </div>
+                                          </div>
                                         </div>
+                                     
                                         <br>
                                         <button type="submit" class="btn btn-info">Simpan</button>
                                         <a href="/dataKampanye" class="btn btn-light">Kembali</a>

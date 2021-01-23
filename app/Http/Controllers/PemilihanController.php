@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Masyarakat;
 use \App\Pemilihan;
 use \App\Hasil;
+use Auth;
 use DB;
 
 class PemilihanController extends Controller
@@ -14,7 +15,7 @@ class PemilihanController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
     	$data = DB::table('masyarakat')
@@ -30,7 +31,7 @@ class PemilihanController extends Controller
     	$pemilihan     = Pemilihan::where('id', $id)->first();
 
     	$hasil = new Hasil();
-        $hasil->masyarakat_id 	= 1;
+        $hasil->masyarakat_id 	= Auth::user()->id;
         $hasil->pemilihan_id	= $pemilihan->id;
         // $hasil->hasil_pilihan	= $request->nomor;
         $hasil->save();

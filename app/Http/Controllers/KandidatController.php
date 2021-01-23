@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Masyarakat;
 use \App\Pemilihan;
+use \App\Pekerjaan;
 use DB;
 
 class KandidatController extends Controller
@@ -20,7 +21,13 @@ class KandidatController extends Controller
 
     public function tambah()
     {
-    	$masyarakat = Masyarakat::all();
+    	// $masyarakat = Masyarakat::all();
+        // $masyarakat = Masyarakat::where('level', '!=', 'petugas')->get();
+        $masyarakat = DB::table('masyarakat')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
+        -> where('masyarakat.level', '!=', "petugas")
+        -> get();
 
     	return view('kandidat.tambah', compact('masyarakat'));
     }
@@ -61,7 +68,7 @@ class KandidatController extends Controller
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
-            'nomor_urut' => 'required|unique|max:5',
+            'nomor_urut' => 'required|max:5',
             'jadwal'     => 'required|date',
             'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
         ]);
@@ -99,7 +106,7 @@ class KandidatController extends Controller
     	// $pemilihan 	= Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
             'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
-            'nomor_urut'    => 'required|unique|max:5',
+            'nomor_urut'    => 'required|max:5',
             'jadwal'        => 'required|date',
         ]);
 

@@ -14,7 +14,7 @@ class MasyarakatController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
 	public function home(){
         return view('Masyarakat.home');
 	}
@@ -25,7 +25,8 @@ class MasyarakatController extends Controller
 
         $masyarakat = DB::table('masyarakat')
         -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
-        -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','pekerjaan.nama_pekerjaan')
+        -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','pekerjaan.nama_pekerjaan')
+        -> where('masyarakat.level', '!=', 'petugas')
         -> get();
 
     	// dd($masyarakat);
@@ -49,6 +50,7 @@ class MasyarakatController extends Controller
     		'pekerjaan_id' 	=> 'required',
     		'tanggal_lahir' => 'required|date',
     		'jenis_kelamin'	=> 'required',
+            'email'         => 'required|email',
     	]);
 
 
@@ -59,6 +61,7 @@ class MasyarakatController extends Controller
     		'alamat' 		=> $request->alamat,
     		'tanggal_lahir' => $request->tanggal_lahir,
     		'jenis_kelamin'	=> $request->jenis_kelamin,
+            'email'         => $request->email,
     		'level'			=> "pemilih",
     		'password'		=> bcrypt('rahasia'),
     	);
@@ -77,7 +80,7 @@ class MasyarakatController extends Controller
 
         $masyarakat = DB::table('masyarakat')
         -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
-        -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','pekerjaan.nama_pekerjaan')
+        -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','pekerjaan.nama_pekerjaan')
         -> where('masyarakat.id','=',$id)
         -> first();
 
@@ -95,6 +98,7 @@ class MasyarakatController extends Controller
     		'pekerjaan_id' 	=> 'required',
     		'tanggal_lahir' => 'required|date',
     		'jenis_kelamin'	=> 'required',
+            'email'         => 'required|email',
 		]);
 
     	$masyarakat = Masyarakat::where('id', $request->id)->first();
@@ -104,6 +108,7 @@ class MasyarakatController extends Controller
         $masyarakat->pekerjaan_id   = $request->pekerjaan_id;
         $masyarakat->tanggal_lahir  = $request->tanggal_lahir;
         $masyarakat->jenis_kelamin 	= $request->jenis_kelamin;
+        $masyarakat->email          = $request->email;
 
         $masyarakat->update();
 

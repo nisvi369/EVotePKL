@@ -5,11 +5,6 @@
 @section('content')
 
 <div class="container">
-    @if(session('alert'))
-        <div class="alert alert-success" role="alert">
-        {{session('alert')}}
-        </div>
-    @endif
     <div class="row justify-content-center">
         <div class="col-mr-auto">
             <div class="container text-center logo">
