@@ -24,24 +24,7 @@
     @endif -->
 
 
+
 </div>
-<br>
-<div class="menu">
-<div class="judul">
-        <h1>KAMPANYE KANDIDAT </h1>
-</div>
-<div class="row">
-          <div class="col-lg-4">
-            <div class="box">
-              <img src="/img/kampanye/2.jpg" height="100%" width="100%" alt="" srcset="">
-              <h4>apaaaaa</h4>
-              <h6>embuhh</h6>
-              <p style="text-align: justify">lallalalal</p>
-              <div class="aksi1">
-                <a href="#">More<a>
-              </div><hr>
-            </div>
-          </div>
-        </div>
-        </div>
+
 @endsection

@@ -32,6 +32,5 @@
   <!-- ISI -->
 
   @yield('content')
- 
 
-@include('template.footer')
+  @include('template.footer')

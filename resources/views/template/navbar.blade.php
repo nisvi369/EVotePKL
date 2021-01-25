@@ -28,9 +28,12 @@
         <li class="nav-item px-2">
           <a href="#" class="nav-link">Data Kampanye</a>
         </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/periode') }}" class="nav-link">Periode</a>
+        </li>
         @endif
 
-        @if(auth()->user()->level == 'pemilih')
+        @if(auth()->user()->level == 'pemilih' || auth()->user()->level == 'kandidat')
         <li class="nav-item px-2">
           <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
         </li>
@@ -45,7 +48,7 @@
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" v-pre>
-             <span class="caret">Profil</span>
+             <span class="caret"></span>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -20,12 +20,10 @@ Route::get('/', function () {
 //     return view('user.login');
 // })->name('login');
 
-Route::get('/tentang', 'HomeController@tentang')->name('tentang');
-
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/home/profil_saya/{id}', 'HomeController@profil_saya')->name('home.profil_saya');
-// Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
-// Route::post('/home/update/{id}', 'HomeController@update')->name('home.update');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/profil_saya/{id}', 'HomeController@profil_saya')->name('home.profil_saya');
+Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
+Route::post('/home/update/{id}', 'HomeController@update')->name('home.update');
 
 Route::get('/', 'EVoteController@landing');
 Route::get('/signIn', 'EVoteController@signIn')->name('login');
@@ -57,9 +55,12 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/kandidat/dataKampanye', 'kampanyeController@data');
     Route::get('/kandidat/tambahKampanye', 'kampanyeController@form');
     Route::post('/kandidat/postFormKampanye', 'kampanyeController@create');
+
+    Route::get('/periode', 'PeriodeController@index');
+    Route::post('/periode', 'PeriodeController@atur_periode');
 });
 
-Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:petugas,pemilih']],function(){
+Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:petugas,pemilih,kandidat']],function(){
     Route::get('/Masyarakat/home', 'MasyarakatController@home');
 });
 
@@ -72,7 +73,7 @@ Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:petugas']],function(
     Route::get('/masyarakat/delete/{id}', 'MasyarakatController@delete');
 });
 
-Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih']],function(){
+Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],function(){
     Route::get('/pemilihan', 'PemilihanController@index');
     Route::post('/pilih/{id}', 'PemilihanController@pilih_kandidat');
     Route::get('/hasil_voting', 'PemilihanController@grafik');
