@@ -16,10 +16,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/profil_saya/{id}', 'HomeController@profil_saya')->name('home.profil_saya');
-Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
-Route::post('/home/update/{id}', 'HomeController@update')->name('home.update');
+Route::get('/tentang', 'HomeController@tentang')->name('tentang');
+
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home/profil_saya/{id}', 'HomeController@profil_saya')->name('home.profil_saya');
+// Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
+// Route::post('/home/update/{id}', 'HomeController@update')->name('home.update');
 
 Route::get('/', 'EVoteController@landing');
 Route::get('/signIn', 'EVoteController@signIn');
@@ -70,3 +72,4 @@ Route::group(['middleware' => ['auth'=>'Petugas']],function(){
 Route::group(['middleware' => ['auth'=>'Admin']],function(){
     Route::get('/Admin/home', 'AdminController@home');
 });
+

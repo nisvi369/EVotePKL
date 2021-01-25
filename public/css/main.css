@@ -77,9 +77,6 @@
     color: coral;
   }
   
-  .form-control {
-    width: 250px;
-  }
   
   input {
     text-align: center;
@@ -105,7 +102,7 @@
   .container .cn {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
   }
   
   .container .cn-l {
@@ -165,13 +162,12 @@
   
   .judul {
     font-family: 'Viga', sans-serif;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.87);
-    border-radius: 50px;
-    padding-top: 10px;
+    background-color: rgba(247, 158, 158, 0.87);
+    border-radius: 30px;
+
     justify-content: center;
     text-align: center;
-    padding-top: 30px;
+
   }
   
   .konten {
@@ -303,64 +299,7 @@
     color: black;
   }
   
-  /* Jumbotron Rekomendasi Pakan */
   
-  .jumbotron-rekomendasi {
-    background-image: url('/img/2727.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
-  
-  .jumbotron-pilihan {
-    background-color: rgba(0, 0, 0, 0.76);
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    justify-content: center;
-    padding: 1rem;
-    color: white;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-  
-  .container-pilihan {
-    background-color: white;
-    background-size: cover;
-    width: 70%;
-    min-height: 65vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    border-radius: 50px;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
   
   .container-1 {
     background-color: coral;
@@ -387,48 +326,6 @@
     border-color: coral;
   }
   
-  /* Ayam Sehat & Sakit*/
-  .jumbotron-ayam-sehat {
-    background-image: url('/img/2727.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
-  
-  .jumbotron-ayam-sakit {
-    background-image: url('/img/2727.jpg');
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  
-    font-family: 'Viga', sans-serif;
-  }
   
   .jumbotron-form {
     background-color: rgba(0, 0, 0, 0.76);
@@ -453,10 +350,22 @@
       background-color: rgb(255, 255, 255);
       border-radius: 10px;
       text-align: center;
+      text-decoration: coral;
       width: 600px;
       height: 630px;
       box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
       font-family: 'Viga', sans-serif;
+  }
+  .containerjudul{
+
+    text-align: center;
+    text-decoration: coral;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Viga', sans-serif;
+    text-decoration-color: coral;
+  }
+  .containerjudul .isi{
+    color: rgb(252, 156, 92);
   }
   
   .logo-ayam-sehat img {
@@ -484,68 +393,15 @@
     color: coral;
   }
   
-  .container .hitung {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    text-align: center;
-    width: 600px;
-    height: 660px;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
-    font-family: 'Viga', sans-serif;
-  }
-  
-  .container .hitungs {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    text-align: center;
-    width: 600px;
-    height: 400px;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
-    font-family: 'Viga', sans-serif;
-  }
+
+
   
   .input_hitung {
     font-size: 20px;
     font-weight: bold;
   }
   
-  /* Ayam Sehat & Sakit Hasil */
-  .jumbotron-hasil {
-    background-color: rgba(0, 0, 0, 0.76);
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    justify-content: center;
-    padding: 1rem;
-    color: white;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-  
-  .container-hasil {
-    background-color: coral;
-    background-size: cover;
-    width: 60%;
-    min-height: 65vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    border-radius: 10px;
-  
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-  
+    
   .row1 {
     background-color: white;
     height: 60px;
@@ -670,4 +526,55 @@
     color: black;
   }
   
+/*section kampanye*/
+.menu .row2{
+  margin: 10px;
+
+}  
+ 
+.menu .box {
+  padding: 50px 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.3s;
+  margin-bottom: 30px;
+
   
+}
+
+
+.menu .box span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #48D1CC;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.menu .box h4 {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin: 20px 0;
+  color: #6c665c;
+}
+
+.menu .box p {
+  color: #aaaaaa;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu .box:hover {
+  background: #c6f5f5;
+  /* padding: 30px 30px 70px 30px; */
+  /* box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18); */
+}
+
+.menu .p{
+  text-decoration: coral;
+  text-align: center;
+  
+
+}
