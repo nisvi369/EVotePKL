@@ -3,7 +3,6 @@
 @section('title', 'Data Kandidat')
 
 @section('content')
-<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Data Kandidat</h1>
     <div class="container">
         <div class="row">
@@ -42,7 +41,7 @@
                         <td>{{ $data->nik }}</td>
                         <td>{{ $data->jenis_kelamin }}</td>
                         <td>{{ $data->tanggal_lahir }}</td>
-                        <td>{{ $data->pekerjaan }}</td>
+                        <td>{{ $data->nama_pekerjaan }}</td>
                         <td>{{ $data->alamat }}</td>
                         
                         <td>
@@ -66,5 +65,4 @@
             </table>
        </div>
    </div>
-</div>
 @endsection

@@ -41,26 +41,28 @@ return [
             'provider' => 'users',
         ],
 
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admin'
-        ],
-
-        'petugas' => [
-            'driver' => 'session',
-            'provider' => 'petugas'
-        ],
-
-        'masyarakat' => [
-            'driver' => 'session',
-            'provider' => 'masyarakat'
-        ],
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'masyarakat' => [
+            'driver' => 'session',
+            'provider' => 'masyarakats'
+        ],
+
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users'
+        ],
+
+        // 'petugas' => [
+        //     'driver' => 'session',
+        //     'provider' => 'petugas'
+        // ],
+
+        
     ],
 
     /*
@@ -86,20 +88,20 @@ return [
             'model' => App\User::class,
         ],
 
-        'admin' => [
+        'masyarakats' => [
             'driver' => 'eloquent',
-            'table' => App\Admin::class,
+            'model' => App\Masyarakat::class,
         ],
 
-        'petugas' => [
-            'driver' => 'eloquent',
-            'table' => App\Petugas::class,
-        ],
+        // 'admin' => [
+        //     'driver' => 'eloquent',
+        //     'table' => App\Admin::class,
+        // ],
 
-        'masyarakat' => [
-            'driver' => 'eloquent',
-            'table' => App\Masyarakat::class,
-        ],
+        // 'petugas' => [
+        //     'driver' => 'eloquent',
+        //     'table' => App\Petugas::class,
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',

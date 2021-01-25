@@ -3,7 +3,7 @@
 @section('title', 'Data Petugas')
 
 @section('content')
-<div class="jumbotrontambah">
+<div class="jubotrondashm">
         <h1 class="text-center mt-4 mb-4">Data Petugas</h1>
         <div class="container">
             <a href="/tambahPetugas" class="btn btn-primary mb-4">Tambah Data</a>
@@ -13,10 +13,12 @@
                     <tr>
                         <th>NIK</th>
                         <th>Nama</th>
+                        <th>Jenis Kelamin</th>
                         <th>Tanggal Lahir</th>
                         <th>Alamat</th>
                         <th>Nama Kecamatan</th>
                         <th>Email</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,5 +42,4 @@
                 </tbody>
             </table>
         </div>
-</div>
         @endsection

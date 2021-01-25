@@ -3,7 +3,6 @@
 @section('title', 'Data Petugas')
 
 @section('content')
-<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Form Data Petugas</h1>
         <div class="container">
             <div class="row">
@@ -70,7 +69,7 @@
                                                 @endif
                                           </div>
                                         </div>
-                                        <!-- <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
+                                        <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
                                             <label for="id_kecamatan" class="col-md-2 col-form-label">Daerah Tugas</label>
                                             <div class="col-md-10">
                                                 <select class="form-control" name="id_kecamatan" id="id_kecamatan" required oninvalid="this.setCustomValidity('Form Data Petugas Harap Diisi Semua')" oninput="setCustomValidity('')">
@@ -82,7 +81,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div> -->
+                                        </div>
                                         <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10">
@@ -104,5 +103,4 @@
                 </div>
             </div>
         </div>
-</div>
 @endsection

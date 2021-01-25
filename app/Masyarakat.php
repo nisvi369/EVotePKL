@@ -2,23 +2,27 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Masyarakat extends Model
+class Masyarakat extends Authenticatable
 {
-    protected $table = 'masyarakat';
-    protected $primaryKey = 'id';
-    protected $fillable = ['nama', 'nik', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'pekerjaan', 'level', 'password'];
+    use Notifiable;
 
-    public function pemilihan()
-    {
-        return $this->hasMany('App\Pemilihan', 'masyarakat_id', 'id');
-    }
-    public function Kampanye() {
-    	return $this->hasOne('App\Kampanye');
-    }
-    public function hasil()
-    {
-        return $this->hasOne('App\Hasil', 'masyarakat_id');
-    }
+    protected $table = "masyarakat";
+    protected $primaryKey = "id";
+    protected $fillable = [
+        'nama', 'nik', 'password', 'email', 'jenis_kelamin', 'tanggal_lahir', 'alamat', 'pekerjaan_id', 'level',
+    ];
+
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

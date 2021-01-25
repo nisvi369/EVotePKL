@@ -9,38 +9,39 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
+        @if(auth()->user()->level == 'admin')
+        <li class="nav-item px-2">
+          <a href="/dataPetugas" class="nav-link">Data Petugas</a>
+        </li>
+        @endif
+
+        @if(auth()->user()->level == 'petugas')
+        <li class="nav-item px-2">
+          <a href="{{ url('/masyarakat') }}" class="nav-link">Data Masyarakat</a>
+        </li>
+        @endif
+        
+        @if(auth()->user()->level == 'admin')
+        <li class="nav-item px-2">
+          <a href="{{ url('/kandidat') }}" class="nav-link">Data Kandidat</a>
+        </li>
         <li class="nav-item px-2">
           <a href="#" class="nav-link">Data Kampanye</a>
         </li>
+        @endif
+
+        @if(auth()->user()->level == 'pemilih')
         <li class="nav-item px-2">
           <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
         </li>
-        <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" v-pre>
-             <span class="caret">Data User</span>
-          </a>
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a href="{{ url('/dataPetugas') }}" class="dropdown-item">Data Petugas</a>
-          <a href="{{ url('/masyarakat') }}" class="dropdown-item">Data Masyarakat</a>
-          <a href="{{ url('/kandidat') }}" class="dropdown-item">Data Kandidat</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" v-pre>
-             <span class="caret">Tentang</span>
-          </a>
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a href="{{ url('/tentang') }}" class="dropdown-item">Contact Us</a>
-          <a href="{{ url('/masyarakat') }}" class="dropdown-item">About Us</a>
-          </div>
-        </li>
+        @endif
       </ul>
       <ul class="navbar-nav ml-auto">
-        
+          @if(Str::length(Auth::guard('masyarakat')->user()) > 0)
+          <b>{{ Auth::guard('masyarakat')->user()->nama }}</b>
+          @elseif(Str::length(Auth::guard('user')->user()) > 0)
+          <b>{{ Auth::guard('user')->user()->name }}</b>
+          @endif
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" v-pre>
@@ -49,7 +50,7 @@
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Profil Saya</a>
-            <a class="dropdown-item" href="/logout">
+            <a class="dropdown-item" href="{{ route('logout') }}">
               LOGOUT
             </a>
           </div>

@@ -6,10 +6,16 @@ use Illuminate\Http\Request;
 use \App\Masyarakat;
 use \App\Pemilihan;
 use \App\Hasil;
+use Auth;
 use DB;
 
 class PemilihanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
     	$data = DB::table('masyarakat')
@@ -21,11 +27,11 @@ class PemilihanController extends Controller
 
     public function pilih_kandidat(Request $request, $id)
     {
-    	$masyarakat = Masyarakat::where('id', $id)->first();
-    	$pemilihan = Pemilihan::where('id', $id)->first();
+    	$masyarakat    = Masyarakat::where('id', $id)->first();
+    	$pemilihan     = Pemilihan::where('id', $id)->first();
 
     	$hasil = new Hasil();
-        $hasil->masyarakat_id 	= 1;
+        $hasil->masyarakat_id 	= Auth::user()->id;
         $hasil->pemilihan_id	= $pemilihan->id;
         // $hasil->hasil_pilihan	= $request->nomor;
         $hasil->save();
@@ -38,13 +44,14 @@ class PemilihanController extends Controller
     	$hasil = [];
 
     	$pemilihan = Pemilihan::get();
+        
     	foreach ($pemilihan as $key => $pilihan) {
     		$pemilihan_id = $pilihan->id;
-    		$no_urut = $pilihan->nomor_urut;
-    		$total = Hasil::where('pemilihan_id', $pemilihan_id)->count();
+    		$no_urut      = $pilihan->nomor_urut;
+    		$total        = Hasil::where('pemilihan_id', $pemilihan_id)->count();
 
-    		$a['name'] = 'Nomor Urur: '.$no_urut;
-    		$a['y'] = $total;
+    		$a['name']    = 'Nomor Urut: '.$no_urut;
+    		$a['y']       = $total;
     		array_push($hasil, $a);
     	}
     	return view('pemilihan.grafik', compact('hasil'));

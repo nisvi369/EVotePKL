@@ -9,9 +9,11 @@ use DB;
 
 class petugasController extends Controller
 {
-    function __construct(){
-        $this->middleware('Petugas');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+    
     public function home(){
         return view('Petugas.home');
     }
@@ -23,23 +25,23 @@ class petugasController extends Controller
 
     public function create(Request $request){
         $request->validate([
-            'NIK' => 'required',
-            'nama' => 'required',
-            'jenisKelamin' => 'required',
-            'tanggalLahir' => 'required',
-            'alamat' => 'required',
-            'email' => 'required',
+            'NIK'           => 'required|max:17',
+            'nama'          => 'required|max:20',
+            'jenisKelamin'  => 'required',
+            'tanggalLahir'  => 'required|date',
+            'alamat'        => 'required|max:50',
+            'email'         => 'required|email|unique',
           ]);
 
         $petugas = new Petugas;
-        $petugas->NIK = $request->NIK;
-        $petugas->nama = $request->nama;
-        $petugas->jenisKelamin = $request->jenisKelamin;
-        $petugas->tanggalLahir = $request->tanggalLahir;
-        $petugas->alamat = $request->alamat;
-        $petugas->email = $request->email;
-        $petugas->password = bcrypt('rahasia');
-        $petugas->id_kecamatan = 1;
+        $petugas->NIK           = $request->NIK;
+        $petugas->nama          = $request->nama;
+        $petugas->jenisKelamin  = $request->jenisKelamin;
+        $petugas->tanggalLahir  = $request->tanggalLahir;
+        $petugas->alamat        = $request->alamat;
+        $petugas->email         = $request->email;
+        $petugas->password      = bcrypt('rahasia');
+        $petugas->id_kecamatan  = $request->id_kecamatan;
 
         $petugas->save();
 
@@ -47,6 +49,7 @@ class petugasController extends Controller
     }
 
     public function data(){
+
         $petugas = DB::table('petugas')
         -> join('kecamatan','kecamatan.id', '=', 'petugas.id_kecamatan')
         -> select('petugas.id','petugas.nik','petugas.nama','petugas.jenisKelamin','petugas.alamat','petugas.tanggalLahir','kecamatan.namaKecamatan','petugas.email')
@@ -56,6 +59,7 @@ class petugasController extends Controller
     }
 
     public function edit($id){
+
         $kecamatan = Kecamatan::all();
         $petugas = DB::table('petugas')
         -> join('kecamatan','kecamatan.id', '=', 'petugas.id_kecamatan')
@@ -69,17 +73,25 @@ class petugasController extends Controller
     public function update (Request $request,$id) {
 
         $petugas = Petugas::findOrFail($id);
-   
+    
+        $request->validate([
+            'nik'           => 'required|min:3|max:17',
+            'nama'          => 'required|max:20',
+            'jenisKelamin'  => 'required',
+            'tanggalLahir'  => 'required|date',
+            'alamat'        => 'required|max:50',
+            'email'         => 'required|email|unique',
+        ]);
   
         $petugas->update([
-            $petugas->nik = $request->nik,
-            $petugas->nama = $request->nama,
-            $petugas->jenisKelamin = $request->jenisKelamin,
-            $petugas->tanggalLahir = $request->tanggalLahir,
-            $petugas->alamat = $request->alamat,
-            $petugas->email = $request->email,
-            $petugas->password = $request->password,
-            $petugas->id_kecamatan = $request->id_kecamatan,
+            $petugas->nik           = $request->nik,
+            $petugas->nama          = $request->nama,
+            $petugas->jenisKelamin  = $request->jenisKelamin,
+            $petugas->tanggalLahir  = $request->tanggalLahir,
+            $petugas->alamat        = $request->alamat,
+            $petugas->email         = $request->email,
+            $petugas->password      = $request->password,
+            $petugas->id_kecamatan  = $request->id_kecamatan,
         ]);
         $petugas->save();
         
@@ -87,6 +99,7 @@ class petugasController extends Controller
         }
 
     public function hapus($id){
+        
         $petugas = \App\Petugas::find($id);
         $petugas->delete();
         

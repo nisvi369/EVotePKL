@@ -3,7 +3,6 @@
 @section('title', 'Edit Kandidat')
 
 @section('content')
-<div class="jumbotrontambah">
     <h1 class="text-center mt-4 mb-4">Edit Kandidat</h1>
 
             <div class="container">
@@ -54,7 +53,7 @@
                                           </div>
                                           
                                           <button type="submit" class="btn btn-primary">SIMPAN</button>
-                                          <a href="{{ url('/') }}" class="btn btn-outline-primary">Kembali</a>
+                                          <a href="{{ url('/kandidat') }}" class="btn btn-outline-primary">Kembali</a>
                                         </form>
 
                                     </div>
@@ -64,5 +63,4 @@
                     </div>
                 </div>
             </div>
-</div>
 @endsection
