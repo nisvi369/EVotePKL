@@ -6,7 +6,11 @@
     <h1 class="text-center mt-4 mb-4">Voting</h1>
     <div class="container">
       <a href="{{ url('/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
-        <div class="row">
+      <div class="alert alert-warning" role="alert">
+        Tanggal Pemilihan dimulai : {{ $tanggal_awal->tanggal }} berakhir {{ $tanggal_akhir->tanggal }}
+      </div>
+      
+        <div class="row justify-content-center">
 
             <!-- <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
@@ -17,9 +21,13 @@
                 </nav>
             </div> -->
 
+            <?php
+                $hide  = \App\Hasil::where('masyarakat_id', Auth::user()->id)->first();
+            ?>
+
             @foreach($data as $kandidat)
             @if($kandidat->level == "kandidat")
-            <div class="col-sm-4 text-center">
+            <div class="col-md-4 text-center">
                 <div class="shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
                   <h1 class="card-title text-center">{{ $kandidat->nomor_urut }}</h1>
                   <img src="{{ url('img/foto_kandidat') }}/{{ $kandidat->foto }}" class="card-img-top" alt="...">
@@ -35,7 +43,11 @@
                     <form action="{{ url('pilih') }}/{{ $kandidat->id }}" method="POST">
                       @csrf
                       <!-- <input type="radio" name="nomor" id="nomor"> <br> -->
+                      @if(empty($hide))
                       <button type="submit" class="btn btn-primary">Pilih</button>
+                      @else
+                      <p style="color: red;">Sudah Memilih</p>
+                      @endif
                     </form>
                   </div>
                 </div>
