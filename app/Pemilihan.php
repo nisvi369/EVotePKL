@@ -8,7 +8,7 @@ class Pemilihan extends Model
 {
     protected $table = 'pemilihan';
     protected $primaryKey = 'id';
-    protected $fillable = ['jadwal', 'nomor_urut', 'foto', 'pemilihan_id', 'masyarakat_id'];
+    protected $fillable = ['jadwal', 'nomor_urut', 'foto'];
 
     public function masyarakat()
 	{

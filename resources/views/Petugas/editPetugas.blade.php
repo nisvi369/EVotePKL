@@ -25,7 +25,7 @@
                                         <div class="form-group row mb-2 {{$errors->has('nik') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">NIK</label>
                                             <div class="col-md-10">
-                                                <input name="nik" class="form-control" id="nik" value="{{$petugas->nik}}"</input>
+                                                <input name="nik" class="form-control" id="nik" value="{{$petugas->nik}}">
                                                 @if($errors->has('nik'))
                                                     <span class="form-text text-danger">{{$errors->first('nik')}}</span>
                                                 @endif
@@ -34,7 +34,7 @@
                                         <div class="form-group row mb-2 {{$errors->has('nama') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Nama</label>
                                             <div class="col-md-10">
-                                                <input name="nama" class="form-control" id="nama'" value="{{$petugas->nama}}"</input>
+                                                <input name="nama" class="form-control" id="nama'" value="{{$petugas->nama}}">
                                                 @if($errors->has('nama'))
                                                     <span class="form-text text-danger">{{$errors->first('nama')}}</span>
                                                 @endif

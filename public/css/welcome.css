@@ -51,3 +51,56 @@
     border: none;
     border-radius: 20px;
   }
+
+  .menu .row2{
+    margin: 10px;
+  
+  }  
+   
+  .menu .box {
+    padding: 50px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    margin-bottom: 30px;
+  
+    
+  }
+  
+  
+  .menu .box span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #48D1CC;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .menu .box h4 {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: #6c665c;
+  }
+  
+  .menu .box p {
+    color: #aaaaaa;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu .box:hover {
+    background: #c6f5f5;
+    /* padding: 30px 30px 70px 30px; */
+    /* box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18); */
+  }
+  
+  .menu .p{
+    text-decoration: coral;
+    text-align: center;
+    
+  
+  }
+  

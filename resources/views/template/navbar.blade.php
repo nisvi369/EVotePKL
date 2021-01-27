@@ -3,7 +3,15 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0 nav_set">
   <div class="container">
-    <a href="" class="navbar-brand">DASHBOARD+</a>
+    @if(auth()->user()->level == 'admin')
+    <a href="{{ url('/Admin/home') }}" class="navbar-brand">DASHBOARD</a>
+    @elseif(auth()->user()->level == 'petugas')
+    <a href="{{ url('/Petugas/home') }}" class="navbar-brand">DASHBOARD</a>
+    @elseif(auth()->user()->level == 'pemilih')
+    <a href="{{ url('/Masyarakat/home') }}" class="navbar-brand">DASHBOARD</a>
+    @elseif(auth()->user()->level == 'kandidat')
+    <a href="{{ url('/Masyarakat/home') }}" class="navbar-brand">DASHBOARD</a>
+    @endif
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,16 +36,20 @@
         <li class="nav-item px-2">
           <a href="#" class="nav-link">Data Kampanye</a>
         </li>
-        <li class="nav-item px-2">
-          <a href="{{ url('/periode') }}" class="nav-link">Periode</a>
-        </li>
         @endif
 
-        @if(auth()->user()->level == 'pemilih' || auth()->user()->level == 'kandidat')
+        @if(auth()->user()->level == 'pemilih')
         <li class="nav-item px-2">
           <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
         </li>
         @endif
+
+        @if(auth()->user()->level == 'kandidat')
+        <li class="nav-item px-2">
+          <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
+        </li>
+        @endif
+
       </ul>
       <ul class="navbar-nav ml-auto">
           @if(Str::length(Auth::guard('masyarakat')->user()) > 0)
@@ -48,11 +60,11 @@
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" v-pre>
-             <span class="caret"></span>
+             <span class="caret">Profil</span>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Profil Saya</a>
+            <a class="dropdown-item" href="{{ url('/profil') }}">Profil Saya</a>
             <a class="dropdown-item" href="{{ route('logout') }}">
               LOGOUT
             </a>

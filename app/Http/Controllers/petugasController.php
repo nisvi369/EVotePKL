@@ -30,7 +30,7 @@ class petugasController extends Controller
             'jenisKelamin'  => 'required',
             'tanggalLahir'  => 'required|date',
             'alamat'        => 'required|max:50',
-            'email'         => 'required|email|unique',
+            'email'         => 'required|email',
           ]);
 
         $petugas = new Petugas;
@@ -80,7 +80,7 @@ class petugasController extends Controller
             'jenisKelamin'  => 'required',
             'tanggalLahir'  => 'required|date',
             'alamat'        => 'required|max:50',
-            'email'         => 'required|email|unique',
+            'email'         => 'required|email',
         ]);
   
         $petugas->update([

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
+    public function tentang(){
+        return view('tentang');
+    }
+
 
     public function __construct()
     {

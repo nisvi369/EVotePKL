@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use \App\Masyarakat;
 use \App\Pemilihan;
 use \App\Hasil;
-use \App\Periode;
 use Auth;
 use DB;
 
@@ -19,14 +18,11 @@ class PemilihanController extends Controller
 
     public function index()
     {
-        $tanggal_awal   = Periode::orderBy('tanggal', 'asc')->first();
-        $tanggal_akhir  = Periode::orderBy('tanggal', 'desc')->first();
-
     	$data = DB::table('masyarakat')
                     ->join('pemilihan', 'pemilihan.masyarakat_id', '=', 'masyarakat.id')
                     ->get();
 
-    	return view('pemilihan.index', compact('data', 'tanggal_awal', 'tanggal_akhir'));
+    	return view('pemilihan.index', compact('data'));
     }
 
     public function pilih_kandidat(Request $request, $id)
@@ -34,30 +30,13 @@ class PemilihanController extends Controller
     	$masyarakat    = Masyarakat::where('id', $id)->first();
     	$pemilihan     = Pemilihan::where('id', $id)->first();
 
-        $tanggal_sekarang = date('Y-m-d');
-        $cek_tanggal = Periode::where('tanggal', $tanggal_sekarang)->count();
+    	$hasil = new Hasil();
+        $hasil->masyarakat_id 	= Auth::user()->id;
+        $hasil->pemilihan_id	= $pemilihan->id;
+        // $hasil->hasil_pilihan	= $request->nomor;
+        $hasil->save();
 
-        if ($cek_tanggal > 0) {
-
-            $hasil = new Hasil();
-            $hasil->masyarakat_id   = Auth::user()->id;
-            $hasil->pemilihan_id    = $pemilihan->id;
-            $hasil->save();
-
-            // $hasil = Hasil::firstOrCreate(
-            //     ['masyarakat_id'=>\Auth::user()->id],
-            //     ['pemilihan_id'=>$id,'masyarakat_id'=>\Auth::user()->id]
-            // );
-
-            return redirect('pemilihan');
-
-        }else{
-            return redirect()->back();
-        }
-    	
-
-    	// return view('pemilihan.grafik', compact('hasil'));
-        
+    	return view('pemilihan.grafik', compact('hasil'));
     }
 
     public function grafik()

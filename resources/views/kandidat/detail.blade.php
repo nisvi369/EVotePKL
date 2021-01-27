@@ -5,7 +5,7 @@
 @section('content')
     <h1 class="text-center mt-4 mb-4">Daftar Kandidat</h1>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -17,16 +17,16 @@
 
             @foreach($data as $kandidat)
             @if($kandidat->level == "kandidat")
-            <div class="col-md-4">
-                <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                  <h3 class="text-center">{{ $kandidat->nomor_urut }}</h3>
+            <div class="col-sm-4">
+                <div class="shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
                   <img src="{{ url('img/foto_kandidat') }}/{{ $kandidat->foto }}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <!-- <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                   </div>
-                  <ul class="list-group list-group-flush text-center">
+                  <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $kandidat->nama }}</li>
+                    <li class="list-group-item">Nomor : {{ $kandidat->nomor_urut }}</li>
                     <li class="list-group-item">Jadwal : {{ date('d M Y', strtotime($kandidat->jadwal)) }}</li>
                   </ul>
                   <div class="card-body text-center">

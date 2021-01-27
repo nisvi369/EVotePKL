@@ -1,11 +1,16 @@
-<footer id="main-footer" class="bg-light p-1">
+<footer id="main-footer" class="bg-dark p-1">
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <p class="text-center" style="margin-top: 5px">
-          <b>Copyright &copy; 2020 PKL </b>
-        </p>
-      </div>
+    <div class="row justify-content-center">
+    	<div class="col-md-4">
+    		<i class="fab fa-instagram-square">instagram</i>
+    		<i class="fab fa-twitter-square">twitter</i>
+    		<i class="fab fa-facebook-square">facebook</i>
+    	</div>
+	    <div class="col-md-12">
+	        <p class="text-center">
+	          <b>Copyright &copy; 2020 PKL </b>
+	        </p>
+	    </div>
     </div>
   </div>
 </footer>

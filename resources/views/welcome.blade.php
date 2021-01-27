@@ -30,7 +30,10 @@
             <a href="/home" class="btn btn-info">Login Sekarang</a>
         </div>
     </div>
-    {{-- Jumbotron --}}
+    
+
+
+        {{-- Jumbotron --}}
 
     <!-- Optional JavaScript; choose one of the two! -->
 
