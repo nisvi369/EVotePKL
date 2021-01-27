@@ -5,7 +5,7 @@
 @section('content')
 <h1 class="text-center mt-4 mb-4">Periode</h1>
 <div class="container">
-	
+
 	<form action="{{ url('/periode') }}" method="post">
 		@csrf
 	  <div class="mb-3">
