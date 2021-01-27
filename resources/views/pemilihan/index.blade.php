@@ -9,7 +9,7 @@
       <div class="alert alert-warning" role="alert">
         Tanggal Pemilihan dimulai : {{ $tanggal_awal->tanggal }} berakhir {{ $tanggal_akhir->tanggal }}
       </div>
-
+      
         <div class="row justify-content-center">
 
             <!-- <div class="col-md-12 mt-4">
@@ -54,7 +54,7 @@
             </div>
             @endif
             @endforeach
-
+            
        </div>
    </div>
 @endsection
