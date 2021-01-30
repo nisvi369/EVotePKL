@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kampanye;
 use DB;
+use Session;
 
 class KampanyeController extends Controller
 {
@@ -49,6 +50,8 @@ class KampanyeController extends Controller
         $gambar->move(public_path().'/img/fotoKampanye', $namafile);
 
         $kampanye->save();
+
+        Session::flash('success', 'Data berhasil disimpan !!');
 
         return redirect('/kandidat/dataKampanye');
     }

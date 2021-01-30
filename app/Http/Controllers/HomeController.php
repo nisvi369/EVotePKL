@@ -10,7 +10,6 @@ class HomeController extends Controller
         return view('tentang');
     }
 
-
     public function __construct()
     {
         $this->middleware('auth');

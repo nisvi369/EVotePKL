@@ -36,6 +36,9 @@
         <li class="nav-item px-2">
           <a href="#" class="nav-link">Data Kampanye</a>
         </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/periode') }}" class="nav-link">Periode</a>
+        </li>
         @endif
 
         @if(auth()->user()->level == 'pemilih')
@@ -56,6 +59,8 @@
           <b>{{ Auth::guard('masyarakat')->user()->nama }}</b>
           @elseif(Str::length(Auth::guard('user')->user()) > 0)
           <b>{{ Auth::guard('user')->user()->name }}</b>
+          @elseif(Str::length(Auth::guard('user')->user()) > 0)
+          <b>{{ Auth::guard('petugas')->user()->name }}</b>
           @endif
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -64,7 +69,15 @@
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            @if(auth()->user()->level == 'admin')
+            <a class="dropdown-item" href="{{ url('/profil-admin') }}">Profil Saya</a>
+            @elseif(auth()->user()->level == 'pemilih')
             <a class="dropdown-item" href="{{ url('/profil') }}">Profil Saya</a>
+            @elseif(auth()->user()->level == 'kandidat')
+            <a class="dropdown-item" href="{{ url('/profil') }}">Profil Saya</a>
+            @elseif(auth()->user()->level == 'petugas')
+            <a class="dropdown-item" href="{{ url('/profil-petugas') }}">Profil Saya</a>
+            @endif
             <a class="dropdown-item" href="{{ route('logout') }}">
               LOGOUT
             </a>

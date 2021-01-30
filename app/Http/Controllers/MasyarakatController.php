@@ -7,6 +7,7 @@ use \App\Masyarakat;
 use \App\Pekerjaan;
 use Auth;
 use DB;
+use Session;
 
 class MasyarakatController extends Controller
 {
@@ -69,6 +70,8 @@ class MasyarakatController extends Controller
         
     	Masyarakat::create($masyarakat);
 
+        Session::flash('success', 'Data berhasil disimpan !!');
+
     	return redirect('/masyarakat');
     }
 
@@ -112,6 +115,8 @@ class MasyarakatController extends Controller
 
         $masyarakat->update();
 
+        Session::flash('success', 'Data berhasil diupdate !!');
+
     	return redirect('/masyarakat');
     }
 
@@ -119,6 +124,8 @@ class MasyarakatController extends Controller
     {
     	$masyarakat = Masyarakat::find($id);
     	$masyarakat->delete();
+
+        Session::flash('info', 'Data berhasil dihapus !!');
 
     	return redirect('/masyarakat');
     }

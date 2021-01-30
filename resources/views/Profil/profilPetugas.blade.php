@@ -10,7 +10,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">                                        
-                        <form action="{{ url('/profil') }}/{{ auth()->user()->id }}" method="post" enctype="multipart/form-data" >
+                        <form action="{{ url('/profil-petugas') }}/{{ auth()->user()->id }}" method="post" enctype="multipart/form-data" >
                         @csrf
                           <div class="form-group row mb-2 {{$errors->has('nama') ? 'has-error' : ''}}">
                             <label for="nama" class="col-md-2 col-form-label">Nama</label>
@@ -21,12 +21,12 @@
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('nik') ? 'has-error' : ''}}">
-                            <label for="nik" class="col-md-2 col-form-label">NIK</label>
+                          <div class="form-group row mb-2 {{$errors->has('NIK') ? 'has-error' : ''}}">
+                            <label for="NIK" class="col-md-2 col-form-label">NIK</label>
                             <div class="col-md-10">
-                              <input name="nik" type="text" min="0" class="form-control" id="nik" value="{{ auth()->user()->nik }}" readonly="">
-                              @if($errors->has('nik'))
-                                  <span class="form-text text-danger">{{$errors->first('nik')}}</span>
+                              <input name="nNIKk" type="text" min="0" class="form-control" id="NIK" value="{{ auth()->user()->NIK }}" readonly="">
+                              @if($errors->has('NIK'))
+                                  <span class="form-text text-danger">{{$errors->first('NIK')}}</span>
                               @endif
                             </div>
                           </div>
@@ -39,41 +39,42 @@
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
-                            <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                          <div class="form-group row mb-2 {{$errors->has('jenisKelamin') ? 'has-error' : ''}}">
+                            <label for="jenisKelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-md-10">
                               
-                              <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="">
-                                  <option value="{{ auth()->user()->jenis_kelamin }}">-- Jenis Kelamin --</option>
-                                  <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
-                                  <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
+                              <select class="form-control @error('jenisKelamin') is-invalid @enderror" name="jenisKelamin" required="">
+                                  <option value="{{ auth()->user()->jenisKelamin }}">-- Jenis Kelamin --</option>
+                                  <option value="perempuan"{{(old('jenisKelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
+                                  <option value="laki-laki"{{(old('jenisKelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
                               </select>
-                              @if($errors->has('jenis_kelamin'))
-                                  <span class="form-text text-danger">{{$errors->first('jenis_kelamin')}}</span>
+                              @if($errors->has('jenisKelamin'))
+                                  <span class="form-text text-danger">{{$errors->first('jenisKelamin')}}</span>
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('tanggal_lahir') ? 'has-error' : ''}}">
-                            <label for="tanggal_lahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
+                          <div class="form-group row mb-2 {{$errors->has('tanggalLahir') ? 'has-error' : ''}}">
+                            <label for="tanggalLahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
                             <div class="col-md-10">
-                              <input type="date" name="tanggal_lahir" value="{{ auth()->user()->tanggal_lahir }}" class="form-control" id="tanggal_lahir" required="">                                              @if($errors->has('tanggal_lahir'))
-                                  <span class="form-text text-danger">{{$errors->first('tanggal_lahir')}}</span>
+                              <input type="date" name="tanggalLahir" value="{{ auth()->user()->tanggalLahir }}" class="form-control" id="tanggalLahir" required="">                                              
+                              @if($errors->has('tanggalLahir'))
+                                  <span class="form-text text-danger">{{$errors->first('tanggalLahir')}}</span>
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('pekerjaan_id') ? 'has-error' : ''}}">
-                            <label for="pekerjaan_id" class="col-md-2 col-form-label">Pekerjaan</label>
+                          <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
+                            <label for="id_kecamatan" class="col-md-2 col-form-label">Daerah Tugas</label>
                             <div class="col-md-10">
-                                <select class="form-control" name="pekerjaan_id" id="pekerjaan_id" required="">
-                                    <option value="{{ auth()->user()->pekerjaan_id }}">-- Pilih Pekerjaan --</option>
-                                    @foreach ($pekerjaan as $k)
+                                <select class="form-control" name="id_kecamatan" id="id_kecamatan" required="">
+                                    <option value="{{ auth()->user()->id_kecamatan }}">-- Pilih Daerah Tugas --</option>
+                                    @foreach ($kecamatan as $k)
                                         <option 
-                                            value="{{ $k->id }}">{{ $k->nama_pekerjaan}}
+                                            value="{{ $k->id }}">{{ $k->namaKecamatan}}
                                         </option>
                                     @endforeach
                                 </select>
-                                @if($errors->has('pekerjaan_id'))
-                                  <span class="form-text text-danger">{{$errors->first('pekerjaan_id')}}</span>
+                                @if($errors->has('id_kecamatan'))
+                                  <span class="form-text text-danger">{{$errors->first('id_kecamatan')}}</span>
                                 @endif
                             </div>
                         </div>
@@ -96,7 +97,7 @@
                             </div>
                           </div>
                           <button type="submit" class="btn btn-primary">SIMPAN</button>
-                          <a href="{{ url('/Masyarakat/home') }}" class="btn btn-outline-primary">Kembali</a>
+                          <a href="{{ url('/Petugas/home') }}" class="btn btn-outline-primary">Kembali</a>
                         </form>
                     </div>
                 </div>

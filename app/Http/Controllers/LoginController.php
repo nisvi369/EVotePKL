@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 
 class LoginController extends Controller
 {
@@ -19,9 +20,13 @@ class LoginController extends Controller
     		return redirect('Masyarakat/home');
     	}elseif (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
     		return redirect('Admin/home');
+        }elseif (Auth::guard('petugas')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect('Petugas/home');
     	}
 
-    	return redirect('/');
+        Session::flash('error', 'Email atau Password salah !!');
+
+    	return redirect('signIn');
     }
 
     public function logout(Request $request)
@@ -30,7 +35,9 @@ class LoginController extends Controller
     	if (Auth::guard('masyarakat')->check()){
     		Auth::guard('masyarakat')->logout();
     	}elseif (Auth::guard('user')->check()) {
-    		Auth::guard('masyarakat')->logout();
+    		Auth::guard('user')->logout();
+        }elseif (Auth::guard('petugas')->check()) {
+            Auth::guard('petugas')->logout();
     	}
     	// Auth::logout();
 

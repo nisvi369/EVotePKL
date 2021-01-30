@@ -25,7 +25,7 @@
         <div class="container">
             <img src="/img/1.png" alt="">
             <h1 class="display-4"><span>EVOTING</span></h1>
-            <p class="lead">We're working hard to finish the development of this site. Our target launch date is
+            <p class="lead animasi-teks">We're working hard to finish the development of this site. Our target launch date is
               <strong>January 2022</strong>! Sign up for updates using the form below!</p>
             <a href="/signIn" class="btn btn-info">Login Sekarang</a>
         </div>
@@ -35,7 +35,8 @@
 <div class="judul">
         <h1>KAMPANYE KANDIDAT </h1>
 </div>
-<div class="row">
+<section class="page-section" id="services">
+    <div class="row">
           <div class="col-lg-4">
             <div class="box">
               <img src="/img/kampanye/2.jpg" height="100%" width="100%" alt="" srcset="">
@@ -48,7 +49,24 @@
             </div>
           </div>
         </div>
+    </div>
+</section>
+
+<footer id="main-footer" class="bg-dark p-1 mt-4" style="height: 400px; background-image: url('img/map-image.png');">
+    <div class="row justify-content-center">
+        
+        <!-- <div class="col-md-4">
+            <i class="fab fa-instagram-square">instagram</i>
+            <i class="fab fa-twitter-square">twitter</i>
+            <i class="fab fa-facebook-square">facebook</i>
+        </div> -->
+        <div class="col-md-12">
+            <p class="text-center">
+              <b>Copyright &copy; 2020 PKL </b>
+            </p>
         </div>
+    </div>
+</footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

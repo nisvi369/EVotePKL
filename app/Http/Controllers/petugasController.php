@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Kecamatan;
 use App\Petugas;
 use DB;
+use Auth;
+use Session;
 
 class petugasController extends Controller
 {
@@ -41,11 +43,14 @@ class petugasController extends Controller
         $petugas->alamat        = $request->alamat;
         $petugas->email         = $request->email;
         $petugas->password      = bcrypt('rahasia');
+        $petugas->level         = "petugas";
         $petugas->id_kecamatan  = $request->id_kecamatan;
 
         $petugas->save();
 
-        return redirect ('/dataPetugas');
+        Session::flash('success', 'Data berhasil disimpan !!');
+
+        return redirect ('/dataPetugas')->with('success', 'Data berhasil disimpan');
     }
 
     public function data(){
@@ -94,14 +99,18 @@ class petugasController extends Controller
             $petugas->id_kecamatan  = $request->id_kecamatan,
         ]);
         $petugas->save();
+
+        Session::flash('success', 'Data berhasil diupdate !!');
         
-        return redirect ('/dataPetugas');
+        return redirect ('/dataPetugas')->with('');
         }
 
     public function hapus($id){
         
         $petugas = \App\Petugas::find($id);
         $petugas->delete();
+
+        Session::flash('info', 'Data berhasil dihapus !!');
         
         return redirect ('/dataPetugas');
       }

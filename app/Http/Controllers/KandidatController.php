@@ -7,6 +7,7 @@ use \App\Masyarakat;
 use \App\Pemilihan;
 use \App\Pekerjaan;
 use DB;
+use Session;
 
 class KandidatController extends Controller
 {
@@ -37,10 +38,14 @@ class KandidatController extends Controller
     	$cari = $request->cari;
 
     	$masyarakat = DB::table('masyarakat')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
 		->where('nik','like',"%".$cari."%")
 		->paginate();
 
-		return view('kandidat.tambah', compact('masyarakat'));
+        Session::flash('info', 'Data berhasil ditemukan !!');
+
+		return redirect('kandidat.home');
     }
 
 
@@ -90,6 +95,8 @@ class KandidatController extends Controller
         // $pemilihan->update();
         $pemilihan->save();
 
+        Session::flash('success', 'Data berhasil disimpan !!');
+
         return redirect('/kandidat');
     }
 
@@ -128,6 +135,7 @@ class KandidatController extends Controller
     	// $pemilihan->update();
     	$pemilihan->update();
 
+        Session::flash('success', 'Data berhasil diupdate !!');
 
     	return redirect('/kandidat');
     }

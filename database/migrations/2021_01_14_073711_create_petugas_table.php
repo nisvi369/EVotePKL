@@ -22,6 +22,7 @@ class CreatePetugasTable extends Migration
             $table->string('alamat');
             $table->string('email');
             $table->string('password');
+            $table->string('level');
             $table->bigInteger('id_kecamatan')->unsigned()->index();
             $table->foreign('id_kecamatan')->references('id')->on('kecamatan');
             $table->timestamps();

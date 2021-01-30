@@ -49,12 +49,17 @@ return [
 
         'masyarakat' => [
             'driver' => 'session',
-            'provider' => 'masyarakats'
+            'provider' => 'masyarakats',
+        ],
+
+        'petugas'   => [
+            'driver' => 'session',
+            'provider'  => 'petugass',
         ],
 
         'user' => [
             'driver' => 'session',
-            'provider' => 'users'
+            'provider' => 'users',
         ],
 
         // 'petugas' => [
@@ -92,6 +97,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Masyarakat::class,
         ],
+
+        'petugass' => [
+            'driver'    => 'eloquent',
+            'model' => App\Petugas::class,
+        ]
 
         // 'admin' => [
         //     'driver' => 'eloquent',

@@ -9,6 +9,4 @@ class Periode extends Model
     protected $table = 'periode';
     public $timestamps = false;
     protected $fillable = ['tanggal'];
-
-
 }

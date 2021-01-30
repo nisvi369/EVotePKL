@@ -9,6 +9,7 @@ use \App\Hasil;
 use \App\Periode;
 use Auth;
 use DB;
+use Session;
 
 class PemilihanController extends Controller
 {
@@ -48,10 +49,14 @@ class PemilihanController extends Controller
             //     ['masyarakat_id'=>\Auth::user()->id],
             //     ['pemilihan_id'=>$id,'masyarakat_id'=>\Auth::user()->id]
             // );
+            Session::flash('success', 'Berhasil melakukan voting !!');
 
             return redirect('pemilihan');
 
         }else{
+
+            Session::flash('info', 'Anda sudah melakukan voting !!');
+
             return redirect()->back();
         }
         

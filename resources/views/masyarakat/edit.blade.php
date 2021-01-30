@@ -74,7 +74,7 @@
                                     <label for="pekerjaan_id" class="col-md-2 col-form-label">Pekerjaan</label>
                                     <div class="col-md-10">
                                         <select class="form-control" name="pekerjaan_id" id="pekerjaan_id" required>
-                                            <option>-- Pilih Pekerjaan --</option>
+                                            <option value="">-- Pilih Pekerjaan --</option>
                                             @foreach ($pekerjaan as $k)
                                                 <option 
                                                     value="{{ $k->id }}">{{ $k->nama_pekerjaan}}

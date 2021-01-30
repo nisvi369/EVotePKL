@@ -35,7 +35,7 @@
                         <td>
                             <div class="aksi2">
                                 <a href="/editPetugas/{{$p->id}}" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="/hapusPetugas/{{$p->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus {{$p->nama}}?')">Hapus</a>
+                                <a href="/hapusPetugas/{{$p->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus data {{$p->nama}}?')">Hapus</a>
                             </div>
                         </td>
                     </tr>

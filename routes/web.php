@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
 
     Route::get('/periode', 'PeriodeController@index');
     Route::post('/periode', 'PeriodeController@atur_periode');
+
+    Route::get('/profil-admin', 'ProfilController@index_admin');
+    Route::post('/profil-admin/{id}', 'ProfilController@update_admin');
 });
 
 // Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],function(){
@@ -67,7 +70,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     
 // });
 
-Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:petugas']],function(){
+Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){
     Route::get('/Petugas/home', 'petugasController@home');
     Route::get('/masyarakat', 'MasyarakatController@index');
     Route::get('/masyarakat/tambah', 'MasyarakatController@tambah');
@@ -75,6 +78,9 @@ Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:petugas']],function(
     Route::get('/masyarakat/update/{id}', 'MasyarakatController@edit_data');
     Route::post('/masyarakat/update/{id}', 'MasyarakatController@edit');
     Route::get('/masyarakat/delete/{id}', 'MasyarakatController@delete');
+
+    Route::get('/profil-petugas', 'ProfilController@index_petugas');
+    Route::post('/profil-petugas/{id}', 'ProfilController@update_petugas');
 });
 
 Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],function(){
@@ -87,7 +93,8 @@ Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],
     Route::post('/profil/{id}', 'ProfilController@update');
 });
 
-Route::group(['middleware' => ['auth'=>'Kandidat']],function(){
+Route::group(['middleware' => ['auth:petugas,masyarakat', 'ceklevel:petugas,pemilih,kandidat']],function(){
+    
     // Route::get('/kandidat', 'KandidatController@tambah');
     // Route::get('/kandidat/home', 'KandidatController@home');
     // Route::get('/kandidat/cari', 'KandidatController@cari');
