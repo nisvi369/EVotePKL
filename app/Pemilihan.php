@@ -19,4 +19,10 @@ class Pemilihan extends Model
     {
         return $this->hasMany('App\Hasil', 'pemilihan_id', 'id');
     }
+
+    public function kampanye()
+    {
+        return $this->hasMany('App\Kampanye', 'id_pemilihan', 'id');
+    }
+
 }

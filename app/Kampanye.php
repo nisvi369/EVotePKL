@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kampanye extends Model
 {
-    protected $fillable = ['id_masyarakat','judul','gambar','tanggal','jam','konten'];
-    protected $table = 'Kampanye';
+	protected $table = "kampanye";
+	protected $primaryKey = "id";
+    protected $fillable = ['id_pemilihan','judul','gambar','waktu','konten'];
+
+    public function pemilihan()
+	{
+	    return $this->belongsTo('App\Pemilihan', 'id_pemilihan', 'id');
+	}
 }

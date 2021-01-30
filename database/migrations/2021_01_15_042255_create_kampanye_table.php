@@ -15,12 +15,12 @@ class CreateKampanyeTable extends Migration
     {
         Schema::create('kampanye', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_masyarakat')->unsigned()->index();
+            $table->bigInteger('id_pemilihan')->unsigned()->index();
             $table->string('judul');
             $table->string('gambar');
             $table->datetime('waktu');
             $table->string('konten');
-            $table->foreign('id_masyarakat')->references('id')->on('masyarakat');
+            $table->foreign('id_pemilihan')->references('id')->on('pemilihan');
             $table->timestamps();
         });
     }

@@ -19,19 +19,10 @@
                         <div class="card-body">
                             <form method="POST" action="/kandidat/postFormKampanye" enctype="multipart/form-data">
                                 {{csrf_field()}}
-                                <div class="form-group row mb-2 {{$errors->has('id_masyarakat') ? 'has-error' : ''}}">
-                                    <!-- <label for="id_masyarakat" class="col-md-2 col-form-label">ID Masyarakat</label> -->
-                                    <div class="col-md-10">
-                                        <input type="hidden" name="id_masyarakat" class="form-control" id="id_masyarakat" required="">{{ old('id_masyarakat') }}</input>
-                                        @if($errors->has('id_masyarakat'))
-                                            <span class="form-text text-danger">{{$errors->first('id_masyarakat')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
                                 <div class="form-group row mb-2 {{$errors->has('judul') ? 'has-error' : ''}}">
                                     <label for="judul" class="col-md-2 col-form-label">Judul</label>
                                     <div class="col-md-10">
-                                        <input name="judul" class="form-control" id="judul" required="">{{ old('judul') }}</input>
+                                        <input name="judul" type="text" class="form-control" value="{{ old('judul') }}" id="judul" required="">
                                         @if($errors->has('judul'))
                                             <span class="form-text text-danger">{{$errors->first('judul')}}</span>
                                         @endif
@@ -43,6 +34,15 @@
                                         <textarea name="konten" class="form-control" id="konten" required="">{{ old('konten') }}</textarea>
                                         @if($errors->has('konten'))
                                             <span class="form-text text-danger">{{$errors->first('konten')}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-2 {{$errors->has('waktu') ? 'has-error' : ''}}">
+                                    <label for="waktu" class="col-md-2 col-form-label">Waktu</label>
+                                    <div class="col-md-10">
+                                        <input type="date" name="waktu" class="form-control" value="{{ old('waktu') }}" id="waktu" required="">
+                                        @if($errors->has('waktu'))
+                                            <span class="form-text text-danger">{{$errors->first('waktu')}}</span>
                                         @endif
                                     </div>
                                 </div>

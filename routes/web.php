@@ -51,9 +51,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::post('/kandidat/lengkapi/{id}', 'KandidatController@create_data');
     Route::get('/kandidat/edit/{id}', 'KandidatController@edit_kandidat');
     Route::post('/kandidat/update/{id}', 'KandidatController@update_kandidat');
-    Route::get('/kandidat/dataKampanye', 'kampanyeController@data');
-    Route::get('/kandidat/tambahKampanye', 'kampanyeController@form');
-    Route::post('/kandidat/postFormKampanye', 'kampanyeController@create');
+    
 
     Route::get('/periode', 'PeriodeController@index');
     Route::post('/periode', 'PeriodeController@atur_periode');
@@ -88,6 +86,11 @@ Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],
     Route::get('/pemilihan', 'PemilihanController@index');
     Route::post('/pilih/{id}', 'PemilihanController@pilih_kandidat');
     Route::get('/hasil_voting', 'PemilihanController@grafik');
+
+    Route::get('/kandidat/dataKampanye', 'kampanyeController@data');
+    Route::get('/kandidat/tambahKampanye', 'kampanyeController@form');
+    Route::post('/kandidat/postFormKampanye', 'kampanyeController@create');
+    Route::get('/baca/{id}', 'kampanyeController@selengkapnya');
 
     Route::get('/profil', 'ProfilController@index');
     Route::post('/profil/{id}', 'ProfilController@update');

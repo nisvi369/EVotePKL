@@ -34,9 +34,6 @@
           <a href="{{ url('/kandidat') }}" class="nav-link">Data Kandidat</a>
         </li>
         <li class="nav-item px-2">
-          <a href="#" class="nav-link">Data Kampanye</a>
-        </li>
-        <li class="nav-item px-2">
           <a href="{{ url('/periode') }}" class="nav-link">Periode</a>
         </li>
         @endif
@@ -50,6 +47,9 @@
         @if(auth()->user()->level == 'kandidat')
         <li class="nav-item px-2">
           <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/kandidat/dataKampanye') }}" class="nav-link">Data Kampanye</a>
         </li>
         @endif
 
