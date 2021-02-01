@@ -1,12 +1,11 @@
 @extends('template.master')
-
 @section('title', 'Data Masyarakat')
-
 @section('content')
-
 <h1 class="text-center mt-4 mb-4">Data Masyarakat</h1>
 <div class="container">
-    <a href="{{ url('masyarakat/tambah') }}" class="btn btn-primary">Tambah Data</a>
+    @if(auth()->user()->level == 'petugas')
+    <a href="{{ url('/Petugas/tambahDataMasyarakat') }}" class="btn btn-primary">Tambah Data</a>
+    @endif
     <!-- <a href="{{ url('kandidat') }}" class="btn btn-primary">Tambah Kandidat</a> -->
     <table class="table table-hover col-md-12 mt-2 text-center">
         <thead>
@@ -19,7 +18,9 @@
                 <th>Tanggal Lahir</th>
                 <th>Pekerjaan</th>
                 <th>Alamat</th>
+                @if(auth()->user()->level == 'petugas')
                 <th>Aksi</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -33,10 +34,12 @@
                 <td>{{ $data->tanggal_lahir }}</td>
                 <td>{{ $data->nama_pekerjaan }}</td>
                 <td>{{ $data->alamat }}</td>
+                @if(auth()->user()->level == 'petugas')
                 <td>
-                    <a href="{{ url('/masyarakat/update') }}/{{ $data->id }}" class="btn btn-warning">Edit</a>
-                    <a href="{{ url('masyarakat/delete') }}/{{ $data->id }}" onclick="return confirm('Anda akan menghapus barang ini ?')" class="btn btn-danger">Hapus</a>
+                    <a href="{{ url('/Petugas/edit') }}/{{ $data->id }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ url('/Petugas/hapus') }}/{{ $data->id }}" onclick="return confirm('Anda akan menghapus barang ini ?')" class="btn btn-danger">Hapus</a>
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>

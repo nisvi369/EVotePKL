@@ -8,6 +8,14 @@ use Session;
 
 class LoginController extends Controller
 {
+	public function __construct(){
+        $this->middleware('guest')->except('logout');
+    }
+
+    public function login(){
+        return view ('auth.login');
+	}
+	
     public function postlogin (Request $request)
     {
     	// dd($request->all());
@@ -17,7 +25,7 @@ class LoginController extends Controller
     	// }
 
     	if (Auth::guard('masyarakat')->attempt(['email' => $request->email, 'password' => $request->password])) {
-    		return redirect('Masyarakat/home');
+    		return redirect('/Masyarakat/home');
     	}elseif (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
     		return redirect('Admin/home');
         }elseif (Auth::guard('petugas')->attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -41,7 +49,7 @@ class LoginController extends Controller
     	}
     	// Auth::logout();
 
-    	return redirect('signIn');
+    	return redirect('/');
     }
 
 }

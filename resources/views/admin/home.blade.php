@@ -1,34 +1,22 @@
-@extends('template.master')
-
-@section('title', 'Dashboard')
-
+@extends('Template.master')
+@section('title', 'Dashboard Admin')
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <!-- <div class="card-header">Dashboard</div> -->
 
-<div class="jumbotrondash">
-    <!-- @if (Auth::check() && Auth::user()->role_id == 1)
-    <div class="container judul">
-        <h1>SELAMAT DATANG ADMIN!</h1>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    Hi, Admin. You are logged in!
+                </div>
+            </div>
+        </div>
     </div>
-    @else
-    @if (Auth::check() && Auth::user()->role_id == 2 && Auth::user()->status_akun == 'Terverifikasi')
-    <div class="container judul">
-        <h1>SELAMAT DATANG {{ Auth::user()->nama }}!</h1>
-    </div>
-    @else
-    @if (Auth::check() && Auth::user()->role_id == 2 && Auth::user()->status_akun == 'Belum Terverifikasi')
-    <div class="container judul">
-        <h1>SILAHKAN MENUNGGU VERIFIKASI ADMIN ANDA</h1>
-    </div>
-    @endif
-    @endif
-    @endif -->
-    <div class="containeradmin">
-        <h1>SELAMAT DATANG ADMIN</h1>
-    </div>
-    
-
-
-
 </div>
-
 @endsection

@@ -20,12 +20,12 @@ class KandidatController extends Controller
         return view('Kandidat.home');
 	}
 
-    public function tambah()
+    public function data()
     {
     	// $masyarakat = Masyarakat::all();
         // $masyarakat = Masyarakat::where('level', '!=', 'petugas')->get();
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
         -> where('masyarakat.level', '!=', "petugas")
         -> get();
@@ -37,19 +37,19 @@ class KandidatController extends Controller
     {
     	$cari = $request->cari;
 
-    	$masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        $masyarakat = DB::table('masyarakat')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
-		->where('nik','like',"%".$cari."%")
-		->paginate();
+        -> where('masyarakat.level', '!=', "petugas")
+        -> where ('nik','like',"%".$cari."%")
+		-> paginate();
 
-        Session::flash('info', 'Data berhasil ditemukan !!');
-
-		return redirect('kandidat.home');
+        // return redirect('/Admin/dataKandidat');
+        return view('Kandidat.tambah', compact('masyarakat'));
     }
 
 
-    public function detail_kandidat()
+    public function detail()
     {
     	// $masyarakat = Masyarakat::all();
     	// $pemilihan = Pemilihan::where('masyarakat_id', $masyarakat->id)->first();
@@ -61,27 +61,25 @@ class KandidatController extends Controller
     	return view('kandidat.detail', compact('data'));
     }
 
-    public function lengkapi_data($id)
+    public function lengkapi($id)
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
 
         return view('kandidat.data', compact('masyarakat'));
     }
 
-    public function create_data(Request $request, $id)
+    public function create(Request $request, $id)
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
             'nomor_urut' => 'required|max:5',
-            'jadwal'     => 'required|date',
             'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
         ]);
 
         $pemilihan = new Pemilihan();
         $pemilihan->masyarakat_id   = $masyarakat->id;
         $pemilihan->nomor_urut      = $request->nomor_urut;
-        $pemilihan->jadwal          = $request->jadwal;
 
         if ($request->hasfile('foto')) {
             $gambar                 = $request->file('foto');

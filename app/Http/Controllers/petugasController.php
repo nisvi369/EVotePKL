@@ -9,7 +9,7 @@ use DB;
 use Auth;
 use Session;
 
-class petugasController extends Controller
+class PetugasController extends Controller
 {
     public function __construct()
     {
@@ -29,8 +29,8 @@ class petugasController extends Controller
         $request->validate([
             'NIK'           => 'required|max:17',
             'nama'          => 'required|max:20',
-            'jenisKelamin'  => 'required',
-            'tanggalLahir'  => 'required|date',
+            'jenis_kelamin'  => 'required',
+            'tanggal_lahir'  => 'required|date',
             'alamat'        => 'required|max:50',
             'email'         => 'required|email',
           ]);
@@ -38,26 +38,27 @@ class petugasController extends Controller
         $petugas = new Petugas;
         $petugas->NIK           = $request->NIK;
         $petugas->nama          = $request->nama;
-        $petugas->jenisKelamin  = $request->jenisKelamin;
-        $petugas->tanggalLahir  = $request->tanggalLahir;
+        $petugas->jenis_kelamin  = $request->jenis_kelamin;
+        $petugas->tanggal_lahir  = $request->tanggal_lahir;
         $petugas->alamat        = $request->alamat;
         $petugas->email         = $request->email;
         $petugas->password      = bcrypt('rahasia');
         $petugas->level         = "petugas";
         $petugas->id_kecamatan  = $request->id_kecamatan;
+        $petugas->level         = 'Petugas';
 
         $petugas->save();
 
         Session::flash('success', 'Data berhasil disimpan !!');
 
-        return redirect ('/dataPetugas')->with('success', 'Data berhasil disimpan');
+        return redirect ('/Admin/dataPetugas')->with('success', 'Data berhasil disimpan');
     }
 
     public function data(){
 
         $petugas = DB::table('petugas')
         -> join('kecamatan','kecamatan.id', '=', 'petugas.id_kecamatan')
-        -> select('petugas.id','petugas.nik','petugas.nama','petugas.jenisKelamin','petugas.alamat','petugas.tanggalLahir','kecamatan.namaKecamatan','petugas.email')
+        -> select('petugas.id','petugas.nik','petugas.nama','petugas.jenis_kelamin','petugas.alamat','petugas.tanggal_lahir','kecamatan.nama_kecamatan','petugas.email')
         -> get();
 
         return view('Petugas.dataPetugas',compact('petugas'));
@@ -68,7 +69,7 @@ class petugasController extends Controller
         $kecamatan = Kecamatan::all();
         $petugas = DB::table('petugas')
         -> join('kecamatan','kecamatan.id', '=', 'petugas.id_kecamatan')
-        -> select('petugas.id','petugas.nik','petugas.nama','petugas.jenisKelamin','petugas.alamat','petugas.tanggalLahir','kecamatan.namaKecamatan','petugas.email','petugas.password')
+        -> select('petugas.id','petugas.nik','petugas.nama','petugas.jenis_kelamin','petugas.alamat','petugas.tanggal_lahir','kecamatan.nama_kecamatan','petugas.email','petugas.password')
         -> where('petugas.id','=',$id)
         -> first();
 
@@ -82,8 +83,8 @@ class petugasController extends Controller
         $request->validate([
             'nik'           => 'required|min:3|max:17',
             'nama'          => 'required|max:20',
-            'jenisKelamin'  => 'required',
-            'tanggalLahir'  => 'required|date',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required|date',
             'alamat'        => 'required|max:50',
             'email'         => 'required|email',
         ]);
@@ -91,8 +92,8 @@ class petugasController extends Controller
         $petugas->update([
             $petugas->nik           = $request->nik,
             $petugas->nama          = $request->nama,
-            $petugas->jenisKelamin  = $request->jenisKelamin,
-            $petugas->tanggalLahir  = $request->tanggalLahir,
+            $petugas->jenis_kelamin = $request->jenis_kelamin,
+            $petugas->tanggal_lahir = $request->tanggal_lahir,
             $petugas->alamat        = $request->alamat,
             $petugas->email         = $request->email,
             $petugas->password      = $request->password,
@@ -102,7 +103,7 @@ class petugasController extends Controller
 
         Session::flash('success', 'Data berhasil diupdate !!');
         
-        return redirect ('/dataPetugas')->with('');
+        return redirect ('/Admin/dataPetugas');
         }
 
     public function hapus($id){
@@ -112,6 +113,6 @@ class petugasController extends Controller
 
         Session::flash('info', 'Data berhasil dihapus !!');
         
-        return redirect ('/dataPetugas');
+        return redirect ('/Admin/dataPetugas');
       }
 }

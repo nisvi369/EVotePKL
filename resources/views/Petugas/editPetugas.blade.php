@@ -3,7 +3,7 @@
 @section('title', 'Data Kandidat')
 
 @section('content')
-        <h1 class="text-center mt-4 mb-4">Edit Data</h1>
+        <h1 class="text-center mt-4 mb-4">Edit Data Petugas</h1>
         <div class="container">
             <div class="row">
                 <!-- <div class="col-md-12 mt-4">
@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12"> 
-                                    <h3 class="title-5 m-b-35">Edit Data Petugas</h3>
+                                    <!-- <h3 class="title-5 m-b-35">Edit Data Petugas</h3> -->
                                     <form method="POST" action="/dataPetugas/{{$petugas->id}}/update" class="col-md-6">
                                         {{csrf_field()}}
                                         <div class="form-group row mb-2 {{$errors->has('nik') ? 'has-error' : ''}}">
@@ -40,10 +40,10 @@
                                                 @endif
                                           </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('jenisKelamin') ? 'has-error' : ''}}">
-                                            <label for="jenisKelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                                        <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
+                                            <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-10">
-                                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenisKelamin" required="">
+                                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="">
                                                     <option value="">-- Jenis Kelamin --</option>
                                                     <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
                                                     <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
@@ -53,11 +53,11 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('tanggalLahir') ? 'has-error' : ''}}">
+                                        <div class="form-group row mb-2 {{$errors->has('tanggal_lahir') ? 'has-error' : ''}}">
                                             <label for="tanggal_lahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-10">
-                                                <input type="date" name="tanggalLahir" class="form-control" id="tanggalLahir" value="{{$petugas->tanggalLahir}}">                                              @if($errors->has('tanggal_lahir'))
-                                                <span class="form-text text-danger">{{$errors->first('tanggalLahir')}}</span>
+                                                <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" value="{{$petugas->tanggal_lahir}}">                                              @if($errors->has('tanggal_lahir'))
+                                                <span class="form-text text-danger">{{$errors->first('tanggal_lahir')}}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -77,7 +77,7 @@
                                                     <option>-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatan as $k)
                                                         <option 
-                                                            value="{{ $k->id }}">{{ $k->namaKecamatan}}
+                                                            value="{{ $k->id }}">{{ $k->nama_kecamatan}}
                                                         </option>
                                                     @endforeach
                                                     </option>
@@ -94,16 +94,13 @@
                                           </div>
                                         </div>
                                         <div class="form-group row mb-2 {{$errors->has('password') ? 'has-error' : ''}}">
-                                            <label for="password" class="col-md-2 col-form-label">Password</label>
+                                            <!-- <label for="password" class="col-md-2 col-form-label">Password</label> -->
                                             <div class="col-md-10">
-                                                <input name="password" class="form-control" id="password" value="{{$petugas->password}}"</input>
-                                                @if($errors->has('password'))
-                                                    <span class="form-text text-danger">{{$errors->first('password')}}</span>
-                                                @endif
+                                                <input name="password" type="hidden" class="form-control" id="password" value="{{$petugas->password}}"</input>
                                           </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Edit</button>
-                                        <a href="/dataPetugas" class="btn btn-outline-primary">Kembali</a>
+                                        <!-- <a href="/dataPetugas" class="btn btn-outline-primary">Kembali</a> -->
                                     </form>
                                 </div>
                             </div>

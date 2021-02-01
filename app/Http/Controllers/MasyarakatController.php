@@ -20,18 +20,18 @@ class MasyarakatController extends Controller
         return view('Masyarakat.home');
 	}
 	
-    public function index()
+    public function data()
     {
     	$masyarakat = Masyarakat::all();
 
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','pekerjaan.nama_pekerjaan')
         -> where('masyarakat.level', '!=', 'petugas')
         -> get();
 
     	// dd($masyarakat);
-    	return view('/masyarakat/index', compact('masyarakat'));
+    	return view('Masyarakat.index', compact('masyarakat'));
     }
 
     public function tambah()
@@ -48,17 +48,16 @@ class MasyarakatController extends Controller
     		'nama' 			=> 'required|max:20',
     		'nik' 			=> 'required|min:3|max:17',
     		'alamat' 		=> 'required|max:50',
-    		'pekerjaan_id' 	=> 'required',
+    		'id_pekerjaan' 	=> 'required',
     		'tanggal_lahir' => 'required|date',
     		'jenis_kelamin'	=> 'required',
             'email'         => 'required|email',
-    	]);
-
+        ]);
 
     	$masyarakat = array(
     		'nama' 			=> $request->nama,
     		'nik' 			=> $request->nik,
-    		'pekerjaan_id' 	=> $request->pekerjaan_id,
+    		'id_pekerjaan' 	=> $request->id_pekerjaan,
     		'alamat' 		=> $request->alamat,
     		'tanggal_lahir' => $request->tanggal_lahir,
     		'jenis_kelamin'	=> $request->jenis_kelamin,
@@ -72,17 +71,17 @@ class MasyarakatController extends Controller
 
         Session::flash('success', 'Data berhasil disimpan !!');
 
-    	return redirect('/masyarakat');
+    	return redirect('/Petugas/dataMasyarakat');
     }
 
-    public function edit_data($id)
+    public function edit($id)
     {
     	// $masyarakat = Masyarakat::find($id);
      //    $pekerjaan = Pekerjaan::find($id);
         $pekerjaan = Pekerjaan::all();
 
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','pekerjaan.nama_pekerjaan')
         -> where('masyarakat.id','=',$id)
         -> first();
@@ -90,7 +89,7 @@ class MasyarakatController extends Controller
     	return view('masyarakat/edit', compact('masyarakat', 'pekerjaan'));
     }
 
-    public function edit(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $masyarakat = Masyarakat::findOrFail($id);
 
@@ -98,7 +97,7 @@ class MasyarakatController extends Controller
 			'nama' 			=> 'required|max:20',
     		'nik' 			=> 'required|min:3|max:17',
     		'alamat' 		=> 'required|max:50',
-    		'pekerjaan_id' 	=> 'required',
+    		'id_pekerjaan' 	=> 'required',
     		'tanggal_lahir' => 'required|date',
     		'jenis_kelamin'	=> 'required',
             'email'         => 'required|email',
@@ -108,7 +107,7 @@ class MasyarakatController extends Controller
         $masyarakat->nama    		= $request->nama;
         $masyarakat->nik   			= $request->nik;
         $masyarakat->alamat    		= $request->alamat;
-        $masyarakat->pekerjaan_id   = $request->pekerjaan_id;
+        $masyarakat->id_pekerjaan   = $request->id_pekerjaan;
         $masyarakat->tanggal_lahir  = $request->tanggal_lahir;
         $masyarakat->jenis_kelamin 	= $request->jenis_kelamin;
         $masyarakat->email          = $request->email;
@@ -117,16 +116,16 @@ class MasyarakatController extends Controller
 
         Session::flash('success', 'Data berhasil diupdate !!');
 
-    	return redirect('/masyarakat');
+    	return redirect('/Petugas/dataMasyarakat');
     }
 
-    public function delete($id)
+    public function hapus($id)
     {
     	$masyarakat = Masyarakat::find($id);
     	$masyarakat->delete();
 
         Session::flash('info', 'Data berhasil dihapus !!');
 
-    	return redirect('/masyarakat');
+    	return redirect('/Petugas/dataMasyarakat');
     }
 }
