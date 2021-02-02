@@ -24,8 +24,9 @@ class PemilihanController extends Controller
         $tanggal_akhir  = Periode::orderBy('tanggal', 'desc')->first();
 
         $data = DB::table('masyarakat')
-        ->join('pemilihan', 'pemilihan.masyarakat_id', '=', 'masyarakat.id')
-        ->get();
+                    ->join('pemilihan', 'pemilihan.masyarakat_id', '=', 'masyarakat.id')
+                    ->orderBy('pemilihan.nomor_urut', 'asc')
+                    ->get();
 
         return view('pemilihan.index', compact('data', 'tanggal_awal', 'tanggal_akhir'));
     }

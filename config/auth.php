@@ -52,14 +52,22 @@ return [
             'provider' => 'masyarakats',
         ],
 
-        'petugas' => [
+        'petugas'   => [
             'driver' => 'session',
-            'provider' => 'petugass'
+            'provider'  => 'petugass',
         ],
+
         'user' => [
             'driver' => 'session',
-            'provider' => 'users'
+            'provider' => 'users',
         ],
+
+        // 'petugas' => [
+        //     'driver' => 'session',
+        //     'provider' => 'petugas'
+        // ],
+
+        
     ],
 
     /*
@@ -89,10 +97,26 @@ return [
             'driver' => 'eloquent',
             'model' => App\Masyarakat::class,
         ],
+
         'petugass' => [
-            'driver' => 'eloquent',
+            'driver'    => 'eloquent',
             'model' => App\Petugas::class,
-        ],
+        ]
+
+        // 'admin' => [
+        //     'driver' => 'eloquent',
+        //     'table' => App\Admin::class,
+        // ],
+
+        // 'petugas' => [
+        //     'driver' => 'eloquent',
+        //     'table' => App\Petugas::class,
+        // ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*

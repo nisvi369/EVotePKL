@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-info">Simpan</button>
-                                <a href="/dataPetugas" class="btn btn-light">Kembali</a>
+                                <a href="/kandidat/dataKampanye" class="btn btn-light">Kembali</a>
                             </div>
                         </div>
                     </div>

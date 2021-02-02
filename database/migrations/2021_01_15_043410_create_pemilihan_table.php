@@ -17,9 +17,13 @@ class CreatePemilihanTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('masyarakat_id')->unsigned();
             $table->string('nomor_urut');
+            $table->date('jadwal');
             $table->string('foto');
             $table->timestamps();
-            $table->foreign('masyarakat_id')->references('id')->on('masyarakat')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::table('pemilihan', function (Blueprint $table) {
+          $table->foreign('masyarakat_id')->references('id')->on('masyarakat')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

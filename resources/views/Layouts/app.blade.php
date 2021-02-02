@@ -27,10 +27,6 @@
 </head>
 
 <body>
-    <div class="container">
-        @include('template.alert')
-    </div>
-    
     <div class="jumbotron jumbotron-fluid">
         @yield('content')
     </div>

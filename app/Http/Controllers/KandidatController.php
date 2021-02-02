@@ -18,68 +18,72 @@ class KandidatController extends Controller
 
     public function home(){
         return view('Kandidat.home');
-	}
+    }
 
-    public function data()
+    public function tambah()
     {
-    	// $masyarakat = Masyarakat::all();
+        // $masyarakat = Masyarakat::all();
         // $masyarakat = Masyarakat::where('level', '!=', 'petugas')->get();
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
         -> where('masyarakat.level', '!=', "petugas")
-        -> get();
+        -> orderBy('masyarakat.nama', 'asc')
+        -> paginate(5);
 
-    	return view('kandidat.tambah', compact('masyarakat'));
+        return view('kandidat.tambah', compact('masyarakat'));
     }
 
     public function cari(Request $request)
     {
-    	$cari = $request->cari;
+        $cari = $request->cari;
 
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
-        -> where('masyarakat.level', '!=', "petugas")
-        -> where ('nik','like',"%".$cari."%")
-		-> paginate();
+        ->where('nik','like',"%".$cari."%")
+        ->paginate();
 
-        // return redirect('/Admin/dataKandidat');
-        return view('Kandidat.tambah', compact('masyarakat'));
+        Session::flash('info', 'Data berhasil ditemukan !!');
+
+        return redirect('kandidat.home');
     }
 
 
-    public function detail()
+    public function detail_kandidat()
     {
-    	// $masyarakat = Masyarakat::all();
-    	// $pemilihan = Pemilihan::where('masyarakat_id', $masyarakat->id)->first();
+        // $masyarakat = Masyarakat::all();
+        // $pemilihan = Pemilihan::where('masyarakat_id', $masyarakat->id)->first();
 
         $data = DB::table('masyarakat')
                     ->join('pemilihan', 'pemilihan.masyarakat_id', '=', 'masyarakat.id')
+                    ->orderBy('pemilihan.nomor_urut', 'asc')
                     ->get();
 
-    	return view('kandidat.detail', compact('data'));
+        return view('kandidat.detail', compact('data'));
     }
 
-    public function lengkapi($id)
+    public function lengkapi_data($id)
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
 
         return view('kandidat.data', compact('masyarakat'));
     }
 
-    public function create(Request $request, $id)
+    public function create_data(Request $request, $id)
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
             'nomor_urut' => 'required|max:5',
+            'jadwal'     => 'required|date',
             'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
         ]);
 
         $pemilihan = new Pemilihan();
         $pemilihan->masyarakat_id   = $masyarakat->id;
         $pemilihan->nomor_urut      = $request->nomor_urut;
+        $pemilihan->jadwal          = $request->jadwal;
 
         if ($request->hasfile('foto')) {
             $gambar                 = $request->file('foto');
@@ -100,15 +104,15 @@ class KandidatController extends Controller
 
     public function edit_kandidat($id)
     {
-    	$pemilihan = Pemilihan::find($id);
+        $pemilihan = Pemilihan::find($id);
 
-    	return view('kandidat.edit', compact('pemilihan'));
+        return view('kandidat.edit', compact('pemilihan'));
     }
 
     public function update_kandidat(Request $request, $id)
     {
-    	
-    	// $pemilihan 	= Pemilihan::where('masyarakat_id', $masyarakat->id);
+        
+        // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
             'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
             'nomor_urut'    => 'required|max:5',
@@ -118,9 +122,9 @@ class KandidatController extends Controller
         $gambar_lama    = $request->hidden_gambar;
         $gambar         = $request->file('foto');
 
-    	$pemilihan = Pemilihan::where('id', $id)->first();
-    	$pemilihan->nomor_urut 	= $request->nomor_urut;
-    	$pemilihan->jadwal		= $request->jadwal;
+        $pemilihan = Pemilihan::where('id', $id)->first();
+        $pemilihan->nomor_urut  = $request->nomor_urut;
+        $pemilihan->jadwal      = $request->jadwal;
         
         if ($request->hasfile('foto')) {
             $gambar             = $request->file('foto');
@@ -129,12 +133,12 @@ class KandidatController extends Controller
             $pemilihan->foto    = $new_gambar;
         }
 
-    	
-    	// $pemilihan->update();
-    	$pemilihan->update();
+        
+        // $pemilihan->update();
+        $pemilihan->update();
 
         Session::flash('success', 'Data berhasil diupdate !!');
 
-    	return redirect('/kandidat');
+        return redirect('/kandidat');
     }
 }

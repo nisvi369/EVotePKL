@@ -5,7 +5,7 @@
 @section('content')
 <h1 class="text-center mt-4 mb-4">Profil Saya</h1>
 <div class="container">
-  <div class="col-md-12 mt-1" id="tengah">
+  <div class="col-md-12 mt-1">
         <div class="card shadow p-3 mb-5 bg-white rounded ">
             <div class="card-body">
                 <div class="row">

@@ -3,7 +3,7 @@
 @section('title', 'login')
 
 @section('content')
-<div class="jumbotrondash">
+<div class="jumbotron">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-mr-auto">

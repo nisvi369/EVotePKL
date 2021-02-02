@@ -22,9 +22,9 @@ class CreateMasyarakatTable extends Migration
             $table->enum('jenis_kelamin',['perempuan','laki-laki']);
             $table->date('tanggal_lahir');
             $table->string('alamat');
-            $table->enum('level',['Pemilih','Kandidat']);
-            $table->bigInteger('id_pekerjaan')->unsigned()->index();
-            $table->foreign('id_pekerjaan')->references('id')->on('pekerjaan');
+            $table->string('level');
+            $table->bigInteger('pekerjaan_id')->unsigned()->index();
+            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan');
             $table->rememberToken();
             $table->timestamps();
         });

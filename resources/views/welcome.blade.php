@@ -24,10 +24,10 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <img src="/img/1.png" alt="">
-            <h1 class="display-4"><span>E-Voting</span></h1>
+            <h1 class="display-4"><span>EVOTING</span></h1>
             <p class="lead">We're working hard to finish the development of this site. Our target launch date is
               <strong>January 2022</strong>! Sign up for updates using the form below!</p>
-            <a href="/loginPage" class="btn btn-info">Login Sekarang</a>
+            <a href="/home" class="btn btn-info">Login Sekarang</a>
         </div>
     </div>
     

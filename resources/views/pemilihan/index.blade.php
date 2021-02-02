@@ -7,9 +7,7 @@
     <div class="container">
       <a href="{{ url('/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
       <div class="alert alert-warning" role="alert">
-      @if(!empty($tanggal))
         Tanggal Pemilihan dimulai : {{ $tanggal_awal->tanggal }} berakhir {{ $tanggal_akhir->tanggal }}
-      @endif
       </div>
       
         <div class="row justify-content-center">

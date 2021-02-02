@@ -17,8 +17,8 @@ class CreatePetugasTable extends Migration
             $table->bigIncrements('id');
             $table->string('NIK');
             $table->string('nama');
-            $table->enum('jenis_kelamin',['Laki-laki','Perempuan']);
-            $table->date('tanggal_lahir');
+            $table->enum('jenisKelamin',['Laki-laki','Perempuan']);
+            $table->date('tanggalLahir');
             $table->string('alamat');
             $table->string('email');
             $table->string('password');

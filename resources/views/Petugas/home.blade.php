@@ -12,7 +12,7 @@
     <!-- @else
     @if (Auth::check() && Auth::user()->role_id == 2 && Auth::user()->status_akun == 'Terverifikasi') -->
     <div class="container judul">
-        <h1>SELAMAT DATANG {{ Auth::masyarakat()->nama }}!</h1>
+        <h1>SELAMAT DATANG</h1>
     </div>
     <!-- @else
     @if (Auth::check() && Auth::user()->role_id == 2 && Auth::user()->status_akun == 'Belum Terverifikasi')

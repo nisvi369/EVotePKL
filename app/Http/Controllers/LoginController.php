@@ -8,48 +8,40 @@ use Session;
 
 class LoginController extends Controller
 {
-	public function __construct(){
-        $this->middleware('guest')->except('logout');
-    }
-
-    public function login(){
-        return view ('auth.login');
-	}
-	
     public function postlogin (Request $request)
     {
-    	// dd($request->all());
+        // dd($request->all());
 
-    	// if (Auth::attempt($request->only('email', 'password'))) {
-    	// 	return redirect('/home');
-    	// }
+        // if (Auth::attempt($request->only('email', 'password'))) {
+        //  return redirect('/home');
+        // }
 
-    	if (Auth::guard('masyarakat')->attempt(['email' => $request->email, 'password' => $request->password])) {
-    		return redirect('/Masyarakat/home');
-    	}elseif (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
-    		return redirect('Admin/home');
+        if (Auth::guard('masyarakat')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect('Masyarakat/home');
+        }elseif (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect('Admin/home');
         }elseif (Auth::guard('petugas')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect('Petugas/home');
-    	}
+        }
 
         Session::flash('error', 'Email atau Password salah !!');
 
-    	return redirect('signIn');
+        return redirect('/');
     }
 
     public function logout(Request $request)
     {
-    	// dd($request->all());
-    	if (Auth::guard('masyarakat')->check()){
-    		Auth::guard('masyarakat')->logout();
-    	}elseif (Auth::guard('user')->check()) {
-    		Auth::guard('user')->logout();
+        // dd($request->all());
+        if (Auth::guard('masyarakat')->check()){
+            Auth::guard('masyarakat')->logout();
+        }elseif (Auth::guard('user')->check()) {
+            Auth::guard('user')->logout();
         }elseif (Auth::guard('petugas')->check()) {
             Auth::guard('petugas')->logout();
-    	}
-    	// Auth::logout();
+        }
+        // Auth::logout();
 
-    	return redirect('/');
+        return redirect('/');
     }
 
 }

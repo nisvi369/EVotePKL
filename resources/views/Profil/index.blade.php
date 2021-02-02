@@ -5,7 +5,7 @@
 @section('content')
 <h1 class="text-center mt-4 mb-4">Profil Saya</h1>
 <div class="container">
-  <div class="col-md-12 mt-1" id="tengah">
+  <div class="col-md-12 mt-1">
         <div class="card shadow p-3 mb-5 bg-white rounded ">
             <div class="card-body">
                 <div class="row">
@@ -61,19 +61,19 @@
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('id_pekerjaan') ? 'has-error' : ''}}">
-                            <label for="id_pekerjaan" class="col-md-2 col-form-label">Pekerjaan</label>
+                          <div class="form-group row mb-2 {{$errors->has('pekerjaan_id') ? 'has-error' : ''}}">
+                            <label for="pekerjaan_id" class="col-md-2 col-form-label">Pekerjaan</label>
                             <div class="col-md-10">
-                                <select class="form-control" name="id_pekerjaan" id="id_pekerjaan" required="">
-                                    <option value="{{ auth()->user()->id_pekerjaan }}">-- Pilih Pekerjaan --</option>
+                                <select class="form-control" name="pekerjaan_id" id="pekerjaan_id" required="">
+                                    <option value="{{ auth()->user()->pekerjaan_id }}">-- Pilih Pekerjaan --</option>
                                     @foreach ($pekerjaan as $k)
                                         <option 
                                             value="{{ $k->id }}">{{ $k->nama_pekerjaan}}
                                         </option>
                                     @endforeach
                                 </select>
-                                @if($errors->has('id_pekerjaan'))
-                                  <span class="form-text text-danger">{{$errors->first('id_pekerjaan')}}</span>
+                                @if($errors->has('pekerjaan_id'))
+                                  <span class="form-text text-danger">{{$errors->first('pekerjaan_id')}}</span>
                                 @endif
                             </div>
                         </div>

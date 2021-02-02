@@ -12,5 +12,4 @@ class Pekerjaan extends Model
     public function masyarakat() {
     	return $this->hasOne('App\Masyarakat');
     }
-
 }

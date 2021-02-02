@@ -14,7 +14,7 @@
                       </ol>
                     </nav>
                 </div> -->
-                <div class="col-md-12 mt-1" id="tengah">
+                <div class="col-md-12 mt-1">
                     <div class="card shadow p-3 mb-5 bg-white rounded ">
                         <div class="card-body">
                             <div class="row">
@@ -39,24 +39,24 @@
                                                 @endif
                                           </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
-                                            <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                                        <div class="form-group row mb-2 {{$errors->has('jenisKelamin') ? 'has-error' : ''}}">
+                                            <label for="jenisKelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-10">
-                                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="">
+                                                <select class="form-control @error('jenisKelamin') is-invalid @enderror" name="jenisKelamin" required="">
                                                     <option value="">-- Jenis Kelamin --</option>
-                                                    <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
-                                                    <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
+                                                    <option value="perempuan"{{(old('jenisKelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
+                                                    <option value="laki-laki"{{(old('jenisKelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
                                                 </select>
-                                                @if($errors->has('jenis_kelamin'))
-                                                    <span class="form-text text-danger">{{$errors->first('jenis_kelamin')}}</span>
+                                                @if($errors->has('jenisKelamin'))
+                                                    <span class="form-text text-danger">{{$errors->first('jenisKelamin')}}</span>
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-2 {{$errors->has('tanggal_lahir') ? 'has-error' : ''}}">
+                                        <div class="form-group row mb-2 {{$errors->has('tanggalLahir') ? 'has-error' : ''}}">
                                             <label for="tanggal_lahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-10">
-                                                <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" required="">                                              @if($errors->has('tanggal_lahir'))
-                                                <span class="form-text text-danger">{{$errors->first('tanggal_lahir')}}</span>
+                                                <input type="date" name="tanggalLahir" class="form-control" id="tanggalLahir" required="">                                              @if($errors->has('tanggal_lahir'))
+                                                <span class="form-text text-danger">{{$errors->first('tanggalLahir')}}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                                     <option>-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatan as $k)
                                                         <option 
-                                                            value="{{ $k->id }}">{{ $k->nama_kecamatan}}
+                                                            value="{{ $k->id }}">{{ $k->namaKecamatan}}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -94,7 +94,7 @@
                                      
                                         <br>
                                         <button type="submit" class="btn btn-info">Simpan</button>
-                                        <a href="/Admin/dataPetugas" class="btn btn-light">Kembali</a>
+                                        <a href="/dataPetugas" class="btn btn-light">Kembali</a>
                                     </form>
                                 </div>
                             </div>
