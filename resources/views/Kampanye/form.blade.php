@@ -46,8 +46,17 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row mb-2 {{$errors->has('waktu') ? 'has-error' : ''}}">
+                            <!-- <label for="waktu" class="col-md-2 col-form-label">Waktu</label> -->
+                            <div class="col-md-10">
+                                <input type="hidden" name="waktu" class="form-control" value="{{ old('waktu') }}" id="waktu" required="">
+                                @if($errors->has('waktu'))
+                                    <span class="form-text text-danger">{{$errors->first('waktu')}}</span>
+                                @endif
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-info">Simpan</button>
-                        <a href="/Kandidat/dataKampanye" class="btn btn-light">Kembali</a>
+                        <a href="{{ url('/Kandidat/dataKampanye') }}" class="btn btn-light">Kembali</a>
                     </div>
                 </div>
             </div>

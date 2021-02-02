@@ -6,20 +6,20 @@
     <h1 class="text-center mt-4 mb-4">Edit Data</h1>
       <div class="container">
         <div class="row">
-            <div class="col-md-12 mt-4">
+            <!-- <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/masyarakat') }}">Data Masyarakat</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Edit</li>
                   </ol>
                 </nav>
-            </div>
+            </div> -->
             <div class="col-md-12 mt-1" id="tengah">
                 <div class="card shadow p-3 mb-5 bg-white rounded ">
                     <div class="card-body">
                         <div class="row">
                           <div class="col-md-12">                                        
-                              <form action="{{ url('/masyarakat/update') }}/{{ $masyarakat->id }}" method="post" enctype="multipart/form-data" >
+                              <form action="{{ url('/updateMasyarakat') }}/{{ $masyarakat->id }}" method="post" enctype="multipart/form-data" >
                               @csrf
                                 <div class="form-group row mb-2 {{$errors->has('nama') ? 'has-error' : ''}}">
                                   <label for="nama" class="col-md-2 col-form-label">Nama</label>
@@ -70,10 +70,10 @@
                                     @endif
                                   </div>
                                 </div>
-                                <div class="form-group row mb-2 {{$errors->has('pekerjaan_id') ? 'has-error' : ''}}">
-                                    <label for="pekerjaan_id" class="col-md-2 col-form-label">Pekerjaan</label>
+                                <div class="form-group row mb-2 {{$errors->has('id_pekerjaan') ? 'has-error' : ''}}">
+                                    <label for="id_pekerjaan" class="col-md-2 col-form-label">Pekerjaan</label>
                                     <div class="col-md-10">
-                                        <select class="form-control" name="pekerjaan_id" id="pekerjaan_id" required>
+                                        <select class="form-control" name="id_pekerjaan" id="id_pekerjaan" required>
                                             <option value="">-- Pilih Pekerjaan --</option>
                                             @foreach ($pekerjaan as $k)
                                                 <option 
@@ -81,8 +81,8 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        @if($errors->has('pekerjaan_id'))
-                                          <span class="form-text text-danger">{{$errors->first('pekerjaan_id')}}</span>
+                                        @if($errors->has('id_pekerjaan'))
+                                          <span class="form-text text-danger">{{$errors->first('id_pekerjaan')}}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -95,8 +95,8 @@
                                     @endif
                                   </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">EDIT</button>
-                                <a href="{{ url('/masyarakat') }}" class="btn btn-outline-primary">Kembali</a>
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                                <!-- <a href="{{ url('/masyarakat') }}" class="btn btn-outline-primary">Kembali</a> -->
                               </form>
 
                           </div>

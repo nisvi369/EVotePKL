@@ -19,37 +19,49 @@
       <ul class="navbar-nav">
         @if(auth()->user()->level == 'admin')
         <li class="nav-item px-2">
-          <a href="/dataPetugas" class="nav-link">Data Petugas</a>
+          <a href="{{ url('/Admin/dataPetugas') }}" class="nav-link">Data Petugas</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/Admin/dataMasyarakat') }}" class="nav-link">Data Masyarakat</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/Admin/dataKandidat') }}" class="nav-link">Data Kandidat</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/Admin/dataKampanye') }}" class="nav-link">Data Kampanye</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/Admin/periode') }}" class="nav-link">Periode</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('/Admin/pemilihan') }}" class="nav-link">Voting</a>
         </li>
         @endif
 
         @if(auth()->user()->level == 'petugas')
         <li class="nav-item px-2">
-          <a href="{{ url('/masyarakat') }}" class="nav-link">Data Masyarakat</a>
-        </li>
-        @endif
-        
-        @if(auth()->user()->level == 'admin')
-        <li class="nav-item px-2">
-          <a href="{{ url('/kandidat') }}" class="nav-link">Data Kandidat</a>
+          <a href="{{ url('/Petugas/dataMasyarakat') }}" class="nav-link">Data Masyarakat</a>
         </li>
         <li class="nav-item px-2">
-          <a href="{{ url('/periode') }}" class="nav-link">Periode</a>
+          <a href="{{ url('/Petugas/dataKampanye') }}" class="nav-link">Data Kampanye</a>
+        </li>
+        <li class="nav-item px-2">
+          <a href="{{ url('Petugas/pemilihan') }}" class="nav-link">Voting</a>
         </li>
         @endif
 
         @if(auth()->user()->level == 'pemilih')
         <li class="nav-item px-2">
-          <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
+          <a href="{{ url('Masyarakat/pemilihan') }}" class="nav-link">Voting</a>
         </li>
         @endif
 
         @if(auth()->user()->level == 'kandidat')
         <li class="nav-item px-2">
-          <a href="{{ url('/pemilihan') }}" class="nav-link">Voting</a>
+          <a href="{{ url('/Kandidat/dataKampanye') }}" class="nav-link">Data Kampanye</a>
         </li>
         <li class="nav-item px-2">
-          <a href="{{ url('/kandidat/dataKampanye') }}" class="nav-link">Data Kampanye</a>
+          <a href="{{ url('/Masyarakat/pemilihan') }}" class="nav-link">Voting</a>
         </li>
         @endif
 

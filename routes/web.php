@@ -35,90 +35,76 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/home', 'AdminController@home');
-    Route::get('/dataPetugas', 'petugasController@data');
-    Route::get('/tambahPetugas', 'petugasController@form');
-    Route::post('/postFormPetugas', 'petugasController@create');
-    Route::get('/editPetugas/{id}', 'petugasController@edit');
-    Route::post('/dataPetugas/{id}/update', 'petugasController@update');
-    Route::get('/hapusPetugas/{id}', 'petugasController@hapus');
-
-    Route::get('/kandidat', 'KandidatController@tambah');
-    Route::get('/kandidat/home', 'KandidatController@home');
-    Route::get('/kandidat/cari', 'KandidatController@cari');
-    // Route::post('/kandidat/level_kandidat/{id}', 'KandidatController@jadikan_kandidat');
-    Route::get('/kandidat/detail', 'KandidatController@detail_kandidat');
-    Route::get('/kandidat/lengkapi/{id}', 'KandidatController@lengkapi_data');
-    Route::post('/kandidat/lengkapi/{id}', 'KandidatController@create_data');
-    Route::get('/kandidat/edit/{id}', 'KandidatController@edit_kandidat');
-    Route::post('/kandidat/update/{id}', 'KandidatController@update_kandidat');
-    
-
-    Route::get('/periode', 'PeriodeController@index');
-    Route::post('/periode', 'PeriodeController@atur_periode');
-
+    //DATA PETUGAS
+    Route::get('/Admin/dataPetugas', 'PetugasController@data');
+    Route::get('/Admin/tambahPetugas', 'PetugasController@form');
+    Route::post('/postFormPetugas', 'PetugasController@create');
+    Route::get('/Admin/editPetugas/{id}', 'PetugasController@edit');
+    Route::post('/dataPetugas/{id}/update', 'PetugasController@update');
+    Route::get('/Admin/hapusPetugas/{id}', 'PetugasController@hapus');
+    //DATA MASYARAKAT
+    Route::get('/Admin/dataMasyarakat', 'MasyarakatController@index');
+    Route::get('/Admin/editMasyarakat/{id}', 'MasyarakatController@edit');
+    Route::post('/updateMasyarakat/{id}', 'MasyarakatController@update');
+    Route::get('/Admin/deleteMasyarakat/{id}', 'MasyarakatController@delete');
+    //DATA KANDIDAT
+    Route::get('/Admin/dataKandidat', 'KandidatController@tambah');
+    Route::get('/Admin/detailKandidat', 'KandidatController@detail');
+    Route::get('/Admin/cari', 'KandidatController@cari');
+    Route::get('/Admin/lengkapi/{id}', 'KandidatController@lengkapi');
+    Route::post('/Admin/lengkapiData/{id}', 'KandidatController@create');
+    //DATA KAMPANYE
+    Route::get('Admin/dataKampanye', 'KampanyeController@data');
+    Route::get('/detailKampanye/{id}', 'KampanyeController@detail');
+    //JADWAL PEMILIHAN
+    Route::get('/Admin/periode', 'PeriodeController@index');
+    Route::post('/postPeriode', 'PeriodeController@atur_periode');
+    //VOTING
+    Route::get('/Admin/pemilihan', 'PemilihanController@index');
+    Route::get('/Admin/hasil_voting', 'PemilihanController@grafik');
+    Route::post('/pilih/{id}', 'PemilihanController@pilih_kandidat');
+    //PROFIL
     Route::get('/profil-admin', 'ProfilController@index_admin');
     Route::post('/profil-admin/{id}', 'ProfilController@update_admin');
 });
 
-// Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],function(){
-//     Route::get('/Masyarakat/home', 'MasyarakatController@home');
-// });
-
-// Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:petugas']],function(){
-    
-// });
-
 Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){
+    //DATA MASYARAKAT
     Route::get('/Petugas/home', 'petugasController@home');
-    Route::get('/masyarakat', 'MasyarakatController@index');
-    Route::get('/masyarakat/tambah', 'MasyarakatController@tambah');
-    Route::post('/masyarakat/tambah', 'MasyarakatController@tambah_data');
-    Route::get('/masyarakat/update/{id}', 'MasyarakatController@edit_data');
-    Route::post('/masyarakat/update/{id}', 'MasyarakatController@edit');
-    Route::get('/masyarakat/delete/{id}', 'MasyarakatController@delete');
-
+    Route::get('/Petugas/dataMasyarakat', 'MasyarakatController@index');
+    Route::get('/Petugas/tambah', 'MasyarakatController@tambah');
+    Route::post('/Petugas/create', 'MasyarakatController@create');
+    Route::get('/Petugas/edit/{id}', 'MasyarakatController@edit');
+    Route::post('/Petugas/update/{id}', 'MasyarakatController@update');
+    Route::get('/Petugas/delete/{id}', 'MasyarakatController@delete');
+    //DATA KAMPANYE
+    Route::get('Petugas/dataKampanye', 'KampanyeController@data');
+    Route::get('/detailKampanye/{id}', 'KampanyeController@detail');
+    //VOTING
+    Route::get('/Petugas/pemilihan', 'PemilihanController@index');
+    Route::post('/pilih/{id}', 'PemilihanController@pilih_kandidat');
+    //PROFIL
     Route::get('/profil-petugas', 'ProfilController@index_petugas');
     Route::post('/profil-petugas/{id}', 'ProfilController@update_petugas');
 });
 
 Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],function(){
     Route::get('/Masyarakat/home', 'MasyarakatController@home');
-    Route::get('/pemilihan', 'PemilihanController@index');
+    //DATA KAMPANYE
+    Route::get('/Masyarakat/detail', 'KampanyeController@detail');
+    //DATA KAMPANYE KANDIDAT
+    Route::get('/Kandidat/dataKampanye', 'KampanyeController@dataku');
+    Route::get('/Kandidat/tambahKampanye', 'KampanyeController@form');
+    Route::post('/postFormKampanye', 'KampanyeController@create');
+    Route::get('/Kandidat/editKampanye/{id}', 'KampanyeController@edit');
+    Route::post('/updateKampanye/{id}', 'KampanyeController@update');
+    Route::get('/Kandidat/hapusKampanye/{id}', 'KampanyeController@hapus');
+    Route::get('/detailKampanye/{id}', 'KampanyeController@detail');
+    //VOTING
+    Route::get('/Masyarakat/pemilihan', 'PemilihanController@index');
     Route::post('/pilih/{id}', 'PemilihanController@pilih_kandidat');
-    Route::get('/hasil_voting', 'PemilihanController@grafik');
-
-    Route::get('/kandidat/dataKampanye', 'kampanyeController@data');
-    Route::get('/kandidat/tambahKampanye', 'kampanyeController@form');
-    Route::post('/kandidat/postFormKampanye', 'kampanyeController@create');
-    Route::get('/baca/{id}', 'kampanyeController@selengkapnya');
-
+    //PROFIL
     Route::get('/profil', 'ProfilController@index');
     Route::post('/profil/{id}', 'ProfilController@update');
-});
-
-Route::group(['middleware' => ['auth:petugas,masyarakat', 'ceklevel:petugas,pemilih,kandidat']],function(){
-    
-    // Route::get('/kandidat', 'KandidatController@tambah');
-    // Route::get('/kandidat/home', 'KandidatController@home');
-    // Route::get('/kandidat/cari', 'KandidatController@cari');
-    // // Route::post('/kandidat/level_kandidat/{id}', 'KandidatController@jadikan_kandidat');
-    // Route::get('/kandidat/detail', 'KandidatController@detail_kandidat');
-    // Route::get('/kandidat/lengkapi/{id}', 'KandidatController@lengkapi_data');
-    // Route::post('/kandidat/lengkapi/{id}', 'KandidatController@create_data');
-    // Route::get('/kandidat/edit/{id}', 'KandidatController@edit_kandidat');
-    // Route::post('/kandidat/update/{id}', 'KandidatController@update_kandidat');
-    // Route::get('/kandidat/dataKampanye', 'kampanyeController@data');
-    // Route::get('/kandidat/tambahKampanye', 'kampanyeController@form');
-    // Route::post('/kandidat/postFormKampanye', 'kampanyeController@create');
-});
-
-Route::group(['middleware' => ['auth'=>'Petugas']],function(){
-    // Route::get('/Petugas/home', 'petugasController@home');
-    // Route::get('/dataPetugas', 'petugasController@data');
-    // Route::get('/tambahPetugas', 'petugasController@form');
-    // Route::post('/postFormPetugas', 'petugasController@create');
-    // Route::get('/editPetugas/{id}', 'petugasController@edit');
-    // Route::post('/dataPetugas/{id}/update', 'petugasController@update');
-    // Route::get('/hapusPetugas/{id}', 'petugasController@hapus');
 });
 

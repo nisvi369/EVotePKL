@@ -6,14 +6,14 @@
     <h1 class="text-center mt-4 mb-4">Hasil Voting</h1>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mt-4">
+            <!-- <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/pemilihan') }}">Voting</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Hasil Voting</li>
                   </ol>
                 </nav>
-            </div>
+            </div> -->
 
             <div class="card col-md-12">
               <div id="voting"></div>
@@ -38,7 +38,7 @@
               type: 'pie'
           },
           title: {
-              text: 'Hasil Voting'
+              text: 'Hasil Pemilihan Walikota Jember Periode 2030-2035'
           },
           tooltip: {
               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

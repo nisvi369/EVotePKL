@@ -9,11 +9,11 @@
                 <div class="card-body">
                     <div class="row">
          
-                        <form action="{{ url('kandidat/cari') }}" method="GET" class="col-md-12">
+                        <form action="{{ url('/Admin/cari') }}" method="GET" class="col-md-12">
                             @csrf
-                            <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}">
+                            <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
                             <input type="submit" value="cari">
-                            <a href="{{ url('kandidat/detail') }}" class="btn-sm btn-dark" style="float: right; text-decoration: none;">Detail Kandidat</a>
+                            <!-- <a href="{{ url('kandidat/detail') }}" class="btn-sm btn-dark" style="float: right; text-decoration: none;">Detail Kandidat</a> -->
                         </form>
                         <div class="table-responsive">
                             <table class="table table-hover text-center col-md-12 mt-4">
@@ -42,7 +42,7 @@
                                         
                                         <td>
                                             @if($data->level == "pemilih")
-                                            <a href="{{ url('kandidat/lengkapi') }}/{{ $data->id }}" class="btn btn-primary">Lengkapi Data</a>
+                                            <a href="{{ url('/Admin/lengkapi') }}/{{ $data->id }}" class="btn btn-primary">Lengkapi Data</a>
                                             @elseif($data->level == "kandidat")
                                             <span class="badge rounded-pill bg-info text-dark">Kandidat</span>
                                             @endif

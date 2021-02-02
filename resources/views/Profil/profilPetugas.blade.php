@@ -39,26 +39,26 @@
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('jenisKelamin') ? 'has-error' : ''}}">
-                            <label for="jenisKelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                          <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
+                            <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-md-10">
                               
-                              <select class="form-control @error('jenisKelamin') is-invalid @enderror" name="jenisKelamin" required="">
-                                  <option value="{{ auth()->user()->jenisKelamin }}">-- Jenis Kelamin --</option>
-                                  <option value="perempuan"{{(old('jenisKelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
-                                  <option value="laki-laki"{{(old('jenisKelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
+                              <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="">
+                                  <option value="{{ auth()->user()->jenis_kelamin }}">-- Jenis Kelamin --</option>
+                                  <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
+                                  <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
                               </select>
-                              @if($errors->has('jenisKelamin'))
-                                  <span class="form-text text-danger">{{$errors->first('jenisKelamin')}}</span>
+                              @if($errors->has('jenis_kelamin'))
+                                  <span class="form-text text-danger">{{$errors->first('jenis_kelamin')}}</span>
                               @endif
                             </div>
                           </div>
-                          <div class="form-group row mb-2 {{$errors->has('tanggalLahir') ? 'has-error' : ''}}">
-                            <label for="tanggalLahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
+                          <div class="form-group row mb-2 {{$errors->has('tanggal_lahir') ? 'has-error' : ''}}">
+                            <label for="tanggal_lahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
                             <div class="col-md-10">
-                              <input type="date" name="tanggalLahir" value="{{ auth()->user()->tanggalLahir }}" class="form-control" id="tanggalLahir" required="">                                              
-                              @if($errors->has('tanggalLahir'))
-                                  <span class="form-text text-danger">{{$errors->first('tanggalLahir')}}</span>
+                              <input type="date" name="tanggal_lahir" value="{{ auth()->user()->tanggal_lahir }}" class="form-control" id="tanggal_lahir" required="">                                              
+                              @if($errors->has('tanggal_lahir'))
+                                  <span class="form-text text-danger">{{$errors->first('tanggal_lahir')}}</span>
                               @endif
                             </div>
                           </div>
@@ -69,7 +69,7 @@
                                     <option value="{{ auth()->user()->id_kecamatan }}">-- Pilih Daerah Tugas --</option>
                                     @foreach ($kecamatan as $k)
                                         <option 
-                                            value="{{ $k->id }}">{{ $k->namaKecamatan}}
+                                            value="{{ $k->id }}">{{ $k->nama_kecamatan}}
                                         </option>
                                     @endforeach
                                 </select>

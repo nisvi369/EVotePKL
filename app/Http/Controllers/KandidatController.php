@@ -25,7 +25,7 @@ class KandidatController extends Controller
         // $masyarakat = Masyarakat::all();
         // $masyarakat = Masyarakat::where('level', '!=', 'petugas')->get();
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
         -> where('masyarakat.level', '!=', "petugas")
         -> orderBy('masyarakat.nama', 'asc')
@@ -39,14 +39,14 @@ class KandidatController extends Controller
         $cari = $request->cari;
 
         $masyarakat = DB::table('masyarakat')
-        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.pekerjaan_id')
+        -> join('pekerjaan','pekerjaan.id', '=', 'masyarakat.id_pekerjaan')
         -> select('masyarakat.id','masyarakat.nik','masyarakat.nama','masyarakat.jenis_kelamin','masyarakat.alamat','masyarakat.tanggal_lahir','masyarakat.email','masyarakat.level','pekerjaan.nama_pekerjaan')
-        ->where('nik','like',"%".$cari."%")
-        ->paginate();
+        -> where('nik','like',"%".$cari."%")
+        -> paginate();
 
         Session::flash('info', 'Data berhasil ditemukan !!');
 
-        return redirect('kandidat.home');
+        return view('Kandidat.tambah', compact('masyarakat'));
     }
 
 
@@ -63,14 +63,14 @@ class KandidatController extends Controller
         return view('kandidat.detail', compact('data'));
     }
 
-    public function lengkapi_data($id)
+    public function lengkapi($id)
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
 
         return view('kandidat.data', compact('masyarakat'));
     }
 
-    public function create_data(Request $request, $id)
+    public function create(Request $request, $id)
     {
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
@@ -102,14 +102,14 @@ class KandidatController extends Controller
         return redirect('/kandidat');
     }
 
-    public function edit_kandidat($id)
+    public function edit($id)
     {
         $pemilihan = Pemilihan::find($id);
 
         return view('kandidat.edit', compact('pemilihan'));
     }
 
-    public function update_kandidat(Request $request, $id)
+    public function update(Request $request, $id)
     {
         
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);

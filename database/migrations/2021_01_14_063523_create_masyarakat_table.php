@@ -23,8 +23,8 @@ class CreateMasyarakatTable extends Migration
             $table->date('tanggal_lahir');
             $table->string('alamat');
             $table->string('level');
-            $table->bigInteger('pekerjaan_id')->unsigned()->index();
-            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan');
+            $table->bigInteger('id_pekerjaan')->unsigned()->index();
+            $table->foreign('id_pekerjaan')->references('id')->on('pekerjaan');
             $table->rememberToken();
             $table->timestamps();
         });

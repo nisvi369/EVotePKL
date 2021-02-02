@@ -17,8 +17,6 @@
                             <th>No.</th>
                             <th>Judul</th>
                             <th>Waktu</th>
-                            <th>No. Urut Kandidat</th>
-                            <th>Nama Kandidat</th>
                             <th>Konten</th>
                             <th>Aksi</th>
                         </tr>
@@ -29,8 +27,6 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{$k->judul}}</td>
                             <td>{{$k->waktu}}</td>
-                            <td>{{$k->nomor_urut}}</td>
-                            <td>{{$k->nama}}</td>
                             <td>{{$k->konten}}</td>
                             <td><a href="{{ url('detailKampanye') }}/{{ $k->id }}" class="btn btn-success btn-sm">Baca Selengkapnya</a><td>
                             @if(auth()->user()->level == 'kandidat')

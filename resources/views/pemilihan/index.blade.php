@@ -5,9 +5,44 @@
 @section('content')
     <h1 class="text-center mt-4 mb-4">Voting</h1>
     <div class="container">
-      <a href="{{ url('/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
+      @if(Auth()->user()->level == 'admin')
+      <a href="{{ url('/Admin/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
+      @endif
       <div class="alert alert-warning" role="alert">
-        Tanggal Pemilihan dimulai : {{ $tanggal_awal->tanggal }} berakhir {{ $tanggal_akhir->tanggal }}
+        <script>
+			  	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
+			  	function CountDownTimer(dt, id)
+			  	{
+			  		var end = new Date('{{$tanggal_awal->tanggal}}');
+			  		var _second = 1000;
+			  		var _minute = _second * 60;
+			  		var _hour = _minute * 60;
+			  		var _day = _hour * 24;
+			  		var timer;
+			  		function showRemaining() {
+			  			var now = new Date();
+			  			var distance = end - now;
+			  			if (distance < 0) {
+
+			  				clearInterval(timer);
+			  				document.getElementById(id).innerHTML = '<center><b>WAKTU PEMILIHAN SUDAH BERAKHIR</b></center> ';
+			  				return;
+			  			}
+			  			var days = Math.floor(distance / _day);
+			  			var hours = Math.floor((distance % _day) / _hour);
+			  			var minutes = Math.floor((distance % _hour) / _minute);
+			  			var seconds = Math.floor((distance % _minute) / _second);
+
+			  			document.getElementById(id).innerHTML = days + 'days ';
+			  			document.getElementById(id).innerHTML += hours + 'hrs ';
+			  			document.getElementById(id).innerHTML += minutes + 'mins ';
+			  			document.getElementById(id).innerHTML += seconds + 'secs';
+			  			document.getElementById(id).innerHTML +='<center><h2>WAKTU PEMILIHAN BELUM DIMULAI</h2></center>';
+			  		}
+			  		timer = setInterval(showRemaining, 1000);
+			  	}
+			  </script>
+			<div id="countdown"></div>
       </div>
       
         <div class="row justify-content-center">
@@ -37,16 +72,17 @@
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $kandidat->nama }}</li>
-                    <li class="list-group-item">Jadwal : {{ date('d M Y', strtotime($kandidat->jadwal)) }}</li>
                   </ul>
                   <div class="card-body">
                     <form action="{{ url('pilih') }}/{{ $kandidat->id }}" method="POST">
                       @csrf
                       <!-- <input type="radio" name="nomor" id="nomor"> <br> -->
-                      @if(empty($hide))
-                      <button type="submit" class="btn btn-primary">Pilih</button>
-                      @else
-                      <p style="color: red;">Sudah Memilih</p>
+                      @if(Auth()->user()->level != 'admin')
+                        @if(empty($hide))
+                        <button type="submit" class="btn btn-primary">Pilih</button>
+                        @else
+                        <p style="color: red;">Sudah Memilih</p>
+                        @endif
                       @endif
                     </form>
                   </div>
