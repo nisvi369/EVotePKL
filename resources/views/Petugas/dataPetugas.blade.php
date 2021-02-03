@@ -8,6 +8,7 @@
             <div class="card shadow p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <a href="/Admin/tambahPetugas" class="btn btn-primary mb-4">Tambah Data</a>
+                    <a href="/Admin/exportPetugas" class="btn btn-primary mb-4">Export to Excel</a>
                     <div class="table-responsive">
                         <table class="table table-hover col-md-12 text-center">
                             <thead>

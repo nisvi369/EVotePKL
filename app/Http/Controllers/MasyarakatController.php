@@ -9,6 +9,10 @@ use Auth;
 use DB;
 use Session;
 
+use App\Exports\MasyarakatExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 class MasyarakatController extends Controller
 {
     public function __construct()
@@ -17,7 +21,8 @@ class MasyarakatController extends Controller
     }
 
     public function home(){
-        return view('Masyarakat.home');
+        $kampanye = \App\Kampanye::orderBy('id', 'desc')->take(2)->get();
+        return view('Masyarakat.home', compact('kampanye'));
     }
     
     public function index()
@@ -130,4 +135,8 @@ class MasyarakatController extends Controller
 
         return redirect('/Petugas/dataMasyarakat');
     }
+
+    public function export(){
+		return Excel::download(new MasyarakatExport, 'masyarakat.xlsx');
+	}
 }

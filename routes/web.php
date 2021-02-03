@@ -14,12 +14,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
-
-// Route::get('/login', function(){
-//     return view('user.login');
-// })->name('login');
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/profil_saya/{id}', 'HomeController@profil_saya')->name('home.profil_saya');
 Route::get('/home/edit/{id}', 'HomeController@edit')->name('home.edit');
@@ -30,6 +24,8 @@ Route::get('/signIn', 'EVoteController@signIn')->name('login');
 Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::post('/adminLogin', 'LoginController@adminLogin')->name('adminLogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+
+Route::get('/more', 'KampanyeController@selengkapnya');
 
 Auth::routes();
 
@@ -42,11 +38,13 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/editPetugas/{id}', 'PetugasController@edit');
     Route::post('/dataPetugas/{id}/update', 'PetugasController@update');
     Route::get('/Admin/hapusPetugas/{id}', 'PetugasController@hapus');
+    Route::get('/Admin/exportPetugas', 'PetugasController@export');
     //DATA MASYARAKAT
     Route::get('/Admin/dataMasyarakat', 'MasyarakatController@index');
     Route::get('/Admin/editMasyarakat/{id}', 'MasyarakatController@edit');
     Route::post('/updateMasyarakat/{id}', 'MasyarakatController@update');
     Route::get('/Admin/deleteMasyarakat/{id}', 'MasyarakatController@delete');
+    Route::get('/Admin/exportMasyarakat', 'MasyarakatController@export');
     //DATA KANDIDAT
     Route::get('/Admin/dataKandidat', 'KandidatController@tambah');
     Route::get('/Admin/detailKandidat', 'KandidatController@detail');
@@ -59,6 +57,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     //JADWAL PEMILIHAN
     Route::get('/Admin/periode', 'PeriodeController@index');
     Route::post('/postPeriode', 'PeriodeController@atur_periode');
+    Route::get('/Admin/exportHasil', 'PemilihanController@export');
     //VOTING
     Route::get('/Admin/pemilihan', 'PemilihanController@index');
     Route::get('/Admin/hasil_voting', 'PemilihanController@grafik');

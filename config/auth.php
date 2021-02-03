@@ -102,6 +102,7 @@ return [
             'driver'    => 'eloquent',
             'model' => App\Petugas::class,
         ]
+        
 
         // 'admin' => [
         //     'driver' => 'eloquent',

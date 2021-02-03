@@ -18,33 +18,34 @@ class PeriodeController extends Controller
     public function index()
     {
     	$tanggal_awal = Periode::orderBy('tanggal', 'asc')->first();
-		// $tanggal_akhir = Periode::orderBy('tanggal', 'desc')->first();
-		$waktu_mulai = Periode::orderBy('waktu','asc')->first();
-		$waktu_akhir = Periode::orderBy('waktu_akhir','asc')->first();
+		$tanggal_akhir = Periode::orderBy('tanggal', 'desc')->first();
+		// $waktu_mulai = Periode::orderBy('waktu','asc')->first();
+		// $waktu_akhir = Periode::orderBy('waktu_akhir','asc')->first();
 
-		// return view('periode.index', compact('tanggal_awal', 'tanggal_akhir'));
-		return view('periode.index', compact('tanggal_awal', 'waktu_mulai', 'waktu_akhir'));
+		return view('periode.index', compact('tanggal_awal', 'tanggal_akhir'));
+		// return view('periode.index', compact('tanggal_awal', 'waktu_mulai', 'waktu_akhir'));
     }
 
     public function atur_periode(Request $request)
     {
 		$tanggal_awal 	= $request->tanggal_awal;
-		// $tanggal_akhir 	= $request->tanggal_akhir;
-		$waktu_mulai = $request->waktu_mulai;
-		$waktu_akhir = $request->waktu_akhir;
+		$tanggal_akhir 	= $request->tanggal_akhir;
+		// $waktu_mulai = $request->waktu_mulai;
+		// $waktu_akhir = $request->waktu_akhir;
 
-    	$tanggal1 = date('Y-m-d', strtotime($tanggal_awal));
-		// $tanggal2 = date('Y-m-d', strtotime($tanggal_akhir));
-		$waktu1 = date('H:i:s', strtotime($waktu_mulai));
-		$waktu2 = date('H:i:s', strtotime($waktu_akhir));
+    	$tanggal1 = date('Y-m-d H:i:s', strtotime($tanggal_awal));
+		$tanggal2 = date('Y-m-d H:i:s', strtotime($tanggal_akhir));
+		// $waktu1 = date('H:i:s', strtotime($waktu_mulai));
+		// $waktu2 = date('H:i:s', strtotime($waktu_akhir));
 
         \DB::table('periode')->delete();
 
-    	if ($waktu1 <= $waktu2) {
+    	if ($tanggal1 <= $tanggal2) {
     		$periode = new Periode;
 			$periode->tanggal = $tanggal1;
-			$periode->waktu = $waktu1;
-			$periode->waktu_akhir = $waktu2;
+			$periode->tanggal_akhir = $tanggal2;
+			// $periode->waktu = $waktu1;
+			// $periode->waktu_akhir = $waktu2;
     		$periode->save();
 
 			$tanggal1 = date('Y-m-d', strtotime('+1 days', strtotime($tanggal1)));

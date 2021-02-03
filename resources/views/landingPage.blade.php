@@ -150,19 +150,16 @@
         <div class="menu">
             <div class="row">
                 <div class="box col-md-12 shadow-sm p-3 mb-5 bg-white rounded">
-                    <h1 class="text-center">HALOO</h1>
+                @foreach($kampanye as $k)
+                    <h1 class="text-center">{{$k->judul}}</h1>
                     <p>
-                        <img src="/img/kampanye/4.jpg" class="rounded ml-2 mr-2" style="float: left" height="30%" width="30%" alt="">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <img src="{{ url('img/foto_kampanye') }}/{{$k->gambar}}" class="rounded ml-2 mr-2" style="float: left" height="30%" width="30%" alt="">
+                        {{$k->konten}}
                     </p>
                     <div class="aksi1">
-                        <a href="#">More<a>
+                        <a href="{{ url('/more') }}">More<a>
                     </div>
+                @endforeach
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@
             @if(auth()->user()->level == 'petugas')
             <a href="{{ url('Petugas/tambah') }}" class="btn btn-primary">Tambah Data</a>
             @endif
+            <a href="{{ url('/Admin/exportMasyarakat') }}" class="btn btn-primary">Export to Excel</a>
             <!-- <a href="{{ url('kandidat') }}" class="btn btn-primary">Tambah Kandidat</a> -->
             <div class="table-responsive">
                 <table class="table table-hover col-md-12 mt-2 text-center">

@@ -11,6 +11,10 @@ use Auth;
 use DB;
 use Session;
 
+use App\Exports\HasilExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 class PemilihanController extends Controller
 {
     public function __construct()
@@ -21,16 +25,17 @@ class PemilihanController extends Controller
     public function index()
     {
         $tanggal_awal   = Periode::orderBy('tanggal', 'asc')->first();
-        // $tanggal_akhir  = Periode::orderBy('tanggal', 'desc')->first();
-        $waktu_mulai = Periode::orderBy('waktu','asc')->first();
-        $waktu_akhir = Periode::orderBy('waktu','asc')->first();
+        $tanggal_akhir  = Periode::orderBy('tanggal_akhir', 'desc')->first();
+        // $waktu_mulai = Periode::orderBy('waktu','asc')->first();
+        // $waktu_akhir = Periode::orderBy('waktu','asc')->first();
         // $periode = \App\Periode::all();
         $data = DB::table('masyarakat')
                     ->join('pemilihan', 'pemilihan.masyarakat_id', '=', 'masyarakat.id')
                     ->orderBy('pemilihan.nomor_urut', 'asc')
                     ->get();
 
-        return view('pemilihan.index', compact('data','tanggal_awal','waktu_mulai', 'waktu_akhir'));
+        // return view('pemilihan.index', compact('data','tanggal_awal','waktu_mulai', 'waktu_akhir'));
+        return view('pemilihan.index', compact('data','tanggal_awal', 'tanggal_akhir'));
     }
 
     public function pilih_kandidat(Request $request, $id)
@@ -85,4 +90,8 @@ class PemilihanController extends Controller
         }
         return view('pemilihan.grafik', compact('hasil'));
     }
+
+    public function export(){
+		return Excel::download(new HasilExport, 'hasil.xlsx');
+	}
 }

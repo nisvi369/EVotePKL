@@ -9,6 +9,10 @@ use DB;
 use Auth;
 use Session;
 
+use App\Exports\PetugasExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 class petugasController extends Controller
 {
     public function __construct()
@@ -113,5 +117,8 @@ class petugasController extends Controller
         Session::flash('info', 'Data berhasil dihapus !!');
         
         return redirect ('/Admin/dataPetugas');
-      }
+    }
+    public function export(){
+		return Excel::download(new PetugasExport, 'petugas.xlsx');
+	}
 }

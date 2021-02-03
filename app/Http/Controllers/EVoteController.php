@@ -9,7 +9,8 @@ use Auth;
 class EVoteController extends Controller
 {
     public function landing(){
-        return view ('landingPage');
+        $kampanye = \App\Kampanye::orderBy('id', 'asc')->take(2)->get();
+        return view ('landingPage', compact('kampanye'));
     }
 
     public function signIn(){
