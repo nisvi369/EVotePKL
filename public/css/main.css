@@ -1,0 +1,503 @@
+.jumbotron {
+    background-color: #B8D8D7 !important;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .jumbotron .container .as {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: right;
+    width: 400px;
+    height: 570px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .clgn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color:rgb(97, 169, 172);
+    border-radius: 10px 10px 0 0;
+    height: 120px;
+    margin-left: -15px;
+    margin-right: -15px;
+    width: auto;
+  }
+  
+  .lgn {
+    color: white;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .logo {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-bottom: -60px;
+    background-color: white;
+    border-radius: 50px;
+  }
+  
+  .spnemail {
+    margin-top: 40px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+  }
+  
+  .spnpassword {
+    margin-top: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+  }
+  
+  
+  input {
+    text-align: center;
+  }
+  
+  .form-horizontal .form-control {
+    padding: 10px 0 10px 0;
+    height: 40px;
+    font-size: 14px;
+    color: #2b2a2a;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 15px;
+  }
+  
+  .form-horizontal .form-control:focus {
+    border-color: rgb(0, 0, 0);
+    box-shadow: none;
+  }
+  
+  .container .cn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+  }
+  
+  .container .cn-l {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tmbl {
+    display: block;
+    width: 90%;
+    border: none;
+    background-color: rgb(97, 169, 172);
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50px;
+  }
+  
+  .lppswrd {
+    margin-top: 5px;
+  }
+  
+  .lppswrd a {
+    color: #adadad;
+  }
+  
+  /* NAVBAR */
+  nav {
+    font-family: 'Viga', sans-serif;
+  }
+  
+  /* DASHBOARD */
+  .nav_set {
+    height: 60px;
+  }
+  
+  .jumbotrondash {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 90vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  .jumbotrondash .isi{
+    color: coral;
+    float: center;
+    font-family: 'Viga', sans-serif;
+  }
+  
+  .judul {
+    font-family: 'Viga', sans-serif;
+    background-color: rgba(247, 158, 158, 0.87);
+    border-radius: 30px;
+
+    justify-content: center;
+    text-align: center;
+
+  }
+  
+  .konten {
+    font-family: 'Viga', sans-serif;
+    background-color: rgba(255, 255, 255, 0.87);
+    padding-top: 15px;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .jumlah_pengguna {
+    margin-left: 20px;
+  }
+  
+  .btn-ubah {
+    background-color: coral;
+  }
+  
+  footer {
+    height: 30px;
+  }
+  
+  /* Detail */
+  
+  .jumbotrondetail {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .card {
+    font-family: 'Viga', sans-serif;
+    justify-content: center;
+    height: auto;
+  }
+  
+  .tbl {
+    margin-bottom: 0px;
+  }
+  
+  
+  /* Edit */
+  .jumbotronedit {
+    background-image: url('/img/kampanye.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Daftar Penyakit */
+  .jumbotron-daftar_penyakit {
+    background-color: rgb(240, 240, 240);
+  }
+  
+  main {
+    text-align: center;
+  }
+  
+  .gbr {
+    border-radius: 50px;
+    background-color: rgb(80, 243, 255);
+    width: 50px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .btn-bntk {
+    border-radius: 50px;
+  }
+  
+  .card {
+    color: black;
+    padding: 0px;
+    border: none;
+  }
+  
+  .card-img-top {
+    background-color: coral;
+  }
+  
+  .form-horizontal .text-center .as {
+    padding: 10px 0 10px 0;
+    height: 40px;
+    font-size: 14px;
+    color: #2b2a2a;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    background: transparent;
+  }
+  
+  .form-control:focus {
+    background: transparent;
+  }
+  
+  .modalst {
+    color: black;
+  }
+  
+  
+  
+  .container-1 {
+    background-color: coral;
+    width: 50%;
+    border-radius: 50px 0 0 50px;
+    color: #f3e4de;
+  }
+  
+  .container-2 {
+    background-color:#f3e4de;
+    color: coral;
+    width: 50%;
+    border-radius: 0 50px 50px 0;
+  }
+  
+  .btn-1 {
+    background-color: #f3e4de;
+    border-color: #f3e4de;
+    color: coral;
+  }
+  
+  .btn-2 {
+    background-color: #ff7f50;
+    border-color: coral;
+  }
+  
+  
+  .jumbotron-form {
+    background-color: rgba(0, 0, 0, 0.76);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .container .as {
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: coral;
+      width: 600px;
+      height: 630px;
+      box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+      font-family: 'Viga', sans-serif;
+  }
+  .containerjudul{
+
+    text-align: center;
+    text-decoration: coral;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Viga', sans-serif;
+    text-decoration-color: coral;
+  }
+  .containerjudul .isi{
+    color: rgb(252, 156, 92);
+  }
+  
+
+
+/*section kampanye*/
+.menu .row2{
+  margin: 10px;
+
+}  
+ 
+.menu .box {
+  padding: 50px 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.3s;
+  margin-bottom: 30px;
+
+  
+}
+
+
+.menu .box span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #48D1CC;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.menu .box h4 {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin: 20px 0;
+  color: #6c665c;
+}
+
+.menu .box p {
+  color: #aaaaaa;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu .box:hover {
+  background: #c6f5f5;
+  /* padding: 30px 30px 70px 30px; */
+  /* box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18); */
+}
+
+.menu .p{
+  text-decoration: coral;
+  text-align: center;
+}
+
+.jumbotronpem {
+  background-image: url('/img/kampanye/goal.jpg');
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.jumbotronpem .isi{
+  color: rgb(255, 255, 255);
+  float: center;
+  font-family: 'Viga', sans-serif;
+}
+
+.jumbotronuser{
+  background-image: url('/img/kampanye/pohon.jpg');
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.jumbotronuser .isi{
+  color: rgb(255, 255, 255);
+  float: center;
+  font-family: 'Viga', sans-serif;
+}
+
+.containeradmin .isi{
+  color: rgb(255, 255, 255);
+  float: center;
+  font-family: 'Viga', sans-serif;
+}
+
+.animasi-teks{
+  font-size: 29px;
+  width: 100%;
+  white-space:nowrap;
+  overflow:hidden;
+  -webkit-animation: typing 5s steps(70, end);
+  animation: animasi-ketik 5s steps(70, end);
+}
+
+@keyframes animasi-ketik{
+  from { width: 0; }
+}
+
+@-webkit-keyframes animasi-ketik{
+  from { width: 0; }
+}
+
+

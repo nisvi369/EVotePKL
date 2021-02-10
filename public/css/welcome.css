@@ -1,0 +1,236 @@
+/* Jumbotron */
+.jumbotron {
+    background-color:#B8D8D7 !important;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  
+    font-family: 'Viga', sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  span {
+    color: coral;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 3px 2px 1px darkgray;
+  }
+  
+  p {
+    margin-top: -10px;
+    color: rgb(217, 241, 241);
+  }
+  
+
+  
+  .jumbotron img {
+    width: 400px;
+    margin-left: 10px;
+  }
+  
+  .container a {
+    background-color: #4ADFCC ;
+    border: none;
+    border-radius: 20px;
+  }
+
+  .menu .row2{
+    margin: 10px;
+  
+  }  
+   
+  .menu .box {
+    padding: 50px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    margin-bottom: 30px;
+  
+    
+  }
+  
+  
+  .menu .box span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #48D1CC;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .menu .box h4 {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: #6c665c;
+  }
+  
+  .menu .box p {
+    color: #aaaaaa;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu .box:hover {
+    background: #c6f5f5;
+    /* padding: 30px 30px 70px 30px; */
+    /* box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18); */
+  }
+  
+  .menu .p{
+    text-decoration: coral;
+    text-align: center;
+  }
+
+  .animasi-teks{
+    font-size: 15px;
+    width: 100%;
+    white-space:nowrap;
+    overflow:hidden;
+    -webkit-animation: typing 5s steps(70, end);
+    animation: animasi-ketik 5s steps(70, end);
+  }
+
+  @keyframes animasi-ketik{
+    from { width: 0; }
+  }
+
+  @-webkit-keyframes animasi-ketik{
+    from { width: 0; }
+  }
+
+#popup{
+  width:100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: hidden;
+
+}
+
+#popup:target{
+  visibility: visible;
+}
+.jumbotronlgn .container .as {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  text-align: right;
+  width: 400px;
+  height: 450px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+  font-family: 'Viga', sans-serif;
+  
+}
+
+.clgn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color:rgb(97, 169, 172);
+  border-radius: 10px 10px 0 0;
+  height: 80px;
+  margin-left: -15px;
+  margin-right: -15px;
+  width: auto;
+  padding-top: 20px;
+}
+
+.lgn {
+  color: white;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.logo {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  margin-bottom: -60px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.spnemail {
+  margin-top: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.spnpassword {
+  margin-top: 25px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+
+input {
+  text-align: center;
+}
+
+.form-horizontal .form-control {
+  padding: 10px 0 10px 0;
+  height: 40px;
+  font-size: 14px;
+  color: #2b2a2a;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 15px;
+}
+
+.form-horizontal .form-control:focus {
+  border-color: rgb(0, 0, 0);
+  box-shadow: none;
+}
+
+.container .cn {
+  margin-top: 10px;
+  
+  justify-content: center;
+}
+
+.container .cn-l {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.tmbl {
+  display: block;
+  width: 90%;
+  border: none;
+  background-color: rgb(97, 169, 172);
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+}
