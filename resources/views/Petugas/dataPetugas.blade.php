@@ -24,10 +24,10 @@
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
             <a href="/Admin/tambahPetugas" class="btn btn-primary mb-4">Tambah Data</a>
-            <a href="/Admin/exportPetugas" title="Export to Excel" class="btn btn-primary mb-4"><i class="far fa-file-excel">Export to Excel</i></a>
-            <button type="button" class="btn btn-primary mb-4" title="Import from Excel" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload">
-			Import from Excel
-            </i></button>
+            <!-- <a href="/Admin/exportPetugas" title="Export to Excel" class="btn btn-primary mb-4"><i class="far fa-file-excel">Export to Excel</i></a>
+ -->        <button type="button" class="btn btn-secondary mb-4" title="Import from Excel" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload"></i></button>
+            <a href="/Admin/exportPetugas" class="btn btn-secondary mb-4"><i class="fas fa-file-excel"></i></a>
+            <a href="{{ url('/petugas/cetak') }}" class="btn btn-secondary mb-4" target="_blank"><i class="fas fa-print"></i></a>
             <form action="{{ url('/Admin/cariPetugas') }}" method="GET" class="col-md-12">
                 @csrf
                 <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">

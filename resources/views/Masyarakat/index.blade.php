@@ -10,11 +10,12 @@
         <div class="card-body">
             @if(auth()->user()->level == 'petugas')
             <a href="{{ url('/Petugas/tambah') }}" class="btn btn-primary">Tambah Data</a>
-            <a href="{{ url('/Petugas/exportMasyarakat') }}" title="Export to Excel" class="btn btn-primary"><i class="far fa-file-excel">Export to Excel</i></a>
+            <a href="{{ url('/Petugas/exportMasyarakat') }}" title="Export to Excel" class="btn btn-secondary"><i class="far fa-file-excel"></i></a>
             @endif
-            <button type="button" title="Import from Excel" class="btn btn-primary" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload">
-			Import from Excel
+            <button type="button" title="Import from Excel" class="btn btn-secondary" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload">
             </i></button>
+            <a href="{{ url('/masyarakat/cetak') }}" class="btn btn-secondary" target="_blank"><i class="fas fa-print"></i></a>
+            
             <form action="{{ url('/Admin/cariMasyarakat') }}" method="GET" class="col-md-12">
                 @csrf
                 <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">

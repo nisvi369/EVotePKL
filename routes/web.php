@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/exportPetugas', 'PetugasController@export');
     Route::post('/Admin/importPetugas', 'PetugasController@import');
     Route::get('/Admin/cariPetugas', 'PetugasController@cari');
+    Route::get('/petugas/cetak', 'petugasController@petugasPDF');
     //DATA MASYARAKAT
     Route::get('/Admin/dataMasyarakat', 'MasyarakatController@index');
     Route::get('/Admin/editMasyarakat/{id}', 'MasyarakatController@edit');
@@ -48,6 +49,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/deleteMasyarakat/{id}', 'MasyarakatController@delete');
     Route::get('/Admin/exportMasyarakat', 'MasyarakatController@export');
     Route::get('/Admin/cariMasyarakat', 'MasyarakatController@cari');
+    Route::get('/masyarakat/cetak', 'MasyarakatController@masyarakatPDF');
     //DATA KANDIDAT
     Route::get('/Admin/dataKandidat', 'KandidatController@tambah');
     Route::get('/Admin/detailKandidat', 'KandidatController@detail');
@@ -62,6 +64,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/periode', 'PeriodeController@index');
     Route::post('/postPeriode', 'PeriodeController@atur_periode');
     Route::get('/Admin/exportHasil', 'PemilihanController@export');
+    Route::get('/hasil/cetak', 'PemilihanController@hasilPDF');
     //VOTING
     Route::get('/Admin/pemilihan', 'PemilihanController@index');
     Route::get('/Admin/hasil_voting', 'PemilihanController@grafik');
@@ -69,6 +72,8 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     //PROFIL
     Route::get('/profil-admin', 'ProfilController@index_admin');
     Route::post('/profil-admin/{id}', 'ProfilController@update_admin');
+    //RESET
+    Route::post('/Admin/reset', 'PemilihanController@reset_data');
 });
 
 Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){

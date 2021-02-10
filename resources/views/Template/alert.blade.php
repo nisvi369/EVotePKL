@@ -14,8 +14,4 @@
     @if(Session::has('error'))
       toastr.error("{{ Session::get('error') }}")
     @endif
-
-    @if(Session::has('successImport'))
-      toastr.success("{{ Session::get('success') }}")
-    @endif
   </script>

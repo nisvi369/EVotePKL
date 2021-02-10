@@ -6,6 +6,13 @@
     <h1 class="text-center mt-4 mb-4">Voting</h1>
     <div class="container">
       @if(Auth()->user()->level == 'admin')
+      <form action="{{ url('/Admin/reset') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="reset_db">
+        <button type="submit" class="btn-sm btn-danger mb-4" style="float: right;">Reset
+          <i class="fas fa-exclamation-circle"></i>
+        </button>
+      </form>
       <a href="{{ url('/Admin/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
       <a href="{{ url('/Admin/exportHasil') }}" class="btn btn-success mb-4">Export to Excel</a>
       @endif

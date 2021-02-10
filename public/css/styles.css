@@ -391,8 +391,8 @@ h6, .h6 {
 }
 
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-size: 2rem;
+  font-weight:bold;
 }
 
 .display-1 {
@@ -1088,6 +1088,7 @@ pre code {
   .col-md-12 {
     flex: 0 0 100%;
     max-width: 100%;
+
   }
 
   .order-md-first {
@@ -4544,13 +4545,13 @@ input[type=button].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #fed136;
+  color: #B8D8D7;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
 .page-link:hover {
   z-index: 2;
-  color: #e6b301;
+  color: #B8D8D7;
   text-decoration: none;
   background-color: #e9ecef;
   border-color: #dee2e6;
@@ -5289,7 +5290,7 @@ a.close.disabled {
   pointer-events: none;
 }
 
-.toast {
+./*toast {
   flex-basis: 350px;
   max-width: 350px;
   font-size: 0.875rem;
@@ -5329,7 +5330,7 @@ a.close.disabled {
 .toast-body {
   padding: 0.75rem;
 }
-
+*/
 .modal-open {
   overflow: hidden;
 }
@@ -6169,7 +6170,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #fed136 !important;
+  border-color: #B8D8D7 !important;
 }
 
 .border-secondary {
@@ -6185,7 +6186,7 @@ button.bg-dark:focus {
 }
 
 .border-warning {
-  border-color: #fed136 !important;
+  border-color: #B8D8D7 !important;
 }
 
 .border-danger {
@@ -9958,20 +9959,20 @@ p {
 }
 .page-section h2.section-heading {
   font-size: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin-top: 0%;
+
 }
 .page-section h3.section-subheading {
   font-size: 1rem;
   font-weight: 400;
   font-style: italic;
   font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  margin-bottom: 4rem;
+  
 }
 
 @media (min-width: 768px) {
   section {
-    padding: 9rem 0;
+    padding: 1rem 0;
   }
 }
 ::-moz-selection {
@@ -10258,17 +10259,18 @@ header.masthead .masthead-heading {
 }
 .timeline > li .timeline-image {
   position: absolute;
-  z-index: 100;
+  z-index: 50;
   left: 0;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   margin-left: 0;
   text-align: center;
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #fed136;
+  background-color:#B8D8D7;
 }
+
 .timeline > li .timeline-image h4 {
   font-size: 10px;
   line-height: 14px;

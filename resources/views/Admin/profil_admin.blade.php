@@ -3,13 +3,37 @@
 @section('title', 'Profil Saya')
 
 @section('content')
+<div class="jumbotrondash">
 <h1 class="text-center mt-4 mb-4">Profil Saya</h1>
-<div class="container">
-  <div class="col-md-12 mt-1" id="tengah">
-        <div class="card shadow p-3 mb-5 bg-white rounded ">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">                                        
+<div class="container"> 
+<div class="row">  
+    <div class="col-md-4 ">      
+        <div class="portlet light profile-sidebar-portlet bordered">
+            <div class="profile-userpic" float="center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-responsive" alt=""> 
+            </div>
+            <div class="profile-usertitle">
+                <div class="profile-usertitle-name"> ADMIN </div>
+                <div class="profile-usertitle-job"> Operator Website </div>
+                <br>
+                <button type="button" class="btn btn-info  btn-sm">Follow</button>
+               <button type="button" class="btn btn-info  btn-sm">Massage</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8"> 
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="caption caption-md">
+                    <i class="icon-globe theme-font hide"></i>
+                    <span class="caption-subject font-blue-madison bold uppercase">Data Personal</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">                                       
                         <form action="{{ url('/profil-admin') }}/{{ auth()->user()->id }}" method="post" enctype="multipart/form-data" >
                         @csrf
                           <div class="form-group row mb-2 {{$errors->has('name') ? 'has-error' : ''}}">
@@ -43,10 +67,13 @@
                           <a href="{{ url('/Admin/home') }}" class="btn btn-outline-primary">Kembali</a>
                         </form>
                     </div>
+                    </div>
+                
                 </div>
+            </div>
         </div>
-      </div>
     </div>
-
+</div>
+</div>
 </div>
 @endsection

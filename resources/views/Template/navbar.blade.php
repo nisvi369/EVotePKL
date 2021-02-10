@@ -92,7 +92,7 @@
             <a class="dropdown-item" href="{{ url('/profil-petugas') }}">Profil Saya</a>
             @endif
             <a class="dropdown-item" href="{{ route('logout') }}">
-              LOGOUT
+              LOGOUT <i class="fas fa-sign-out-alt"></i>
             </a>
           </div>
         </li>
