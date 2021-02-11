@@ -4,23 +4,9 @@
 
 @section('content')
 
+<div class="jumbotrondash">
 <h1 class="text-center mt-4">Data Petugas</h1>
 <div class="container">
-
-{{-- notifikasi form validasi --}}
-@if ($errors->has('file'))
-<span class="invalid-feedback" role="alert">
-	<strong>{{ $errors->first('file') }}</strong>
-</span>
-@endif
-
-{{-- notifikasi sukses --}}
-@if ($sukses = Session::get('sukses'))
-<div class="alert alert-success alert-block">
-	<button type="button" class="close" data-dismiss="alert">×</button> 
-	<strong>{{ $sukses }}</strong>
-</div>
-@endif
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
             <a href="/Admin/tambahPetugas" class="btn btn-primary mb-4">Tambah Data</a>
@@ -103,6 +89,7 @@
     <div class="d-block col-12">
     {{ $petugas->links() }}
     </div>
+</div>
 </div>
             
 @endsection

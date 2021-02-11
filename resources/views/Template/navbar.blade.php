@@ -71,13 +71,13 @@
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" v-pre>
             @if(auth()->user()->level == 'admin')
-             <span class="caret">{{ auth()->user()->name }}</span>
+             <span1 class="caret">{{ auth()->user()->name }}</span>
             @elseif(auth()->user()->level == 'pemilih')
-             <span class="caret">{{ auth()->user()->nama }}</span>
+             <span1 class="caret">{{ auth()->user()->nama }}</span>
             @elseif(auth()->user()->level == 'kandidat')
-             <span class="caret">{{ auth()->user()->nama }}</span>
+             <span1 class="caret">{{ auth()->user()->nama }}</span>
             @elseif(auth()->user()->level == 'petugas')
-             <span class="caret">{{ auth()->user()->nama }}</span>
+             <span1 class="caret">{{ auth()->user()->nama }}</span>
             @endif
           </a>
 

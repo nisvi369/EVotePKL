@@ -51,7 +51,7 @@
   @include('template.navbar')
 
   <!-- ISI -->
-  <br><br><br>
+<br><br>
   @yield('content')
  
   @include('template.footer')

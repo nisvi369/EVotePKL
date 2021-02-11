@@ -3,7 +3,7 @@
 @section('title', 'Data Masyarakat')
 
 @section('content')
-
+<div class="jumbotrondash">
 <h1 class="text-center mt-4 mb-4">Data Masyarakat</h1>
 <div class="container">
     <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -95,5 +95,6 @@
     <div class="d-block col-12">
       {{ $masyarakat->links() }}
     </div>
+</div>
 </div>
 @endsection

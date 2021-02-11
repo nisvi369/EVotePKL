@@ -176,10 +176,10 @@ class MasyarakatController extends Controller
 		Excel::import(new MasyarakatImport, public_path('/file_masyarakat/'.$nama_file));
  
 		// notifikasi dengan session
-		// Session::flash('sukses','Data Siswa Berhasil Diimport!');
+		Session::flash('success','Data Siswa Berhasil Diimport!');
  
 		// alihkan halaman kembali
-		return redirect('/Petugas/dataMasyarakat')->with('successImport', 'Data Masyarakat berhasil diimport');
+		return redirect('/Petugas/dataMasyarakat');
     }
     
     public function cari(Request $request)

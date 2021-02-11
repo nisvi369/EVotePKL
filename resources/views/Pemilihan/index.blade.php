@@ -3,6 +3,7 @@
 @section('title', 'Voting')
 
 @section('content')
+<div class="jumbotron1">
     <h1 class="text-center mt-4 mb-4">Voting</h1>
     <div class="container">
       @if(Auth()->user()->level == 'admin')
@@ -21,11 +22,12 @@
       //  $now = date('d-m-y H:i:s');
       $now = Carbon\carbon::now();
       ?>
-      @if($now < ($tanggal_awal->tanggal_awal))
+      @if($now < ($tanggal_awal->tanggal))
         <center><h4>Pemilihan Dimulai Tanggal {{ $tanggal_awal->tanggal }} dan Berakhir pada {{ $tanggal_akhir->tanggal_akhir }}</h4></center>
-        <!-- <div id="countdown"></div> -->
+        <div id="countdown"></div>
       @elseif($now > ($tanggal_akhir->tanggal_akhir))
         <center><h4>WAKTU PEMILIHAN TELAH BERAKHIR</h4></center>
+        <div id="countdown"></div>
       @endif
       <div id="countdown"></div>
       {{$now}} <br>
@@ -80,6 +82,7 @@
             
        </div>
    </div>
+ </div>>
 @endsection
 <script>
 	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
@@ -94,7 +97,7 @@
 		var timer;
 		function showRemaining() {
 			var now = new Date();
-			var distance = tanggal_akhir - now;
+			var distance = end - now;
 			if (distance < 0) {
 				clearInterval(timer);
         var days_akhir = Math.floor(distance / _day);

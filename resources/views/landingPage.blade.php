@@ -135,10 +135,11 @@
 
                                             <div class="form-group row mb-0">
                                                 <div class="container cn">
-                                                    <button type="submit"  id="signin" class="btn btn-info tmbl" >
+                                                    <button type="submit"  id="signin" class="tmbl" >
                                                         LOGIN
                                                     </button>
                                                 </div>
+                                            </div>
 
                                             </div>
                                         </form>
@@ -167,9 +168,15 @@
               <div class="pic"><img src="{{ asset('img/foto_kampanye') }}/{{ $k->gambar }}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>{{ $k->judul }}</h4>
-                <span>{{ $k->konten }}</span>
+                <span1>{{ $k->konten }}</span1>
                 <br>
-                <div id="button"><a href="#popup" class="btn btn-info">Selengkapnya</a></div>
+                <div id="button"><a href="#popup2" class="btn btn-info">Selengkapnya</a></div>
+                <div id="popup2">
+               <div class="window">
+                <a href="#" class="close-button" title="close">x</a>
+                <h5>Silahkan Login Terlebih dahulu</h5>
+            </div>
+        </div>
               </div>
             </div>
           </div>

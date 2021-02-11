@@ -39,7 +39,8 @@ class petugasController extends Controller
             $a['y']       = $total;
             array_push($hasil, $a);
         }
-        return view('Petugas.home', compact('hasil'));
+        $kampanye = \App\Kampanye::orderBy('id', 'desc')->get();
+        return view('Petugas.home', compact('hasil','kampanye'));
     }
     public function form(){
         $kecamatan = Kecamatan::all();
@@ -144,7 +145,8 @@ class petugasController extends Controller
 	{
 		// validasi
 		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
+			'file' => 'required|mimes:csv,xls,xlsx',
+            'email' => 'unique:petugas',
 		]);
  
 		// menangkap file excel
@@ -160,7 +162,7 @@ class petugasController extends Controller
 		Excel::import(new PetugasImport, public_path('/file_petugas/'.$nama_file));
  
 		// notifikasi dengan session
-		Session::flash('sukses','Data Petugas Berhasil Diimport!');
+		Session::flash('success','Data Petugas Berhasil Diimport!');
  
 		// alihkan halaman kembali
 		return redirect('/Admin/dataPetugas');
