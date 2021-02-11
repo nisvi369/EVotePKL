@@ -14,4 +14,8 @@ class Kampanye extends Model
 	{
 	    return $this->belongsTo('App\Pemilihan', 'id_pemilihan', 'id');
 	}
+
+	public function komentar() {
+    	return $this->hasMany(Komentar::class);
+    }
 }

@@ -24,10 +24,11 @@
       ?>
       @if($now < ($tanggal_awal->tanggal))
         <center><h4>Pemilihan Dimulai Tanggal {{ $tanggal_awal->tanggal }} dan Berakhir pada {{ $tanggal_akhir->tanggal_akhir }}</h4></center>
-        <div id="countdown"></div>
+        <!-- <div id="countdown"></div> -->
         <script>
         	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
-        	function CountDownTimer(dt, id)
+        	console.log('tes')
+          function CountDownTimer(dt, id)
         	{
         		var end = new Date('{{$tanggal_awal->tanggal}}');
             var tanggal_akhir = new Date('{{$tanggal_akhir->tanggal_akhir}}')
@@ -36,6 +37,7 @@
         		var _hour = _minute * 60;
         		var _day = _hour * 24;
         		var timer;
+            
         		function showRemaining() {
         			var now = new Date();
         			var distance = end - now;
@@ -67,11 +69,50 @@
         </script>
       @elseif($now > ($tanggal_akhir->tanggal_akhir))
         <center><h4>WAKTU PEMILIHAN TELAH BERAKHIR</h4></center>
+      @else
+      <script>
+        	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
+          function CountDownTimer(dt, id)
+        	{
+        		var end = new Date('{{$tanggal_awal->tanggal}}');
+            var tanggal_akhir = new Date('{{$tanggal_akhir->tanggal_akhir}}')
+        		var _second = 1000;
+        		var _minute = _second * 60;
+        		var _hour = _minute * 60;
+        		var _day = _hour * 24;
+        		var timer;
+            
+        		function showRemaining() {
+        			var now = new Date();
+        			var distance = tanggal_akhir - now;
+        			if (distance < 0) {
+        				clearInterval(timer);
+                var days2 = Math.floor(distance / _day);
+        			  var hours2 = Math.floor((distance % _day) / _hour);
+        			  var minutes2 = Math.floor((distance % _hour) / _minute);
+        			  var seconds2 = Math.floor((distance % _minute) / _second);
+        			  document.getElementById(id).innerHTML = days2 + 'days ';
+        			  document.getElementById(id).innerHTML += hours2 + 'hrs ';
+        			  document.getElementById(id).innerHTML += minutes2 + 'mins ';
+        			  document.getElementById(id).innerHTML += seconds2 + 'secs';
+        			  document.getElementById(id).innerHTML +='<center><h2>WAKTU PEMILIHAN SEDANG BERLANGSUNG</h2></center>';
+        				return;
+        			}
+        			var days = Math.floor(distance / _day);
+        			var hours = Math.floor((distance % _day) / _hour);
+        			var minutes = Math.floor((distance % _hour) / _minute);
+        			var seconds = Math.floor((distance % _minute) / _second);
+        			document.getElementById(id).innerHTML = days + 'days ';
+        			document.getElementById(id).innerHTML += hours + 'hrs ';
+        			document.getElementById(id).innerHTML += minutes + 'mins ';
+        			document.getElementById(id).innerHTML += seconds + 'secs';
+        			document.getElementById(id).innerHTML +='<center><h2>WAKTU PEMILIHAN BELUM DIMULAI</h2></center>';
+        		}
+        		timer = setInterval(showRemaining, 1000);
+        	}
+        </script>
       @endif
-      <!-- <div id="countdown"></div> -->
-      {{$now}} <br>
-      {{$tanggal_awal->tanggal}} <br>
-      {{$tanggal_akhir->tanggal_akhir}}
+      <div id="countdown"></div>
       
     </div>  
     <div class="row justify-content-center">

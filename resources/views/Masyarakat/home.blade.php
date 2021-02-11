@@ -2,6 +2,7 @@
 
 @section('title', 'Dashboard')
 <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+
 @section('content')
 
 <div class="jumbotron jumbotron-fluid">
@@ -43,6 +44,7 @@
             </div>
           </div>
           @endforeach
+
 
           <!-- <div class="col-lg-4 col-md-6">
             <div class="member">

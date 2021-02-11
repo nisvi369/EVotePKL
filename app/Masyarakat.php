@@ -25,4 +25,8 @@ class Masyarakat extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Komentar() {
+    	return $this->hasMany('App\Komentar');
+    }
 }

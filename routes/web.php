@@ -104,6 +104,8 @@ Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],
     //DATA KAMPANYE
     Route::get('/Masyarakat/detail/{id}', 'KampanyeController@detail');
     Route::get('/cariKampanye', 'KampanyeController@cari');
+    //KOMENTAR
+    Route::post('/buatKomentar/{id}', 'KomentarController@create')->name('post_komen');
     //DATA KAMPANYE KANDIDAT
     Route::get('/Kandidat/dataKampanye', 'KampanyeController@dataku');
     Route::get('/Kandidat/tambahKampanye', 'KampanyeController@form');

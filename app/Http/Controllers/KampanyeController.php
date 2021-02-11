@@ -95,7 +95,15 @@ class KampanyeController extends Controller
         -> where('kampanye.id','=',$id)
         -> get();
 
-        return view('Kampanye.detail', compact('kampanye'));
+        $komentar = DB::table('komentar')
+        -> join('kampanye','kampanye.id', '=', 'komentar.id_kampanye')
+        -> join('masyarakat', 'masyarakat.id', '=', 'komentar.id_masyarakat')
+        -> select('kampanye.id','komentar.id','masyarakat.nama', 'komentar.komen','komentar.created_at')
+        -> where('id_kampanye','=', $id)
+        -> orderBy('created_at','desc')
+        -> get();
+
+        return view('Kampanye.detail', compact('kampanye','komentar'));
     }
 
     public function hapus($id){
