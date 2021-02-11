@@ -19,6 +19,13 @@
     position: relative;
     z-index: 1;
   }
+
+  .jumbotron1{
+    background-color: #B8D8D7 !important;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+  }
   
   .jumbotron .container .as {
     background-color: rgb(255, 255, 255);

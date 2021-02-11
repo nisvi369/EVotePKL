@@ -1,29 +1,31 @@
 @extends('template.master')
 
 @section('title', 'Data Kampanye')
-
+<link rel="stylesheet" href="{{ asset('css/dash.css') }}">
 @section('content')
-<head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
-</head>
-<div class="container">
-    <div class="row">
-        <div class="more">
-            @foreach($kampanye as $k)
-            <center><h1>{{$k->judul}}</h1></center>
-            <center>
-            <div>
-                <img src="{{ asset('img/foto_kampanye') }}/{{ $k->gambar }}" height="70%" width="40%" alt="" srcset="">
-            </div>
-            </center>
-            <center><h5>Ditulis oleh {{$k->nama}} nomor urut {{$k->nomor_urut}}</h5></center>
-            <br>
-            <h5>Ditulis pada {{$k->waktu}}</h5>
-            <p>{{$k->konten}}</p>
-            <!-- <a href="/eventsaya" class="btn btn-light btn-sm">Kembali</a> -->
-            @endforeach
+<div class="jumbotron">
+    @foreach($kampanye as $k)
+        <section id="event" class="events">
+      <div class="container">
+        <div class="section-title">
+          <h2>{{$k->judul}}</h2>
         </div>
-    </div>
+        <div class="owl-carousel events-carousel">
+          <div class="row event-item">
+            <div class="col-lg-6">
+              <div><img src="{{ asset('img/foto_kampanye') }}/{{ $k->gambar }}" class="img-fluid" alt=""></div>
+            </div>
+            <div class="col-lg-6 pt-lg-0 content">
+              <h3>Ditulis oleh {{$k->nama}} nomor urut {{$k->nomor_urut}}</h3>
+              <div class="price">
+                <p>Ditulis pada {{$k->waktu}}</p>
+              </div>
+              <p>
+                  {{$k->konten}}
+              </p>
+            </div>
+          </div>
+    </section><!-- End Events Section -->
 </div>
 
 <div class="container mb-3">

@@ -3,6 +3,7 @@
 @section('title', 'PEriode Voting')
 
 @section('content')
+<div class="jumbotron1">
 <h1 class="text-center mt-4 mb-4">Periode</h1>
 <div class="container">
 	
@@ -19,6 +20,7 @@
 	  	<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 
+</div>
 </div>
 
 @endsection

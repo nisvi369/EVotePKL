@@ -3,6 +3,7 @@
 @section('title', 'Data Kampanye')
 
 @section('content')
+<div class="jumbotrondash">
 <h1 class="text-center mt-4 mb-4">Form Data Kampanye</h1>
 <div class="container" id="form">
     <div class="row">
@@ -62,5 +63,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

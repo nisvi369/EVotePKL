@@ -3,6 +3,7 @@
 @section('title', 'Voting')
 
 @section('content')
+<div class="jumbotron1">
     <h1 class="text-center mt-4 mb-4">Voting</h1>
     <div class="container">
       @if(Auth()->user()->level == 'admin')
@@ -159,7 +160,48 @@
             </div>
             @endif
             @endforeach
-            
+
        </div>
    </div>
+ </div>>
 @endsection
+<script>
+	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
+	function CountDownTimer(dt, id)
+	{
+		var end = new Date('{{$tanggal_awal->tanggal}}');
+    var tanggal_akhir = new Date('{{$tanggal_akhir->tanggal_akhir}}')
+		var _second = 1000;
+		var _minute = _second * 60;
+		var _hour = _minute * 60;
+		var _day = _hour * 24;
+		var timer;
+		function showRemaining() {
+			var now = new Date();
+			var distance = end - now;
+			if (distance < 0) {
+				clearInterval(timer);
+        var days_akhir = Math.floor(distance / _day);
+				var hours_akhir = Math.floor((distance % _day) / _hour);
+				var minutes_akhir = Math.floor((distance % _hour) / _minute);
+				var seconds_akhir = Math.floor((distance % _minute) / _second);
+        document.getElementById(id).innerHTML = days_akhir + 'days ';
+				document.getElementById(id).innerHTML += hours_akhir + 'hrs ';
+				document.getElementById(id).innerHTML += minutes_akhir + 'mins ';
+				document.getElementById(id).innerHTML += seconds_akhir + 'secs';
+				document.getElementById(id).innerHTML = '<center><b>WAKTU PEMILIHAN TELAH TIBA</b></center> ';
+				return;
+			}
+			var days = Math.floor(distance / _day);
+			var hours = Math.floor((distance % _day) / _hour);
+			var minutes = Math.floor((distance % _hour) / _minute);
+			var seconds = Math.floor((distance % _minute) / _second);
+			document.getElementById(id).innerHTML = days + 'days ';
+			document.getElementById(id).innerHTML += hours + 'hrs ';
+			document.getElementById(id).innerHTML += minutes + 'mins ';
+			document.getElementById(id).innerHTML += seconds + 'secs';
+			document.getElementById(id).innerHTML +='<center><h2>WAKTU PEMILIHAN BELUM DIMULAI</h2></center>';
+		}
+		timer = setInterval(showRemaining, 1000);
+	}
+</script>

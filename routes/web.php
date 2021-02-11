@@ -25,6 +25,7 @@ Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::post('/adminLogin', 'LoginController@adminLogin')->name('adminLogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
+
 Route::get('/more', 'KampanyeController@selengkapnya');
 
 Auth::routes();

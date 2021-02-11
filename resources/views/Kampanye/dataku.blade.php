@@ -1,58 +1,39 @@
 @extends('template.master')
 
 @section('title', 'Data Kampanye')
-
+<link rel="stylesheet" href="{{ asset('css/dash.css') }}">
 @section('content')
-<div class="jubotrondash">
-    <h1 class="text-center mt-4 mb-4">Data Kampanye</h1>
-    <div class="container">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
-            <div class="card-body">
-                <?php
-                $now = Carbon\carbon::now();
-                ?>
-                @if(auth()->user()->level == 'kandidat')
-                    @if($now <= ($tanggal_awal->tanggal))
-                        <a href="/Kandidat/tambahKampanye" class="btn btn-primary mb-4">Tambah Data</a>
-                    @endif
-                @endif
-                <form action="{{ url('/cariKampanye') }}" method="GET" class="col-md-12">
-                    @csrf
-                    <input type="text" name="cari" placeholder="Cari Judul ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('Judul harap diisi')" oninput="setCustomValidity('')">
-                    <input type="submit" value="cari">
-                </form>
-                <table class="table table-hover col-md-12 mt-2 text-center">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Judul</th>
-                            <th>Waktu</th>
-                            <th>Konten</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($kampanye as $k)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{$k->judul}}</td>
-                            <td>{{$k->waktu}}</td>
-                            <td>{{$k->konten}}</td>
-                            <td><a href="{{ url('detailKampanye') }}/{{ $k->id }}" class="btn btn-success btn-sm">Baca Selengkapnya</a><td>
+<div class="jumbotron">
+    <h1 class="text-center ">Data Kampanye</h1>
+    <section class="chefs" id="kampanye"> 
+     <div class="container">      
+     @if(auth()->user()->level == 'kandidat')
+        <a href="/Kandidat/tambahKampanye" class="btn btn-primary mb-4">Tambah Data</a>
+     @endif
+     <div class="row">
+                    @foreach($kampanye as $k)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="member">
+                        <div class="pic"><img src="{{ asset('img/foto_kampanye') }}/{{ $k->gambar }}" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>{{ $k->judul }}</h4>
+                            <span1>{{substr($k->konten,0,200)}}</span1>
+                            <br>
+                            <div id="button"><a href="/masyarakat/detail/{{id}}" class="btn btn-info btn-sm">Selengkapnya</a></div>
+                            <br>
                             @if(auth()->user()->level == 'kandidat')
-                            <td>
                                 <div class="aksi2">
                                     <a href="/Kandidat/editKampanye/{{$k->id}}" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="/Kandidat/hapusKampanye/{{$k->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus {{$k->judul}}?')">Hapus</a>
                                 </div>
-                            </td>
                             @endif
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                        </div>
+                        </div>
+                    </div>
+                    @endforeach
+        
         </div>
-    </div>
 </div>
+</div>
+</section>
 @endsection
