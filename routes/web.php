@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/editMasyarakat/{id}', 'MasyarakatController@edit');
     Route::post('/updateMasyarakat/{id}', 'MasyarakatController@update');
     Route::get('/Admin/deleteMasyarakat/{id}', 'MasyarakatController@delete');
-    Route::get('/Admin/exportMasyarakat', 'MasyarakatController@export');
+    Route::get('/exportMasyarakat', 'MasyarakatController@export');
     Route::get('/Admin/cariMasyarakat', 'MasyarakatController@cari');
     Route::get('/masyarakat/cetak', 'MasyarakatController@masyarakatPDF');
     //DATA KANDIDAT
@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){
     Route::get('/Petugas/edit/{id}', 'MasyarakatController@edit');
     Route::post('/Petugas/update/{id}', 'MasyarakatController@update');
     Route::get('/Petugas/delete/{id}', 'MasyarakatController@delete');
-    Route::get('/Petugas/exportMasyarakat', 'MasyarakatController@export');
+    Route::get('/exportMasyarakat', 'MasyarakatController@export');
     Route::post('/importMasyarakat', 'MasyarakatController@import');
     //DATA KAMPANYE
     Route::get('Petugas/dataKampanye', 'KampanyeController@data');

@@ -93,10 +93,10 @@
     </section><!-- End kampanye -->
 
 
- 
 
- 
-    
+
+
+
 @endsection
 
 @section('grafik')
@@ -136,8 +136,8 @@
               data: {!! json_encode($hasil) !!}
           }]
       });
-    
+
     </script>
-    
+
 
 @endsection

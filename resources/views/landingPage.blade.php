@@ -68,7 +68,7 @@
 
     {{-- Jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
-        <div class="col-md-4">  
+        <div class="col-md-4">
             <img src="/img/kotak.png" alt="">
         </div>
         <div class="col-md-6">
@@ -76,7 +76,7 @@
             <p>We're working hard to finish the development of this site. Our target launch date is
               <strong>January 2022</strong>! Sign up for updates using the form below!</p>
             <div class="jumbotronlgn">
-                <div class="container"> 
+                <div class="container">
                     <div id="button"><a href="#popup" class="btn btn-info">Login Sekarang</a></div>
                         <div id="popup" class="row justify-content-center mt-4">
                             <div class="col-mr-auto mt-4">
@@ -145,11 +145,11 @@
                                         </form>
                                     </div>
                                 </div>
-                        </div>           
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
      <!-- bagian Kampanye  -->
@@ -240,7 +240,7 @@
           </div>
     </section><!-- End Events Section -->
 
- 
+
     <section id="tentang" class="section-bg-dark">
     <div class="container">
                 <div class="text-center">
@@ -273,7 +273,7 @@
                             <h4>
                                 Ayo
                                 <br />
-                                Gunakan 
+                                Gunakan
                                 <br />
                                 Hak Suaramu!!
                             </h4>
@@ -312,7 +312,7 @@
                     </div>
                 </div>
     </section>
-    
+
     <footer class="page-section bg-dark" id="kontak" style="height: 400px; background-size: cover; background-image: url('img/kampanye/Peta Indonesia.png' );">
         <div class="text-center">
             <h2 class="section-heading text-uppercase" style="color: white;">Hubungi Kami</h2>
@@ -336,7 +336,7 @@
               <b>Copyright &copy; 2020 PKL </b>
             </p>
         </div>
-    
+
     </footer> -->
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -397,7 +397,7 @@
               data: {!! json_encode($hasil) !!}
           }]
       });
-    
+
     </script>
 </body>
 

@@ -15,7 +15,8 @@
         </button>
       </form>
       <a href="{{ url('/Admin/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
-      <a href="{{ url('/Admin/exportHasil') }}" class="btn btn-success mb-4">Export to Excel</a>
+      <a href="{{ url('/Admin/exportHasil') }}" class="btn btn-secondary mb-4"><i class="far fa-file-excel" title="Export to Excel"></i></a>
+      <a href="{{ url('/hasil/cetak') }}" class="btn btn-secondary mb-4" title="Export to PDF"><i class="fas fa-print"></i></a>
       @endif
       <div class="alert alert-warning" role="alert">
       <?php
@@ -29,12 +30,12 @@
         <center><h4>WAKTU PEMILIHAN TELAH BERAKHIR</h4></center>
         <div id="countdown"></div>
       @endif
-      <div id="countdown"></div>
+      <!-- <div id="countdown"></div> -->
       {{$now}} <br>
       {{$tanggal_awal->tanggal}} <br>
       {{$tanggal_akhir->tanggal_akhir}}
-      
-    </div>  
+
+    </div>
     <div class="row justify-content-center">
             <!-- <div class="col-md-12 mt-4">
                 <nav aria-label="breadcrumb">
@@ -79,7 +80,7 @@
             </div>
             @endif
             @endforeach
-            
+
        </div>
    </div>
  </div>>
