@@ -117,7 +117,7 @@ class KampanyeController extends Controller
   
         $request->validate([
             'gambar'    => 'required|mimes:jpg,jpeg,png|max:5000',
-            'judul'     => 'required|min:5|max:20|unique:kampanye',
+            'judul'     => 'required|min:5|max:20',
             // 'waktu'     => 'required|date',
             'konten'    => 'required',
         ]);

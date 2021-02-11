@@ -36,9 +36,9 @@
               <div class="pic"><img src="{{ asset('img/foto_kampanye') }}/{{ $k->gambar }}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>{{ $k->judul }}</h4>
-                <span>{{ $k->konten }}</span>
+                <span>{{ substr($k->konten, 0, 120) }}</span>
                 <br>
-                <div id="button"><a href="#popup" class="btn btn-info">Selengkapnya</a></div>
+                <div id="button"><a href="/Masyarakat/detail/{{$k->id}}" class="btn btn-info">Selengkapnya</a></div>
               </div>
             </div>
           </div>
