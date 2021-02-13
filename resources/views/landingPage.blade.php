@@ -94,7 +94,7 @@
 
                                             <div class="form-group text-center spnemail">
                                                 <div class="row">
-                                                    <label for="email" class="col">Email atau NIK</label>
+                                                    <label for="email" class="col">Email</label>
                                                 </div>
 
                                                 <div class="row text-center">
@@ -168,7 +168,7 @@
               <div class="pic"><img src="{{ asset('img/foto_kampanye') }}/{{ $k->gambar }}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>{{ $k->judul }}</h4>
-                <span1>{{ $k->konten }}</span1>
+                <span1>{{ substr($k->konten, 0, 120) }}</span1>
                 <br>
                 <div id="button"><a href="#popup2" class="btn btn-info">Selengkapnya</a></div>
                 <div id="popup2">

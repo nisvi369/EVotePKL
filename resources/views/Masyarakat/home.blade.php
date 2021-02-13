@@ -56,49 +56,14 @@
                 <h4>{{ $k->judul }}</h4>
                 <span1>{{substr($k->konten,0,200)}}</span1>
                 <br>
-                <div id="button"><a href="/Masyarakat/detail/{{$k->id}}" class="btn btn-info">Selengkapnya</a></div>
+                <div id="button"><a href="/detail/{{$k->id}}" class="btn btn-info">Selengkapnya</a></div>
               </div>
             </div>
           </div>
           @endforeach
-
-
-          <!-- <div class="col-lg-4 col-md-6">
-            <div class="member">
-            <br><br><br>
-              <div class="pic"><img src="{{ asset('img/kampanye/3.jpg') }}" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>AYo Pilih No.2</span>
-                <br>
-                <div id="button"><a href="#popup2" class="btn btn-info">Selengkapnya</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member">
-            <br><br><br>
-              <div class="pic"><img src="{{ asset('img/kampanye/4.jpg') }}" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Mari Jadikan Kota Jemebr menjadi kota yang bersih dari polusi </span>
-                <br>
-                <div id="button"><a href="#popup2" class="btn btn-info">Selengkapnya</a></div>
-              </div>
-            </div>
-          </div> -->
-
         </div>
-
       </div>
     </section><!-- End kampanye -->
-
-
-
-
-
-
 @endsection
 
 @section('grafik')
@@ -140,6 +105,4 @@
       });
 
     </script>
-
-
 @endsection
