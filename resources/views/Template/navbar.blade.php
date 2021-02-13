@@ -43,9 +43,6 @@
           <a href="{{ url('/Petugas/dataMasyarakat') }}" class="nav-link">Data Masyarakat</a>
         </li>
         <li class="nav-item px-2">
-          <a href="{{ url('/Petugas/dataKampanye') }}" class="nav-link">Data Kampanye</a>
-        </li>
-        <li class="nav-item px-2">
           <a href="{{ url('Petugas/pemilihan') }}" class="nav-link">Voting</a>
         </li>
         @endif

@@ -43,7 +43,7 @@
                                 <td>
                                     @if($data->level == "pemilih")
                                     <a href="{{ url('/Admin/lengkapi') }}/{{ $data->id }}" class="btn btn-primary">Lengkapi Data</a>
-                                    @elseif($data->level == "kandidat")
+                                    @elseif($data-> "kandidat")
                                     <span class="badge rounded-pill bg-info text-dark">Kandidat</span>
                                     @endif
                                     <!-- <form action="{{ url('kandidat/level_kandidat') }}/{{ $data->id }}" method="post">

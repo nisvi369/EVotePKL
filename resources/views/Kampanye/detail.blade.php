@@ -29,19 +29,19 @@
 <div class="container mb-3">
 	<h2 align="center" style="margin: 60px 10px 10px 10px;">Komentar Masyarakat</h2><hr>
 	@foreach($kampanye as $kam)
-    <form action="{{ url('/buatKomentar') }}/{{ $kam->id }}" method="POST" class="col-md-12">
-        @csrf
-        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
-        <!-- <div class="form-group">
-            <p>Nama</p>
-            <input type="text" class="form-control" name="nama">
-        </div> -->
-        <div class="form-group">
-            <p>Tulis Komentar</p>
-            <input type="text" class="form-control" name="komen">
-        </div><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        @if(auth()->user()->level == 'pemilih' || auth()->user()->level == 'kandidat')
+        <form action="{{ url('/buatKomentar') }}/{{ $kam->id }}" method="POST" class="col-md-12">
+            @csrf
+            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+
+            <div class="form-group">
+                <p>Tulis Komentar</p>
+                <input type="text" class="form-control" name="komen">
+            </div><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        @endif
     @endforeach
     @foreach($komentar as $kom)
     <div class="media mb-4">

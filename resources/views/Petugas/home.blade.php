@@ -55,7 +55,7 @@
                 <h4>{{ $k->judul }}</h4>
                 <span1>{{substr($k->konten,0,200)}}</span1>
                 <br>
-                <div id="button"><a href="/Masyarakat/detail/{{$k->id}}" class="btn btn-info">Selengkapnya</a></div>
+                <div id="button"><a href="/selengkapnya/{{$k->id}}" class="btn btn-info">Selengkapnya</a></div>
               </div>
             </div>
           </div>

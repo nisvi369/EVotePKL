@@ -90,7 +90,7 @@ Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){
     Route::post('/importMasyarakat', 'MasyarakatController@import');
     //DATA KAMPANYE
     Route::get('Petugas/dataKampanye', 'KampanyeController@data');
-    Route::get('/detail/{id}', 'KampanyeController@detail');
+    Route::get('/selengkapnya/{id}', 'KampanyeController@detail');
     Route::get('/cariKampanye', 'KampanyeController@cari');
     //VOTING
     Route::get('/Petugas/pemilihan', 'PemilihanController@index');
@@ -103,7 +103,7 @@ Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){
 Route::group(['middleware' => ['auth:masyarakat', 'ceklevel:pemilih,kandidat']],function(){
     Route::get('/Masyarakat/home', 'MasyarakatController@home');
     //DATA KAMPANYE
-    Route::get('//detail/{id}', 'KampanyeController@detail');
+    Route::get('/baca_kampanye/{id}', 'KampanyeController@detail');
     Route::get('/cariKampanye', 'KampanyeController@cari');
     //KOMENTAR
     Route::post('/buatKomentar/{id}', 'KomentarController@create')->name('post_komen');
