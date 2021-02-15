@@ -182,6 +182,8 @@
   position: relative;
 }
 
+
+
 .events::before {
   content: '';
   background-color: rgba(12, 11, 10, 0.8);
@@ -300,4 +302,114 @@
   .section-title p {
     width: 50%;
   }
+
+@media (min-width: 1024px) {
+  .events {
+    background-attachment: fixed;
+  }
+}
+
+.events .events-carousel {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+}
+
+.events .event-item {
+  color: #fff;
+}
+
+.events .event-item h3 {
+  font-weight: 600;
+  font-size: 26px;
+  color: #ffb03b;
+}
+
+.events .event-item .price {
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.events .event-item .price span {
+  border-bottom: 2px solid #ffb03b;
+}
+
+.events .event-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events .event-item ul li {
+  padding-bottom: 10px;
+}
+
+.events .event-item ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #ffb03b;
+}
+
+.events .event-item p:last-child {
+  margin-bottom: 0;
+}
+
+.events .owl-nav, .events .owl-dots {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.events .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd !important;
+}
+
+.events .owl-dot.active {
+  background-color: #ffb03b !important;
+}
+
+@media (min-width: 992px) {
+  .events .testimonial-item p {
+    width: 80%;
+  }
+}
+
+/* komentar */
+
+.bubble-list .bubble {
+	margin-bottom: 20px;
+}
+ 
+.bubble-list .bubble h5 {
+	float: left;
+	width: 80px;
+	border: 3px solid #fff;
+	border-radius: 10px;
+}
+ 
+.bubble-list .bubble .bubble-content {
+	position: relative;
+	float: left;
+	margin-left: 20px;
+	width: 400px;
+	padding: 0px 20px;
+	border-radius: 10px;
+	background:#6c665c;
+	box-shadow: 1px 1px 5px rgba(0,0,0,.2);
+}
+ 
+.bubble-list .bubble .bubble-content .point {
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 12px solid #fff;
+	position: absolute;
+	left: -12px;
+	top: 12px;
+}
 }

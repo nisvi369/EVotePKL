@@ -259,7 +259,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{('img/about/pilih.png')}}" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{('img/vote.png')}}" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>Kampanye</h4>
@@ -290,14 +290,14 @@
         <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{('img/about/kpu.png')}}" alt="" />
+                            <img class="mx-auto rounded-circle" src="{{('img/kpu.png')}}" alt="" />
                             <h4>Evoting</h4>
                             <p class="text-muted"></p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{('img/about/wah.png')}}" alt="" />
+                            <img class="mx-auto rounded-circle" src="{{('img/wah.png')}}" alt="" />
                             <h4>Kampanye</h4>
                             <p class="text-muted"></p>
 
@@ -305,7 +305,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="{{('assets/img/team/6.jpg')}}" alt="" />
+                            <img class="mx-auto rounded-circle" src="{{('img/vote.png')}}" alt="" />
                             <h4>Tugas PKL 2020</h4>
                             <p class="text-muted"></p>
                         </div>

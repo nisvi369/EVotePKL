@@ -178,8 +178,60 @@
   background-color:rgb(97, 169, 172);
   border-radius: 10px 10px 0 0;
   height: 80px;
-  margin-left: -1px;
-  margin-right: -1px;
+  margin-left: -15px;
+  margin-right: -15px;
+  width: auto;
+  padding-top: 20px;
+  position: relative;
+}
+
+.lgn {
+  color: white;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.close-button{
+
+    display: block;
+    color: rgb(22, 22, 22);
+    text-align:center;   
+    position: absolute;
+    text-decoration: none;
+    top: 10%;
+    right: 2%;
+    height: 22px;
+    width: 22px;
+}
+
+.logo {
+  margin-top: 30px;
+  margin-bottom: 35px;
+  padding-top: 20px;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  margin-bottom: -60px;
+  background-color: white;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 1;
+  margin-left: -24px
+}
+
+.clgn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color:rgb(97, 169, 172);
+  border-radius: 10px 10px 0 0;
+  height: 80px;
+  margin-left: -15px;
+  margin-right: -15px;
   width: auto;
   padding-top: 20px;
   position: relative;
@@ -261,9 +313,67 @@ input {
 
 .container .cn {
   margin-top: 10px;
-  
+  justify-content: center;
+}
+
+.container .cn-l {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.tmbl {
+  display: block;
+  width: 90%;
+  border: none;
+  background-color: rgb(97, 169, 172);
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+}
+
+
+.spnemail {
+  margin-top: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.spnpassword {
+  margin-top: 25px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+
+input {
+  text-align: center;
+}
+
+.form-horizontal .form-control {
+  padding: 10px 0 10px 0;
+  height: 40px;
+  font-size: 14px;
+  color: #2b2a2a;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 15px;
+}
+
+.form-horizontal .form-control:focus {
+  border-color: rgb(0, 0, 0);
+  box-shadow: none;
+}
+
+.container .cn {
+  margin-top: 10px;
   justify-content: center !important;
-    margin: auto;
+  margin-left: 30px;
 }
 
 .container .cn-l {
