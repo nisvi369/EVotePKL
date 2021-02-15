@@ -76,14 +76,12 @@ class KandidatController extends Controller
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
             'nomor_urut' => 'required|max:5',
-            'jadwal'     => 'required|date',
             'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
         ]);
 
         $pemilihan = new Pemilihan();
         $pemilihan->masyarakat_id   = $masyarakat->id;
         $pemilihan->nomor_urut      = $request->nomor_urut;
-        $pemilihan->jadwal          = $request->jadwal;
 
         if ($request->hasfile('foto')) {
             $gambar                 = $request->file('foto');
@@ -99,7 +97,7 @@ class KandidatController extends Controller
 
         Session::flash('success', 'Data berhasil disimpan !!');
 
-        return redirect('/kandidat');
+        return redirect('/Admin/dataKandidat');
     }
 
     public function edit($id)
@@ -116,7 +114,6 @@ class KandidatController extends Controller
         $request->validate([
             'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
             'nomor_urut'    => 'required|max:5',
-            'jadwal'        => 'required|date',
         ]);
 
         $gambar_lama    = $request->hidden_gambar;
@@ -124,7 +121,6 @@ class KandidatController extends Controller
 
         $pemilihan = Pemilihan::where('id', $id)->first();
         $pemilihan->nomor_urut  = $request->nomor_urut;
-        $pemilihan->jadwal      = $request->jadwal;
         
         if ($request->hasfile('foto')) {
             $gambar             = $request->file('foto');

@@ -9,12 +9,17 @@
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
             <div class="row">
-                <form action="{{ url('/Admin/cari') }}" method="GET" class="col-md-12">
-                    @csrf
-                    <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
-                    <input type="submit" value="cari">
-                    <!-- <a href="{{ url('kandidat/detail') }}" class="btn-sm btn-dark" style="float: right; text-decoration: none;">Detail Kandidat</a> -->
-                </form>
+                <div class="col-md-12">
+                    <div class="col-mr-6" style="float: right;">
+                        <form action="{{ url('/Admin/cari') }}" method="GET">
+                            @csrf
+                            <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
+                            <input type="submit" value="cari">
+                            <!-- <a href="{{ url('kandidat/detail') }}" class="btn-sm btn-dark" style="float: right; text-decoration: none;">Detail Kandidat</a> -->
+                        </form>
+                    </div>
+                </div>
+                
                 <div class="table-responsive">
                     <table class="table table-hover text-center col-md-12 mt-4">
                         <thead>
@@ -43,7 +48,7 @@
                                 <td>
                                     @if($data->level == "pemilih")
                                     <a href="{{ url('/Admin/lengkapi') }}/{{ $data->id }}" class="btn btn-primary">Lengkapi Data</a>
-                                    @elseif($data-> "kandidat")
+                                    @elseif($data->level == "kandidat")
                                     <span class="badge rounded-pill bg-info text-dark">Kandidat</span>
                                     @endif
                                     <!-- <form action="{{ url('kandidat/level_kandidat') }}/{{ $data->id }}" method="post">

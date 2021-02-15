@@ -8,18 +8,24 @@
 <div class="container">
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
-            @if(auth()->user()->level == 'petugas')
-            <a href="{{ url('/Petugas/tambah') }}" class="btn btn-primary">Tambah Data</a>
-            <button type="button" title="Import from Excel" class="btn btn-secondary" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload"></i></button>
-            @endif
-            <a href="{{ url('/exportMasyarakat') }}" title="Export to Excel" class="btn btn-secondary"><i class="far fa-file-excel"></i></a>
-            <a href="{{ url('/masyarakat/cetak') }}" class="btn btn-secondary" target="_blank" title="Export to PDF"><i class="fas fa-print"></i></a>
+            <div class="col-md-12">
+                <div class="col-ml-6" style="float: left;">
+                    @if(auth()->user()->level == 'petugas')
+                    <a href="{{ url('/Petugas/tambah') }}" class="btn btn-primary">Tambah Data</a>
+                    <button type="button" title="Import from Excel" class="btn btn-secondary" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload"></i></button>
+                    @endif
+                    <a href="{{ url('/exportMasyarakat') }}" title="Export to Excel" class="btn btn-secondary"><i class="far fa-file-excel"></i></a>
+                    <a href="{{ url('/masyarakat/cetak') }}" class="btn btn-secondary" target="_blank" title="Export to PDF"><i class="fas fa-print"></i></a>
+                </div>
+                <div class="col-mr-6" style="float: right">
+                    <form action="{{ url('/Admin/cariMasyarakat') }}" method="GET" class="col-md-12">
+                        @csrf
+                        <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
+                        <input type="submit" value="cari">
+                    </form>
+                </div>
+            </div>
             
-            <form action="{{ url('/Admin/cariMasyarakat') }}" method="GET" class="col-md-12">
-                @csrf
-                <input type="text" name="cari" placeholder="Cari NIK ..." value="{{ old('cari') }}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
-                <input type="submit" value="cari">
-            </form>
  
 		    <!-- Import Excel -->
 		    <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

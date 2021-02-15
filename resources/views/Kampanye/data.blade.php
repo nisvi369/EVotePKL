@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
 @section('content')
 <div class="jumbotron">
-    <h1 class="text-center ">Data Kampanye</h1>
+    <h1 class="text-center" style="color: black;">Data Kampanye</h1>
     <section class="chefs" id="kampanye"> 
      <div class="container">      
      @if(auth()->user()->level == 'kandidat')

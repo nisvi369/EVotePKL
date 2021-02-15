@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth:petugas', 'ceklevel:petugas']],function(){
     Route::get('/Petugas/delete/{id}', 'MasyarakatController@delete');
     Route::get('/exportMasyarakat', 'MasyarakatController@export');
     Route::post('/importMasyarakat', 'MasyarakatController@import');
+    Route::get('/masyarakat/cetak', 'MasyarakatController@masyarakatPDF');
     //DATA KAMPANYE
     Route::get('Petugas/dataKampanye', 'KampanyeController@data');
     Route::get('/selengkapnya/{id}', 'KampanyeController@detail');

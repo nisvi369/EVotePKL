@@ -16,7 +16,7 @@
       </form>
       <a href="{{ url('/Admin/hasil_voting') }}" class="btn btn-success mb-4">Hasil Voting</a>
       <a href="{{ url('/Admin/exportHasil') }}" class="btn btn-secondary mb-4"><i class="far fa-file-excel" title="Export to Excel"></i></a>
-      <a href="{{ url('/hasil/cetak') }}" class="btn btn-secondary mb-4" title="Export to PDF"><i class="fas fa-print"></i></a>
+      <a href="{{ url('/hasil/cetak') }}" class="btn btn-secondary mb-4" target="_blank" title="Export to PDF"><i class="fas fa-print"></i></a>
       @endif
       <div class="alert alert-warning" role="alert">
       <?php

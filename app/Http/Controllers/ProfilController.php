@@ -34,7 +34,7 @@ class ProfilController extends Controller
             'nama'          => 'required|max:20',
             'nik'           => 'required|min:3|max:17',
             'alamat'        => 'required|max:50',
-            'pekerjaan_id'  => 'required',
+            'id_pekerjaan'  => 'required',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
             'email'         => 'required|email',
@@ -44,7 +44,7 @@ class ProfilController extends Controller
         $masyarakat->nama           = $request->nama;
         $masyarakat->nik            = $request->nik;
         $masyarakat->alamat         = $request->alamat;
-        $masyarakat->pekerjaan_id   = $request->pekerjaan_id;
+        $masyarakat->id_pekerjaan   = $request->id_pekerjaan;
         $masyarakat->tanggal_lahir  = $request->tanggal_lahir;
         $masyarakat->jenis_kelamin  = $request->jenis_kelamin;
         $masyarakat->email          = $request->email;
@@ -108,8 +108,8 @@ class ProfilController extends Controller
             'nama'          => 'required|max:20',
             'alamat'        => 'required|max:50',
             'id_kecamatan'  => 'required',
-            'tanggalLahir' => 'required|date',
-            'jenisKelamin'  => 'required',
+            'tanggal_lahir' => 'required|date',
+            'jenis_kelamin'  => 'required',
             'email'         => 'required|email',
         ]);
 
@@ -117,8 +117,8 @@ class ProfilController extends Controller
         $petugas->nama          = $request->nama;
         $petugas->alamat            = $request->alamat;
         $petugas->id_kecamatan   = $request->id_kecamatan;
-        $petugas->tanggalLahir  = $request->tanggalLahir;
-        $petugas->jenisKelamin  = $request->jenisKelamin;
+        $petugas->tanggal_lahir  = $request->tanggal_lahir;
+        $petugas->jenis_kelamin  = $request->jenis_kelamin;
         $petugas->email          = $request->email;
 
         if(!empty($request->password))

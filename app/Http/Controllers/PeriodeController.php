@@ -19,10 +19,12 @@ class PeriodeController extends Controller
     {
     	$tanggal_awal = Periode::orderBy('tanggal', 'asc')->first();
 		$tanggal_akhir = Periode::orderBy('tanggal', 'desc')->first();
+
+        $periode = Periode::all();
 		// $waktu_mulai = Periode::orderBy('waktu','asc')->first();
 		// $waktu_akhir = Periode::orderBy('waktu_akhir','asc')->first();
 
-		return view('periode.index', compact('tanggal_awal', 'tanggal_akhir'));
+		return view('periode.index', compact('tanggal_awal', 'tanggal_akhir', 'periode'));
 		// return view('periode.index', compact('tanggal_awal', 'waktu_mulai', 'waktu_akhir'));
     }
 

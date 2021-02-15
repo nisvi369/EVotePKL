@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <div class="row">
                           <div class="col-md-12">                                        
-                              <form action="{{ url('/updateMasyarakat') }}/{{ $masyarakat->id }}" method="post" enctype="multipart/form-data" >
+                              <form action="{{ url('/Petugas/update') }}/{{ $masyarakat->id }}" method="post" enctype="multipart/form-data" >
                               @csrf
                                 <div class="form-group row mb-2 {{$errors->has('nama') ? 'has-error' : ''}}">
                                   <label for="nama" class="col-md-2 col-form-label">Nama</label>

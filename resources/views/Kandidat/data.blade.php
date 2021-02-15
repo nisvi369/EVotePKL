@@ -31,15 +31,7 @@
                         @endif
                     </div>
                   </div>
-                  <div class="form-group row mb-2 {{$errors->has('jadwal') ? 'has-error' : ''}}">
-                    <label for="jadwal" class="col-md-2 col-form-label">Jadwal</label>
-                      <div class="col-md-10">
-                        <input type="date" name="jadwal" class="form-control" id="jadwal" required="">
-                          @if($errors->has('jadwal'))
-                          <span class="form-text text-danger">{{$errors->first('jadwal')}}</span>
-                          @endif
-                      </div>
-                  </div>
+                  
                   <div class="form-group row mb-2 {{$errors->has('foto') ? 'has-error' : ''}}">
                     <label for="foto" class="col-md-2 col-form-label">Foto</label>
                       <div class="col-md-10">

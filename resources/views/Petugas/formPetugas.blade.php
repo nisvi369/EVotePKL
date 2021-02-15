@@ -95,8 +95,8 @@
                                         </div>
                                      
                                         <br>
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                        <a href="/Admin/dataPetugas" class="btn btn-light">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <a href="/Admin/dataPetugas" class="btn btn-outline-primary">Kembali</a>
                                     </form>
                                 </div>
                             </div>

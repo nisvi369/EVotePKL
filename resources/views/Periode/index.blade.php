@@ -1,6 +1,6 @@
 @extends('template.master')
 
-@section('title', 'PEriode Voting')
+@section('title', 'Periode Voting')
 
 @section('content')
 <div class="jumbotron1">
