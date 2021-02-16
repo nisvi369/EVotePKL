@@ -7,6 +7,7 @@ use App\Kecamatan;
 use App\Petugas;
 use \App\Pemilihan;
 use \App\Hasil;
+use App\Periode;
 use DB;
 use Auth;
 use Session;
@@ -30,6 +31,7 @@ class petugasController extends Controller
         $hasil = [];
 
         $pemilihan = Pemilihan::get();
+        $periode = Periode::get();
         
         foreach ($pemilihan as $key => $pilihan) {
             $pemilihan_id = $pilihan->id;
@@ -41,7 +43,7 @@ class petugasController extends Controller
             array_push($hasil, $a);
         }
         $kampanye = \App\Kampanye::orderBy('id', 'desc')->get();
-        return view('Petugas.home', compact('hasil','kampanye'));
+        return view('Petugas.home', compact('hasil','kampanye','periode'));
     }
     public function form(){
         $kecamatan = Kecamatan::all();

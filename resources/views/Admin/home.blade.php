@@ -13,8 +13,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 </div>
 
 <!-- Content Row -->
@@ -79,6 +78,7 @@
     </div>
 
     <!-- Pending Requests Card Example -->
+    @if(count($periode) > 0 ))
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
@@ -95,6 +95,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 <!-- Content Row -->
@@ -103,10 +104,10 @@
 
     <!-- Area Chart -->
     <div class="col-xl-8 col-lg-7">
+        @if(count($periode) > 0 ))
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div
-                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Grafik Pemilihan</h6>
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -127,6 +128,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
 </div>

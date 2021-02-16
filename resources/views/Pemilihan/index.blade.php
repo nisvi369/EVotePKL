@@ -6,6 +6,7 @@
 <div class="jumbotron1">
 <br>
     <h1 class="text-center mt-4 mb-4">Voting</h1>
+    @if(count($periode) > 0 ))
     <div class="container">
       @if(Auth()->user()->level == 'admin')
       <form action="{{ url('/Admin/reset') }}" method="post" enctype="multipart/form-data">
@@ -29,7 +30,6 @@
         <!-- <div id="countdown"></div> -->
         <script>
         	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
-        	console.log('tes')
           function CountDownTimer(dt, id)
         	{
         		var end = new Date('{{$tanggal_awal->tanggal}}');
@@ -167,4 +167,7 @@
        </div>
    </div>
  </div>
+ @elseif(count($periode) < 1)
+  <center><i style="color:red">Belum Ada Jadwal Pemilihan Dalam Waktu Dekat</i></center>
+ @endif
 @endsection

@@ -29,14 +29,14 @@ class PemilihanController extends Controller
         $tanggal_akhir  = Periode::orderBy('tanggal_akhir', 'desc')->first();
         // $waktu_mulai = Periode::orderBy('waktu','asc')->first();
         // $waktu_akhir = Periode::orderBy('waktu','asc')->first();
-        // $periode = \App\Periode::all();
+        $periode = \App\Periode::get();
         $data = DB::table('masyarakat')
         ->join('pemilihan', 'pemilihan.masyarakat_id', '=', 'masyarakat.id')
         ->orderBy('pemilihan.nomor_urut', 'asc')
         ->get();
 
         // return view('pemilihan.index', compact('data','tanggal_awal','waktu_mulai', 'waktu_akhir'));
-        return view('pemilihan.index', compact('data','tanggal_awal', 'tanggal_akhir'));
+        return view('pemilihan.index', compact('data','tanggal_awal', 'tanggal_akhir', 'periode'));
     }
 
     public function pilih_kandidat(Request $request, $id)

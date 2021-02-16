@@ -8,6 +8,7 @@ use Auth;
 use \App\Pemilihan;
 use \App\Hasil;
 use \App\Kampanye;
+use App\Periode;
 
 
 class EVoteController extends Controller
@@ -18,6 +19,7 @@ class EVoteController extends Controller
         $hasil = [];
 
         $pemilihan = Pemilihan::get();
+        $periode = Periode::get();
         
         foreach ($pemilihan as $key => $pilihan) {
             $pemilihan_id = $pilihan->id;
@@ -29,7 +31,7 @@ class EVoteController extends Controller
             array_push($hasil, $a);
         }
 
-        return view ('landingPage', compact('kampanye', 'hasil'));
+        return view ('landingPage', compact('kampanye', 'hasil', 'periode'));
     }
 
     public function signIn(){

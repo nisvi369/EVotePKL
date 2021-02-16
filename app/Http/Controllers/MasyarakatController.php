@@ -7,6 +7,7 @@ use \App\Masyarakat;
 use \App\Pekerjaan;
 use \App\Pemilihan;
 use \App\Hasil;
+use App\Periode;
 use Auth;
 use DB;
 use Session;
@@ -26,6 +27,7 @@ class MasyarakatController extends Controller
     public function home(){
         $hasil = [];
 
+        $periode = Periode::get();
         $pemilihan = Pemilihan::get();
         
         foreach ($pemilihan as $key => $pilihan) {
@@ -40,7 +42,7 @@ class MasyarakatController extends Controller
 
         $kampanye = \App\Kampanye::orderBy('id', 'desc')->get();
 
-        return view('Masyarakat.home', compact('kampanye', 'hasil'));
+        return view('Masyarakat.home', compact('kampanye', 'hasil', 'periode'));
     }
     
     public function index()

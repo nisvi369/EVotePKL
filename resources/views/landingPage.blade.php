@@ -216,15 +216,19 @@
     <section id="event" class="events">
       <div class="container">
         <div class="section-title">
-          <h2>Mari Gunakan <span>SuaraMu</span> Untuk Masa depan SULBAR</h2>
+          <h2>Mari Gunakan <span>SuaraMu</span> Untuk Masa Depan JEMBER</h2>
         </div>
         <div class="owl-carousel events-carousel">
           <div class="row event-item">
             <div class="col-lg-6">
+            @if(count($periode) > 0 )
               <div id="voting"></div>
+            @endif
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
+            @if(count($periode) > 0)
               <h3>Hasil Voting</h3>
+            @endif
               <div class="price">
                 <p><span>Pemilihan Bupati </span></p>
               </div>
