@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/masyarakat/cetak', 'MasyarakatController@masyarakatPDF');
     //DATA KANDIDAT
     Route::get('/Admin/dataKandidat', 'KandidatController@tambah');
+    Route::get('/Admin/editKandidat/{id}', 'KandidatController@edit');
+    Route::post('/updateKandidat/{id}', 'KandidatController@update');
     Route::get('/Admin/detailKandidat', 'KandidatController@detail');
     Route::get('/Admin/cari', 'KandidatController@cari');
     Route::get('/Admin/lengkapi/{id}', 'KandidatController@lengkapi');

@@ -109,11 +109,10 @@ class KandidatController extends Controller
 
     public function update(Request $request, $id)
     {
-        
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
-            'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
-            'nomor_urut'    => 'required|min:1|max:5|unique:pemilihan,nomor_urut,'.$pemilihan->id,
+            'foto'          => 'required|mimes:jpg,jpeg,png,bmp',
+            'nomor_urut'    => 'required|min:1|max:5|unique:pemilihan,nomor_urut',
         ]);
 
         $gambar_lama    = $request->hidden_gambar;
@@ -135,6 +134,6 @@ class KandidatController extends Controller
 
         Session::flash('success', 'Data berhasil diupdate !!');
 
-        return redirect('/kandidat');
+        return redirect('Admin/dataKandidat');
     }
 }
