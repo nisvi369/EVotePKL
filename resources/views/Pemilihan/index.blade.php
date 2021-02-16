@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="jumbotron1">
+<br>
     <h1 class="text-center mt-4 mb-4">Voting</h1>
     <div class="container">
       @if(Auth()->user()->level == 'admin')
