@@ -149,10 +149,12 @@
                       @csrf
                       <!-- <input type="radio" name="nomor" id="nomor"> <br> -->
                       @if(Auth()->user()->level != 'admin')
-                        @if(empty($hide))
-                        <button type="submit" class="btn btn-primary">Pilih</button>
-                        @else
-                        <p style="color: red;">Sudah Memilih</p>
+                        @if (($now > ($tanggal_awal->tanggal)) && ($now < ($tanggal_akhir->tanggal_akhir)))
+                          @if(empty($hide))
+                          <button type="submit" class="btn btn-primary">Pilih</button>
+                          @else
+                          <p style="color: red;">Sudah Memilih</p>
+                          @endif
                         @endif
                       @endif
                     </form>
@@ -164,5 +166,5 @@
 
        </div>
    </div>
- </div>>
+ </div>
 @endsection
