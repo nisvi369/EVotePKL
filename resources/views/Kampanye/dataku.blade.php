@@ -7,6 +7,7 @@
     <h1 class="text-center ">Data Kampanye</h1>
     <section class="chefs" id="kampanye"> 
         <div class="container">
+            <a href="/Kandidat/tambahKampanye" class="btn btn-primary mb-4">Tambah Data</a>
             <div class="row">
                 @foreach($kampanye as $k)
                 <div class="col-lg-4 col-md-6">
