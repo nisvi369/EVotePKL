@@ -26,7 +26,7 @@
       $now = Carbon\carbon::now();
       ?>
       @if($now < ($tanggal_awal->tanggal))
-        <center><h4>Pemilihan Dimulai Tanggal {{ Carbon\Carbon::parse($tanggal_awal->tanggal)->translatedFormat("d F Y") }} dan Berakhir pada {{ Carbon\Carbon::parse($tanggal_akhir->tanggal_akhir)->translatedFormat("d F Y") }}</h4></center>
+        <center><h4>Pemilihan Dimulai Tanggal {{ Carbon\Carbon::parse($tanggal_awal->tanggal)->translatedFormat("d F Y H:i:s") }} dan Berakhir pada {{ Carbon\Carbon::parse($tanggal_akhir->tanggal_akhir)->translatedFormat("d F Y H:i:s") }}</h4></center>
         <!-- <div id="countdown"></div> -->
         <script>
         	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
