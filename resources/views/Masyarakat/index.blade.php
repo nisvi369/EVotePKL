@@ -10,12 +10,16 @@
         <div class="card-body">
             <div class="col-md-12">
                 <div class="col-ml-6" style="float: left;">
-                    @if(auth()->user()->level == 'petugas')
+                    @if(auth()->user()->level == "petugas")
                     <a href="{{ url('/Petugas/tambah') }}" class="btn btn-primary">Tambah Data</a>
                     <button type="button" title="Import from Excel" class="btn btn-secondary" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-upload"></i></button>
-                    @endif
                     <a href="{{ url('/exportMasyarakat') }}" title="Export to Excel" class="btn btn-secondary"><i class="far fa-file-excel"></i></a>
                     <a href="{{ url('/masyarakat/cetak') }}" class="btn btn-secondary" target="_blank" title="Export to PDF"><i class="fas fa-print"></i></a>
+                    @elseif(auth()->user()->level == "admin")
+                    <a href="{{ url('/exportMasyarakatPDF') }}" title="Export to Excel" class="btn btn-secondary"><i class="far fa-file-excel"></i></a>
+                    <a href="{{ url('/masyarakat/cetakPDF') }}" class="btn btn-secondary" target="_blank" title="Export to PDF"><i class="fas fa-print"></i></a>
+                    @endif
+                    
                 </div>
                 <div class="col-mr-6" style="float: right">
                     <form action="{{ url('/Admin/cariMasyarakat') }}" method="GET" class="col-md-12">
@@ -79,7 +83,7 @@
                             <td>{{ $data->nik }}</td>
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->jenis_kelamin }}</td>
-                            <td>{{ $data->tanggal_lahir }}</td>
+                            <td>{{ Carbon\Carbon::parse($data->tanggal_lahir)->translatedFormat("d F Y") }}</td>
                             <td>{{ $data->nama_pekerjaan }}</td>
                             <td>{{ $data->alamat }}</td>
                             <td>
