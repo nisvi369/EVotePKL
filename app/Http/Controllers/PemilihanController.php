@@ -107,8 +107,10 @@ class PemilihanController extends Controller
 
         \DB::table('periode')->delete();
         \DB::table('hasil')->delete();
+        \DB::table('komentar')->delete();
         \DB::table('kampanye')->delete();
         \DB::table('pemilihan')->delete();
+
         
 
         // $reset = $request->reset_db;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kampanye;
 use App\Komentar;
+use Session;
 
 class KomentarController extends Controller
 {
@@ -17,6 +18,8 @@ class KomentarController extends Controller
         $komentar->komen = $request->komen;
         $komentar->id_kampanye = $request->id;
         $komentar->save();
+
+        Session::flash('success', 'Komentar berhasil ditambahkan !!');
 
         return redirect()->back();
     }

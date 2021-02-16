@@ -18,7 +18,6 @@
         <div class="col-md-12 mt-1" id="tengah">
             <div class="card shadow p-3 mb-5 bg-white rounded ">
                 <div class="card-body">
-                    <div class="row">                                     
                         <form action="{{ url('/updateKampanye') }}/{{ $kampanye->id }}" method="post" enctype="multipart/form-data" >
                         @csrf
                         <div class="form-group row mb-2 {{$errors->has('judul') ? 'has-error' : ''}}">
@@ -42,7 +41,7 @@
                         <div class="form-group row mb-2 {{$errors->has('gambar') ? 'has-error' : ''}}">
                             <label for="gambar" class="col-md-2 col-form-label">Gambar</label>
                             <div class="col-md-10">
-                                <input type="file" name="gambar" class="form-control" id="gambar" value="{{$kampanye->gambar}}" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"></input>
+                                <input type="file" name="gambar" class="form-control" id="gambar" value="{{$kampanye->gambar}}" oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"></input>
                                 @if($errors->has('gambar'))
                                     <span class="form-text text-danger">{{$errors->first('gambar')}}</span>
                                 @endif
@@ -57,9 +56,9 @@
                                 @endif
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-info">Simpan</button>
-                        <a href="/Kandidat/dataKampanye" class="btn btn-light">Kembali</a>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="/Kandidat/dataKampanye" class="btn btn-outline-primary">Kembali</a>
+                    </form>
                 </div>
             </div>
         </div>

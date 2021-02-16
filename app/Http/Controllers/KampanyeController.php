@@ -51,9 +51,9 @@ class KampanyeController extends Controller
 
         $request->validate([
             'gambar'    => 'required|mimes:jpg,jpeg,png|max:5000',
-            'judul'     => 'required|min:5|max:20',
+            'judul'     => 'required|min:5|max:20|unique:kampanye,judul',
             // 'waktu'     => 'required|date',
-            'konten'    => 'required',
+            'konten'    => 'required|min:5|max:255',
         ]);
         
         // $gambar     = $request->gambar;
@@ -110,6 +110,7 @@ class KampanyeController extends Controller
         $kampanye = \App\Kampanye::find($id);
         $kampanye->delete();
         
+        Session::flash('success', 'Data berhasil dihapus !!');
         return redirect ('/Kandidat/dataKampanye')->with('Data Kampanye Anda telah dihapus');
     }
 
@@ -124,10 +125,10 @@ class KampanyeController extends Controller
         $pemilihan = Pemilihan::where('masyarakat_id', Auth::user()->id)->first();
   
         $request->validate([
-            'gambar'    => 'required|mimes:jpg,jpeg,png|max:5000',
-            'judul'     => 'required|min:5|max:20',
+            'gambar'    => 'mimes:jpg,jpeg,png|max:5000',
+            'judul'     => 'required|min:5|max:20|unique:kampanye,judul,'.$kampanye->id,
             // 'waktu'     => 'required|date',
-            'konten'    => 'required',
+            'konten'    => 'required|min:5|max:255',
         ]);
         
         $kampanye->update([

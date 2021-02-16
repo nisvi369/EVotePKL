@@ -41,7 +41,7 @@
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->nik }}</td>
                                 <td>{{ $data->jenis_kelamin }}</td>
-                                <td>{{ $data->tanggal_lahir }}</td>
+                                <td>{{ Carbon\Carbon::parse($data->tanggal_lahir)->translatedFormat("d F Y") }}</td>
                                 <td>{{ $data->nama_pekerjaan }}</td>
                                 <td>{{ $data->alamat }}</td>
                                 

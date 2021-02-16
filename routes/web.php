@@ -48,9 +48,9 @@ Route::group(['middleware' => ['auth:user', 'ceklevel:admin']], function(){
     Route::get('/Admin/editMasyarakat/{id}', 'MasyarakatController@edit');
     Route::post('/updateMasyarakat/{id}', 'MasyarakatController@update');
     Route::get('/Admin/deleteMasyarakat/{id}', 'MasyarakatController@delete');
-    Route::get('/exportMasyarakat', 'MasyarakatController@export');
+    Route::get('/exportMasyarakatPDF', 'MasyarakatController@export');
     Route::get('/Admin/cariMasyarakat', 'MasyarakatController@cari');
-    Route::get('/masyarakat/cetak', 'MasyarakatController@masyarakatPDF');
+    Route::get('/masyarakat/cetakPDF', 'MasyarakatController@masyarakatPDF');
     //DATA KANDIDAT
     Route::get('/Admin/dataKandidat', 'KandidatController@tambah');
     Route::get('/Admin/editKandidat/{id}', 'KandidatController@edit');

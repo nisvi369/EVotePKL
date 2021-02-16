@@ -86,7 +86,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Tanggal Pemilihan</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$tanggal->tanggal}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ Carbon\Carbon::parse($tanggal->tanggal)->translatedFormat("d F Y H:i:s") }} - {{ Carbon\Carbon::parse($tanggal->tanggal_akhir)->translatedFormat("d F Y H:i:s") }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300" style="color:#dddfeb"></i>
