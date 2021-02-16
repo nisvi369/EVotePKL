@@ -75,7 +75,7 @@ class KandidatController extends Controller
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
-            'nomor_urut' => 'required|max:5',
+            'nomor_urut' => 'required|min:1|max:5|unique:pemilihan,nomor_urut',
             'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
         ]);
 
@@ -113,7 +113,7 @@ class KandidatController extends Controller
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
             'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
-            'nomor_urut'    => 'required|max:5',
+            'nomor_urut'    => 'required|min:1|max:5|unique:pemilihan,nomor_urut,'.$pemilihan->id,
         ]);
 
         $gambar_lama    = $request->hidden_gambar;

@@ -75,7 +75,7 @@
                                             <label for="id_kecamatan" class="col-md-2 col-form-label">Daerah Tugas</label>
                                             <div class="col-md-10">
                                                 <select class="form-control" name="id_kecamatan" id="id_kecamatan" required oninvalid="this.setCustomValidity('Daerah Penugasan harap diisi')" oninput="setCustomValidity('')">
-                                                    <option>-- Pilih Kecamatan --</option>
+                                                    <option value="" required>-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatan as $k)
                                                         <option 
                                                             value="{{ $k->id }}">{{ $k->nama_kecamatan}}

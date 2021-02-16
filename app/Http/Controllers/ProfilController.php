@@ -11,6 +11,7 @@ use \App\Kecamatan;
 use Auth;
 use Hash;
 use Session;
+use Carbon;
 
 class ProfilController extends Controller
 {
@@ -29,15 +30,16 @@ class ProfilController extends Controller
     public function update(Request $request, $id)
     {
         $masyarakat = Masyarakat::findOrFail($id);
+        $now        = Carbon\Carbon::now();
 
         $request->validate([
-            'nama'          => 'required|max:20',
-            'nik'           => 'required|min:3|max:17',
-            'alamat'        => 'required|max:50',
+            'nama'          => 'required|min:3|max:20',
+            'nik'           => 'required|min:12|max:17|unique:masyarakat,nik,'.$masyarakat->id,
+            'alamat'        => 'required|min:3|max:50',
             'id_pekerjaan'  => 'required',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
-            'email'         => 'required|email',
+            'email'         => 'required|email|unique:masyarakat,email,'.$masyarakat->id,
         ]);
 
         $masyarakat = Masyarakat::where('id', $request->id)->first();
@@ -48,6 +50,11 @@ class ProfilController extends Controller
         $masyarakat->tanggal_lahir  = $request->tanggal_lahir;
         $masyarakat->jenis_kelamin  = $request->jenis_kelamin;
         $masyarakat->email          = $request->email;
+
+        if ($request->tanggal_lahir > $now) {
+            Session::flash('warning', 'Tanggal Lahir tidak boleh melebihi tanggal sekarang !!');
+            return redirect()->back();
+        }
 
         if(!empty($request->password))
         {
@@ -72,7 +79,7 @@ class ProfilController extends Controller
         $user = User::findOrFail($id);
 
         $request->validate([
-            'name'          => 'required|max:20',
+            'name'          => 'required|min:3|max:20',
             'email'         => 'required|email',
         ]);
 
@@ -103,23 +110,29 @@ class ProfilController extends Controller
     public function update_petugas(Request $request, $id)
     {
         $petugas = Petugas::findOrFail($id);
+        $now     = Carbon\Carbon::now();
 
         $request->validate([
-            'nama'          => 'required|max:20',
-            'alamat'        => 'required|max:50',
+            'nama'          => 'required|min:3|max:20',
+            'alamat'        => 'required|min:3|max:50',
             'id_kecamatan'  => 'required',
             'tanggal_lahir' => 'required|date',
-            'jenis_kelamin'  => 'required',
-            'email'         => 'required|email',
+            'jenis_kelamin' => 'required',
+            'email'         => 'required|email|unique:petugas,email,'.$petugas->id,
         ]);
 
         $petugas = Petugas::where('id', $request->id)->first();
-        $petugas->nama          = $request->nama;
-        $petugas->alamat            = $request->alamat;
+        $petugas->nama           = $request->nama;
+        $petugas->alamat         = $request->alamat;
         $petugas->id_kecamatan   = $request->id_kecamatan;
         $petugas->tanggal_lahir  = $request->tanggal_lahir;
         $petugas->jenis_kelamin  = $request->jenis_kelamin;
         $petugas->email          = $request->email;
+
+        if ($request->tanggal_lahir > $now) {
+            Session::flash('warning', 'Tanggal Lahir tidak boleh melebihi tanggal sekarang !!');
+            return redirect()->back();
+        }
 
         if(!empty($request->password))
         {

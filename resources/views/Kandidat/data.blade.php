@@ -25,7 +25,7 @@
                   <div class="form-group row mb-2 {{$errors->has('nomor_urut') ? 'has-error' : ''}}">
                     <label for="nomor_urut" class="col-md-2 col-form-label">Nomor Urut</label>
                     <div class="col-md-10">
-                      <input name ="nomor_urut" type="text" class="form-control" id="nomor_urut" required="">
+                      <input name ="nomor_urut" type="text" class="form-control" id="nomor_urut" value="{{old('nomor_urut')}}" required="">
                         @if($errors->has('nomor_urut'))
                         <span class="form-text text-danger">{{$errors->first('nomor_urut')}}</span>
                         @endif

@@ -5,7 +5,7 @@
 @section('content')
 <div class="jumbotron1">
 <br>
-<h1 class="text-center mt-4 mb-4">PERIODE</h1>
+<h1 class="text-center mt-4 mb-4">Periode</h1>
 <div class="container">
 	<div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">

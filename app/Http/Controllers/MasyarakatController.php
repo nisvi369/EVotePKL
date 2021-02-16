@@ -10,6 +10,7 @@ use \App\Hasil;
 use Auth;
 use DB;
 use Session;
+use Carbon;
 
 use App\Exports\MasyarakatExport;
 use App\Imports\MasyarakatImport;
@@ -67,30 +68,37 @@ class MasyarakatController extends Controller
 
     public function create(Request $request)
     {
+        $now        = Carbon\Carbon::now();
+
         $request->validate([
-            'nama'          => 'required|max:20',
-            'nik'           => 'required|min:3|max:17',
-            'alamat'        => 'required|max:50',
+            'nama'          => 'required|min:3|max:20',
+            'nik'           => 'required|min:12|max:17|unique:masyarakat,nik',
+            'alamat'        => 'required|min:3|max:50',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
-            'email'         => 'required|email',
+            'id_pekerjaan'  => 'required',
+            'email'         => 'required|email|unique:masyarakat,email',
         ]);
 
 
-        $masyarakat = array(
-            'nama'          => $request->nama,
-            'nik'           => $request->nik,
-            'id_pekerjaan'  => $request->id_pekerjaan,
-            'alamat'        => $request->alamat,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'email'         => $request->email,
-            'level'         => "pemilih",
-            'password'      => bcrypt('rahasia'),
-        );
+        $masyarakat = new Masyarakat;
+        $masyarakat->nama           = $request->nama;
+        $masyarakat->nik            = $request->nik;
+        $masyarakat->id_pekerjaan   = $request->id_pekerjaan;
+        $masyarakat->alamat         = $request->alamat;
+        $masyarakat->tanggal_lahir  = $request->tanggal_lahir;
+        $masyarakat->jenis_kelamin  = $request->jenis_kelamin;
+        $masyarakat->email          = $request->email;
+        $masyarakat->level          = "pemilih";
+        $masyarakat->password       = bcrypt('rahasia');
 
-        
-        Masyarakat::create($masyarakat);
+        if ($request->tanggal_lahir > $now) 
+        {
+            Session::flash('warning', 'Tanggal Lahir tidak boleh melebihi tanggal sekarang !!');
+            return redirect('/Petugas/tambah');
+        }
+
+        $masyarakat->save();
 
         Session::flash('success', 'Data berhasil disimpan !!');
 
@@ -115,15 +123,16 @@ class MasyarakatController extends Controller
     public function update(Request $request, $id)
     {
         $masyarakat = Masyarakat::findOrFail($id);
+        $now        = Carbon\Carbon::now();
 
         $request->validate([
-            'nama'          => 'required|max:20',
-            'nik'           => 'required|min:3|max:17',
-            'alamat'        => 'required|max:50',
+            'nama'          => 'required|min:3|max:20',
+            'nik'           => 'required|min:12|max:17|unique:masyarakat,nik,'.$masyarakat->id,
+            'alamat'        => 'required|min:3|max:50',
             'id_pekerjaan'  => 'required',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required',
-            'email'         => 'required|email',
+            'email'         => 'required|email|unique:masyarakat,email,'.$masyarakat->id,
         ]);
 
         $masyarakat = Masyarakat::where('id', $request->id)->first();
@@ -134,6 +143,12 @@ class MasyarakatController extends Controller
         $masyarakat->tanggal_lahir  = $request->tanggal_lahir;
         $masyarakat->jenis_kelamin  = $request->jenis_kelamin;
         $masyarakat->email          = $request->email;
+
+        if ($request->tanggal_lahir > $now) 
+        {
+            Session::flash('warning', 'Tanggal Lahir tidak boleh melebihi tanggal sekarang !!');
+            return redirect('/Petugas/edit/'.$id);
+        }
 
         $masyarakat->update();
 

@@ -55,7 +55,7 @@
                                             <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-10">
                                               
-                                              <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="">
+                                              <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required="" value="{{ old('jenis_kelamin') }}">
                                                   <option value="">-- Jenis Kelamin --</option>
                                                   <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
                                                   <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
@@ -76,8 +76,8 @@
                                           <div class="form-group row mb-2 {{$errors->has('id_pekerjaan') ? 'has-error' : ''}}">
                                             <label for="id_pekerjaan" class="col-md-2 col-form-label">Pekerjaan</label>
                                             <div class="col-md-10">
-                                                <select class="form-control  @error('id_pekerjaan') is-invalid @enderror" name="id_pekerjaan" id="id_pekerjaan" required="">
-                                                    <option>-- Pilih Pekerjaan --</option>
+                                                <select class="form-control  @error('id_pekerjaan') is-invalid @enderror" name="id_pekerjaan" id="id_pekerjaan" required="" value="{{ old('id_pekerjaan') }}">
+                                                    <option value="{{ old('id_pekerjaan') }}">-- Pilih Pekerjaan --</option>
                                                     @foreach ($pekerjaan as $k)
                                                         <option 
                                                             value="{{ $k->id }}">{{ $k->nama_pekerjaan}}

@@ -56,8 +56,8 @@
                                 @endif
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-info">Simpan</button>
-                        <a href="{{ url('/Kandidat/dataKampanye') }}" class="btn btn-light">Kembali</a>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ url('/Kandidat/dataKampanye') }}" class="btn btn-outline-primary">Kembali</a>
                     </div>
                 </div>
             </div>

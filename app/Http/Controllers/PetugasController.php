@@ -10,6 +10,7 @@ use \App\Hasil;
 use DB;
 use Auth;
 use Session;
+use Carbon;
 
 use App\Exports\PetugasExport;
 use App\Imports\PetugasImport;
@@ -49,17 +50,20 @@ class petugasController extends Controller
     }
 
     public function create(Request $request){
+
+        $now = Carbon\Carbon::now();
+
         $request->validate([
-            'NIK'           => 'required|max:17',
-            'nama'          => 'required|max:20',
+            'nik'           => 'required|min:12|max:17|unique:petugas',
+            'nama'          => 'required|min:3|max:20',
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required|date',
-            'alamat'        => 'required|max:50',
-            'email'         => 'required|email',
+            'alamat'        => 'required|min:3|max:50',
+            'email'         => 'required|email|unique:petugas',
           ]);
 
         $petugas = new Petugas;
-        $petugas->NIK           = $request->NIK;
+        $petugas->nik           = $request->nik;
         $petugas->nama          = $request->nama;
         $petugas->jenis_kelamin = $request->jenis_kelamin;
         $petugas->tanggal_lahir = $request->tanggal_lahir;
@@ -69,11 +73,16 @@ class petugasController extends Controller
         $petugas->level         = "petugas";
         $petugas->id_kecamatan  = $request->id_kecamatan;
 
+        if ($request->tanggal_lahir > $now) {
+            Session::flash('warning', 'Tanggal Lahir tidak boleh melebihi tanggal sekarang !!');
+            return redirect('/Admin/tambahPetugas');
+        }
+
         $petugas->save();
 
         Session::flash('success', 'Data berhasil disimpan !!');
 
-        return redirect ('/Admin/dataPetugas')->with('success', 'Data berhasil disimpan');
+        return redirect ('/Admin/dataPetugas');
     }
 
     public function data(){
@@ -101,15 +110,16 @@ class petugasController extends Controller
 
     public function update (Request $request,$id) {
 
-        $petugas = Petugas::findOrFail($id);
+        $petugas    = Petugas::findOrFail($id);
+        $now        = Carbon\Carbon::now();
     
         $request->validate([
-            'nik'           => 'required|min:3|max:17',
-            'nama'          => 'required|max:20',
-            'jenis_kelamin'  => 'required',
-            'tanggal_lahir'  => 'required|date',
-            'alamat'        => 'required|max:50',
-            'email'         => 'required|email',
+            'nik'           => 'required|min:12|max:17|unique:petugas,nik,'.$petugas->id,
+            'nama'          => 'required|min:3|max:20',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required|date',
+            'alamat'        => 'required|min:3|max:50',
+            'email'         => 'required|email|unique:petugas,email,'.$petugas->id,
         ]);
   
         $petugas->update([
@@ -118,9 +128,21 @@ class petugasController extends Controller
             $petugas->jenis_kelamin  = $request->jenis_kelamin,
             $petugas->tanggal_lahir  = $request->tanggal_lahir,
             $petugas->alamat        = $request->alamat,
-            $petugas->email         = $request->email,
+            // $petugas->email         = $request->email,
             $petugas->id_kecamatan  = $request->id_kecamatan,
         ]);
+
+        if ($request->tanggal_lahir > $now) 
+        {
+            Session::flash('warning', 'Tanggal Lahir tidak boleh melebihi tanggal sekarang !!');
+            return redirect('/Admin/editPetugas/'.$id);
+        }
+
+        if(!empty($request->email))
+        {
+            $petugas->email = $request->email;
+        }
+
         $petugas->save();
 
         Session::flash('success', 'Data berhasil diupdate !!');

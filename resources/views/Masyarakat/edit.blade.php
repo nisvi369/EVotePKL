@@ -96,7 +96,7 @@
                                   </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Edit</button>
-                                <!-- <a href="{{ url('/masyarakat') }}" class="btn btn-outline-primary">Kembali</a> -->
+                                <a href="{{ url('/Petugas/dataMasyarakat') }}" class="btn btn-outline-primary">Kembali</a>
                               </form>
 
                           </div>
