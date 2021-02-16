@@ -6,6 +6,7 @@
 <div class="jumbotron1">
 <br>
     <h1 class="text-center mt-4 mb-4">Voting</h1>
+    @if(count($periode) > 0 ))
     <div class="container">
       @if(Auth()->user()->level == 'admin')
       <form action="{{ url('/Admin/reset') }}" method="post" enctype="multipart/form-data">
@@ -25,11 +26,10 @@
       $now = Carbon\carbon::now();
       ?>
       @if($now < ($tanggal_awal->tanggal))
-        <center><h4>Pemilihan Dimulai Tanggal {{ $tanggal_awal->tanggal }} dan Berakhir pada {{ $tanggal_akhir->tanggal_akhir }}</h4></center>
+        <center><h4>Pemilihan Dimulai Tanggal {{ Carbon\Carbon::parse($tanggal_awal->tanggal)->translatedFormat("d F Y") }} dan Berakhir pada {{ Carbon\Carbon::parse($tanggal_akhir->tanggal_akhir)->translatedFormat("d F Y") }}</h4></center>
         <!-- <div id="countdown"></div> -->
         <script>
         	CountDownTimer('{{$tanggal_awal->tanggal}}', 'countdown');
-        	console.log('tes')
           function CountDownTimer(dt, id)
         	{
         		var end = new Date('{{$tanggal_awal->tanggal}}');
@@ -149,10 +149,12 @@
                       @csrf
                       <!-- <input type="radio" name="nomor" id="nomor"> <br> -->
                       @if(Auth()->user()->level != 'admin')
-                        @if(empty($hide))
-                        <button type="submit" class="btn btn-primary">Pilih</button>
-                        @else
-                        <p style="color: red;">Sudah Memilih</p>
+                        @if (($now > ($tanggal_awal->tanggal)) && ($now < ($tanggal_akhir->tanggal_akhir)))
+                          @if(empty($hide))
+                          <button type="submit" class="btn btn-primary">Pilih</button>
+                          @else
+                          <p style="color: red;">Sudah Memilih</p>
+                          @endif
                         @endif
                       @endif
                     </form>
@@ -164,5 +166,8 @@
 
        </div>
    </div>
- </div>>
+ </div>
+ @elseif(count($periode) < 1)
+  <center><i style="color:red">Belum Ada Jadwal Pemilihan Dalam Waktu Dekat</i></center>
+ @endif
 @endsection

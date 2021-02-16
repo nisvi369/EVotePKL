@@ -22,19 +22,19 @@
                                 <div class="col-md-12">
                                     <form method="POST" action="/postFormPetugas" enctype="multipart/form-data">
                                         {{csrf_field()}}
-                                        <div class="form-group row mb-2 {{$errors->has('NIK') ? 'has-error' : ''}}">
-                                            <label for="NIK" class="col-md-2 col-form-label">NIK</label>
+                                        <div class="form-group row mb-2 {{$errors->has('nik') ? 'has-error' : ''}}">
+                                            <label for="nik" class="col-md-2 col-form-label">NIK</label>
                                             <div class="col-md-10">
-                                                <input name="NIK" class="form-control" id="NIK" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
-                                                @if($errors->has('NIK'))
-                                                    <span class="form-text text-danger">{{$errors->first('NIK')}}</span>
+                                                <input name="nik" class="form-control" id="nik" value="{{old('nik')}}" required oninvalid="this.setCustomValidity('NIK harap diisi')" oninput="setCustomValidity('')">
+                                                @if($errors->has('nik'))
+                                                    <span class="form-text text-danger">{{$errors->first('nik')}}</span>
                                                 @endif
                                           </div>
                                         </div>
                                         <div class="form-group row mb-2 {{$errors->has('nama') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Nama</label>
                                             <div class="col-md-10">
-                                                <input name="nama" class="form-control" id="nama'" required oninvalid="this.setCustomValidity('Nama harap diisi')" oninput="setCustomValidity('')">
+                                                <input name="nama" class="form-control" id="nama" value="{{old('nama')}}" required oninvalid="this.setCustomValidity('Nama harap diisi')" oninput="setCustomValidity('')">
                                                 @if($errors->has('nama'))
                                                     <span class="form-text text-danger">{{$errors->first('nama')}}</span>
                                                 @endif
@@ -43,7 +43,7 @@
                                         <div class="form-group row mb-2 {{$errors->has('jenis_kelamin') ? 'has-error' : ''}}">
                                             <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
                                             <div class="col-md-10">
-                                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required oninvalid="this.setCustomValidity('Jenis Kelamin harap diisi')" oninput="setCustomValidity('')">
+                                                <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" value="{{old('jenis_kelamin')}}" required oninvalid="this.setCustomValidity('Jenis Kelamin harap diisi')" oninput="setCustomValidity('')">
                                                     <option value="">-- Jenis Kelamin --</option>
                                                     <option value="perempuan"{{(old('jenis_kelamin') == 'perempuan') ? ' selected' : ''}}>Perempuan</option>
                                                     <option value="laki-laki"{{(old('jenis_kelamin') == 'laki-laki') ? ' selected' : ''}}>Laki-laki</option>
@@ -56,7 +56,7 @@
                                         <div class="form-group row mb-2 {{$errors->has('tanggal_lahir') ? 'has-error' : ''}}">
                                             <label for="tanggal_lahir" class="col-md-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-10">
-                                                <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" required oninvalid="this.setCustomValidity('Tanggal lahir harap diisi')" oninput="setCustomValidity('')">
+                                                <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" value="{{old('tanggal_lahir')}}" required oninvalid="this.setCustomValidity('Tanggal lahir harap diisi')" oninput="setCustomValidity('')">
                                                 @if($errors->has('tanggal_lahir'))
                                                     <span class="form-text text-danger">{{$errors->first('tanggal_lahir')}}</span>
                                                 @endif
@@ -74,8 +74,8 @@
                                         <div class="form-group row mb-2 {{$errors->has('id_kecamatan') ? 'has-error' : ''}}">
                                             <label for="id_kecamatan" class="col-md-2 col-form-label">Daerah Tugas</label>
                                             <div class="col-md-10">
-                                                <select class="form-control @error('id_kecamatan') is-invalid @enderror" name="id_kecamatan" id="id_kecamatan" required oninvalid="this.setCustomValidity('Daerah penugasan harap diisi')" oninput="setCustomValidity('')">
-                                                    <option>-- Pilih Kecamatan --</option>
+                                                <select class="form-control @error('id_kecamatan') is-invalid @enderror" name="id_kecamatan" id="id_kecamatan" value="{{old('id_kecamatan')}}" required oninvalid="this.setCustomValidity('Daerah penugasan harap diisi')" oninput="setCustomValidity('')">
+                                                    <option value="{{old('id_kecamatan')}}">-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatan as $k)
                                                         <option 
                                                             value="{{ $k->id }}">{{ $k->nama_kecamatan}}
@@ -87,7 +87,7 @@
                                         <div class="form-group row mb-2 {{$errors->has('email') ? 'has-error' : ''}}">
                                             <label for="alamat" class="col-md-2 col-form-label">Email</label>
                                             <div class="col-md-10">
-                                                <input type="email" name="email" class="form-control" id="email" required oninvalid="this.setCustomValidity('Email harap diisi')" oninput="setCustomValidity('')">
+                                                <input type="email" name="email" class="form-control" id="email" value="{{old('email')}}" required oninvalid="this.setCustomValidity('Email harap diisi')" oninput="setCustomValidity('')">
                                                 @if($errors->has('email'))
                                                     <span class="form-text text-danger">{{$errors->first('email')}}</span>
                                                 @endif

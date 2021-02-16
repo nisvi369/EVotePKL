@@ -26,7 +26,7 @@
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Ditulis:{{$k->nama}} nomor urut {{$k->nomor_urut}}</h3>
               <div class="price">
-                <p><span1>Ditulis pada {{$k->waktu}}</span1></p>
+                <p><span1>Ditulis pada {{ Carbon\Carbon::parse($k->waktu)->translatedFormat("d F Y") }}</span1></p>
               </div>
               <p>
               {{$k->konten}}

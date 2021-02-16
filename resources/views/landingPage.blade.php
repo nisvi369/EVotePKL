@@ -25,7 +25,7 @@
     <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 
-    <title>EVOTING</title>
+    <title>VoJr (Vote Jember)</title>
     <link rel="icon" type="image/x-icon" href="{{asset('img/1.png')}}" />
 
     <style type="text/css">
@@ -37,7 +37,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">EVote</a>
+        <a class="navbar-brand" href="#">VoJr</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -72,7 +72,7 @@
             <img src="/img/kotak.png" alt="">
         </div>
         <div class="col-md-6">
-            <h1 class="display-4"><span>EVOTING</span></h1>
+            <h1 class="display-4"><span>VoJr (Vote Jember)</span></h1>
             <p>We're working hard to finish the development of this site. Our target launch date is
               <strong>January 2022</strong>! Sign up for updates using the form below!</p>
             <div class="jumbotronlgn">
@@ -88,7 +88,7 @@
                                         <form method="POST"  id="login-form" action="{{ route('postlogin') }}">
                                             @csrf
                                             <div class="container clgn">
-                                                <h3 class="lgn">EVOTING</h3>
+                                                <h3 class="lgn">VoJr</h3>
                                                 <a href="#" class="close-button" title="close">X</a>
                                             </div>
 
@@ -216,15 +216,19 @@
     <section id="event" class="events">
       <div class="container">
         <div class="section-title">
-          <h2>Mari Gunakan <span>SuaraMu</span> Untuk Masa depan SULBAR</h2>
+          <h2>Mari Gunakan <span>SuaraMu</span> Untuk Masa Depan JEMBER</h2>
         </div>
         <div class="owl-carousel events-carousel">
           <div class="row event-item">
             <div class="col-lg-6">
+            @if(count($periode) > 0 )
               <div id="voting"></div>
+            @endif
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
+            @if(count($periode) > 0)
               <h3>Hasil Voting</h3>
+            @endif
               <div class="price">
                 <p><span>Pemilihan Bupati </span></p>
               </div>

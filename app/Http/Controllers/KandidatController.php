@@ -75,7 +75,7 @@ class KandidatController extends Controller
         $masyarakat = Masyarakat::where('id', $id)->first();
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
         $request->validate([
-            'nomor_urut' => 'required|max:5',
+            'nomor_urut' => 'required|min:1|max:5|unique:pemilihan,nomor_urut',
             'foto'       => 'required|mimes:jpeg,jpg,bmp,png|max:3000',
         ]);
 
@@ -109,17 +109,18 @@ class KandidatController extends Controller
 
     public function update(Request $request, $id)
     {
-        
         // $pemilihan   = Pemilihan::where('masyarakat_id', $masyarakat->id);
+        $pemilihan = Pemilihan::where('id', $id)->first();
+
         $request->validate([
-            'foto'          => 'required|mimes:jpg,jpeg,png,bmp|max:3000',
-            'nomor_urut'    => 'required|max:5',
+            'foto'          => 'mimes:jpg,jpeg,png,bmp',
+            'nomor_urut'    => 'required|min:1|max:5|unique:pemilihan,nomor_urut,'.$pemilihan->id,
         ]);
 
         $gambar_lama    = $request->hidden_gambar;
         $gambar         = $request->file('foto');
 
-        $pemilihan = Pemilihan::where('id', $id)->first();
+        
         $pemilihan->nomor_urut  = $request->nomor_urut;
         
         if ($request->hasfile('foto')) {
@@ -135,6 +136,6 @@ class KandidatController extends Controller
 
         Session::flash('success', 'Data berhasil diupdate !!');
 
-        return redirect('/kandidat');
+        return redirect('Admin/dataKandidat');
     }
 }

@@ -41,15 +41,16 @@
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->nik }}</td>
                                 <td>{{ $data->jenis_kelamin }}</td>
-                                <td>{{ $data->tanggal_lahir }}</td>
+                                <td>{{ Carbon\Carbon::parse($data->tanggal_lahir)->translatedFormat("d F Y") }}</td>
                                 <td>{{ $data->nama_pekerjaan }}</td>
                                 <td>{{ $data->alamat }}</td>
                                 
                                 <td>
                                     @if($data->level == "pemilih")
-                                    <a href="{{ url('/Admin/lengkapi') }}/{{ $data->id }}" class="btn btn-primary">Lengkapi Data</a>
+                                    <a href="{{ url('/Admin/lengkapi') }}/{{ $data->id }}" class="btn btn-success">Lengkapi Data</a>
                                     @elseif($data->level == "kandidat")
                                     <span class="badge rounded-pill bg-info text-dark">Kandidat</span>
+                                    <a href="/Admin/editKandidat/{{$data->id}}" class="btn btn-warning btn-sm">Edit</a>
                                     @endif
                                     <!-- <form action="{{ url('kandidat/level_kandidat') }}/{{ $data->id }}" method="post">
                                         @csrf

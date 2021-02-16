@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Pemilihan;
 use \App\Hasil;
+use App\Periode;
 use DB;
 
 
@@ -28,13 +29,12 @@ class AdminController extends Controller
 
     	$tanggal = DB::table('periode')
     	-> orderBy('tanggal','asc')
-    	->first();
+    	-> first();
 
 
     	$hasil = [];
 
-
-
+        $periode = Periode::get();
 
         $pemilihan = Pemilihan::get();
 
@@ -48,6 +48,6 @@ class AdminController extends Controller
             $a['y']       = $total;
             array_push($hasil, $a);
         }
-        return view('Admin.home', compact('hasil','jumlah_kampanye','jumlah_petugas','jumlah_masyarakat','tanggal'));
+        return view('Admin.home', compact('hasil','jumlah_kampanye','jumlah_petugas','jumlah_masyarakat','tanggal','periode'));
 	}
 }

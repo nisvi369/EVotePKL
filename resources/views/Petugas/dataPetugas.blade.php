@@ -76,7 +76,7 @@
                             <td>{{$p->nik}}</td>
                             <td>{{$p->nama}}</td>
                             <td>{{$p->jenis_kelamin}}</td>
-                            <td>{{$p->tanggal_lahir}}</td>
+                            <td>{{ Carbon\Carbon::parse($p->tanggal_lahir)->translatedFormat("d F Y") }}</td>
                             <td>{{$p->alamat}}</td>
                             <td>{{$p->nama_kecamatan}}</td>
                             <td>{{$p->email}}</td>
